@@ -12,7 +12,7 @@ public class BoostPlace : MonoBehaviour
 
             if (kart != null)
             {
-                //kart.BoostExternal();
+                kart.BoostExternal();
             }
         }
     }
