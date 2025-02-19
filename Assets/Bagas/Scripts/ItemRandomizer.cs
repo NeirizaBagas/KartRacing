@@ -1,27 +1,34 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
-public enum ItemEffect { Shield, Trap, Boost } // Enum efek item
+public enum ItemEffect { Shield, Trap, Boost }
 
 public class ItemRandomizer : MonoBehaviour
 {
-    public Sprite shieldIcon, trapIcon, boostIcon; // Ikon efek di UI
-    public KartController kartController;
+    public Sprite shieldIcon, trapIcon, boostIcon;
+    public int itemCooldown;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        KartController playerKart = other.transform.root.GetComponentInChildren<KartController>();
+        if (playerKart != null)
         {
-            ApplyRandomEffect();
-            Destroy(gameObject); // Hancurkan item setelah diambil
+            ApplyRandomEffect(playerKart);
+            gameObject.SetActive(false);
+            GameManager.Instance.StartCoroutine(RespawnItem()); // Panggil dari GameManager
         }
     }
 
-    void ApplyRandomEffect()
+    void ApplyRandomEffect(KartController kartController)
     {
         ItemEffect randomEffect = (ItemEffect)Random.Range(0, 3);
-        Debug.Log("Item yang diperoleh: " + randomEffect); // Debug log untuk melihat item yang didapat
-        kartController.PickItem(randomEffect); // Simpan item di kartcontroller
+        Debug.Log(kartController.name + " mendapatkan item: " + randomEffect);
+        kartController.PickItem(randomEffect);
+    }
+
+    IEnumerator RespawnItem()
+    {
+        yield return new WaitForSeconds(itemCooldown);
+        gameObject.SetActive(true);
     }
 }

@@ -5,6 +5,8 @@ using DG.Tweening;
 //using UnityEngine.Rendering.PostProcessing;
 using Cinemachine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class KartController : MonoBehaviour
 {
@@ -18,6 +20,15 @@ public class KartController : MonoBehaviour
     int driftMode = 0;
     bool first, second, third, fourth;
     Color c;
+
+    [Header("Lap")]
+    public int lapCounter;
+    public int maxLap;
+    public TextMeshProUGUI _lapCounter;
+
+    [Header("Player")]
+    [SerializeField] private PlayerInput playerInput;
+    private Vector2 moveInput; // Nyimpen input gerakan
 
     [Header("Model")]
     public Transform kartModel;
@@ -48,7 +59,6 @@ public class KartController : MonoBehaviour
     public float gravity = 10f;
     public LayerMask layerMask;
 
-
     [Header("Particles")]
     public List<ParticleSystem> primaryParticles = new List<ParticleSystem>();
     public List<ParticleSystem> secondaryParticles = new List<ParticleSystem>();
@@ -61,6 +71,8 @@ public class KartController : MonoBehaviour
     {
         //postVolume = Camera.main.GetComponent<PostProcessVolume>(); // Poss Process
         //postProfile = postVolume.profile;
+
+        playerInput = GetComponent<PlayerInput>();
 
         for (int i = 0; i < wheelParticles.GetChild(0).childCount; i++)
         {
@@ -76,6 +88,8 @@ public class KartController : MonoBehaviour
         {
             secondaryParticles.Add(p);
         }
+
+        UpdateLapCounterUI(); // Perbarui UI setelah lap bertambah
     }
 
     void Update()
@@ -96,6 +110,8 @@ public class KartController : MonoBehaviour
 
             ColorDrift();
         }
+
+        
 
         currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f);
         speed = 0f;
@@ -120,25 +136,29 @@ public class KartController : MonoBehaviour
 
     void _Input()
     {
-        float input = Input.GetAxis("Vertical"); // Menentukan arah gerak
+        // Input arah gerak
+        Vector2 directionInput = playerInput.actions["Move"].ReadValue<Vector2>(); // Mengambil input arah
 
-        // Accelerate
-        if (Input.GetButton("Vertical"))
-            speed = acceleration * input;
+        // Input untuk penggerak (akselerasi/rem)
+        float throttleInput = playerInput.actions["Throttle"].ReadValue<float>(); // Mengambil input akselerasi/mundur
 
-        // Steer
-        if (Input.GetAxis("Horizontal") != 0)
+        // Mengatur arah gerak
+        if (directionInput != Vector2.zero)
         {
-            int dir = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
-            float amount = Mathf.Abs(Input.GetAxis("Horizontal"));
+            // Mengubah arah objek berdasarkan input arah
+            int dir = directionInput.x > 0 ? 1 : -1;
+            float amount = Mathf.Abs(directionInput.x);
             Steer(dir, amount);
         }
 
+        // Mengatur kecepatan berdasarkan input gerak
+        speed = acceleration * throttleInput;
+
         // Drift
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !drifting && Input.GetAxis("Horizontal") != 0)
+        if (playerInput.actions["Drift"].WasPressedThisFrame() && !drifting && directionInput.x != 0)
         {
             drifting = true;
-            driftDirection = Input.GetAxis("Horizontal") > 0 ? 1 : -1;
+            driftDirection = directionInput.x > 0 ? 1 : -1;
 
             foreach (ParticleSystem p in primaryParticles)
             {
@@ -147,18 +167,16 @@ public class KartController : MonoBehaviour
                 p.Play();
             }
 
-            kartModel.parent.DOComplete(); //DoTween
+            kartModel.parent.DOComplete(); // DOTween untuk animasi
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift) && drifting)
+        if (playerInput.actions["Drift"].WasReleasedThisFrame() && drifting)
         {
+            Debug.Log("Drift Released! Boost activated.");
             Boost();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && currenItem != null)
-        {
-            ApplyItem();
-        }
+        if (playerInput.actions["UseItem"].WasPressedThisFrame() && currenItem != null) ApplyItem();
     }
 
     public void Boost()
@@ -246,7 +264,7 @@ public class KartController : MonoBehaviour
 
     void PlayFlashParticle(Color c)
     {
-        GameObject.Find("CM vcam1").GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+        //GameObject.Find("CM vcam1").GetComponent<CinemachineImpulseSource>().GenerateImpulse();
 
         foreach (ParticleSystem p in secondaryParticles)
         {
@@ -350,6 +368,22 @@ public class KartController : MonoBehaviour
     void ItemShield()
     {
         //SHIELD
+    }
+
+    public void IncrementLap()
+    {
+        lapCounter++;
+        UpdateLapCounterUI();
+
+        if (lapCounter >= maxLap)
+        {
+            Debug.Log(gameObject.name + " finished the race!");
+        }
+    }
+
+    private void UpdateLapCounterUI()
+    {
+        _lapCounter.text = $"Lap: {lapCounter}/{maxLap}";
     }
 
     public void Die()

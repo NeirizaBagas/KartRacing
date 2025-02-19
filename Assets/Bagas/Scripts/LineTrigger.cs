@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LineTrigger : MonoBehaviour
 {
-    public startfinish gameManager; // Assign GameManager di Inspector
+    public GameManager gameManager; // Assign GameManager di Inspector
     public string lineType; // "Start", "Checkpoint", atau "Finish"
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +21,15 @@ public class LineTrigger : MonoBehaviour
             else if (lineType == "Finish")
             {
                 gameManager.FinishLineTriggered();
+
+                if (other.CompareTag("Player")) // Pastikan Player punya tag "Player"
+                {
+                    KartController kart = other.transform.root.GetComponentInChildren<KartController>();
+                    if (kart != null)
+                    {
+                        kart.IncrementLap();
+                    }
+                }
             }
         }
     }
