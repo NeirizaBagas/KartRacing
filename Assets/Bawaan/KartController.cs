@@ -17,7 +17,6 @@ public class KartController : MonoBehaviour
     float rotate, currentRotate;
     int driftDirection;
     float driftPower;
-    int driftMode = 0;
     bool first, second, third, fourth;
     Color c;
 
@@ -38,22 +37,12 @@ public class KartController : MonoBehaviour
     public Transform steeringWheel;
     public Rigidbody sphere;
 
-    [Header("Item")]
-    public GameObject trapItem;
-    public Transform dropLocation;
-    private ItemEffect? currenItem = null; // Menyimpan efek item yang diambil
-    public int itemDuration = 3;
-
-    [Header("UI")]
-    //public Slider boostBar;
-    public Image effectUi; // UI Image di canvas
-    public Sprite shieldIcon, trapIcon, boostIcon; // Ikon untuk UI
-
     [Header("Bools")]
     public bool drifting;
     public bool boosting;
 
     [Header("Parameters")]
+    public int driftMode = 0;
     public float acceleration = 30f;
     public float steering = 80f;
     public float gravity = 10f;
@@ -66,6 +55,7 @@ public class KartController : MonoBehaviour
     public Transform flashParticles;
     public Color[] turboColors;
 
+    public PlayerItemHandler playerItemHandler;
 
     void Start()
     {
@@ -73,6 +63,7 @@ public class KartController : MonoBehaviour
         //postProfile = postVolume.profile;
 
         playerInput = GetComponent<PlayerInput>();
+        playerItemHandler = GetComponent<PlayerItemHandler>();
 
         for (int i = 0; i < wheelParticles.GetChild(0).childCount; i++)
         {
@@ -111,7 +102,7 @@ public class KartController : MonoBehaviour
             ColorDrift();
         }
 
-        
+
 
         currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f);
         speed = 0f;
@@ -176,7 +167,9 @@ public class KartController : MonoBehaviour
             Boost();
         }
 
-        if (playerInput.actions["UseItem"].WasPressedThisFrame() && currenItem != null) ApplyItem();
+        if (playerInput.actions["UseItem"].WasPressedThisFrame() && playerItemHandler.currentItem.HasValue)
+            playerItemHandler.ApplyItem();
+
     }
 
     public void Boost()
@@ -217,7 +210,7 @@ public class KartController : MonoBehaviour
     {
         if (!first) c = Color.clear;
 
-        if (driftPower > 0 && driftPower < 49 && !first)
+        if (driftPower > 50 && driftPower < 99 && !first)
         {
             first = true;
             c = turboColors[0];
@@ -225,7 +218,7 @@ public class KartController : MonoBehaviour
             PlayFlashParticle(c);
         }
 
-        if (driftPower > 50 && driftPower < 99 && !second)
+        if (driftPower > 100 && driftPower < 149 && !second)
         {
             second = true;
             c = turboColors[1];
@@ -233,7 +226,7 @@ public class KartController : MonoBehaviour
             PlayFlashParticle(c);
         }
 
-        if (driftPower > 100 && driftPower < 149 && !third)
+        if (driftPower > 150 && driftPower < 199 && !third)
         {
             third = true;
             c = turboColors[2];
@@ -241,7 +234,7 @@ public class KartController : MonoBehaviour
             PlayFlashParticle(c);
         }
 
-        if (driftPower > 150 && !fourth)
+        if (driftPower > 200 && !fourth)
         {
             fourth = true;
             c = turboColors[3];
@@ -290,86 +283,6 @@ public class KartController : MonoBehaviour
         Boost();
     }
 
-    public void PickItem(ItemEffect item)
-    {
-        if (currenItem == null)
-        {
-            currenItem = item; // Simpan efek item
-            UpdateUi(item);
-        }
-    }
-
-    public void ApplyItem()
-    {
-        if (currenItem == null) return;
-
-        switch (currenItem)
-        {
-            case ItemEffect.Shield:
-                print("Menggunakan Shield");
-                effectUi.color = Color.blue;
-                ItemShield();
-                break;
-            case ItemEffect.Trap:
-                print("Menggunakan Trap");
-                effectUi.color = Color.red;
-                ItemTrap();
-                break;
-            case ItemEffect.Boost:
-                print("Menggunakan Boost");
-                effectUi.color = Color.green;
-                ItemBoost();
-                break;
-        }
-
-        effectUi.gameObject.SetActive(true);
-        StartCoroutine(HideEffectAfterDelay());
-        currenItem = null; // Hapus item setelah digunakan
-    }
-
-    void UpdateUi(ItemEffect item)
-    {
-        switch (item)
-        {
-            case ItemEffect.Shield:
-                effectUi.sprite = shieldIcon;
-                effectUi.color = Color.blue;
-                break;
-            case ItemEffect.Trap:
-                effectUi.sprite = trapIcon;
-                effectUi.color = Color.red;
-                break;
-            case ItemEffect.Boost:
-                effectUi.sprite = boostIcon;
-                effectUi.color = Color.green;
-                break;
-        }
-
-        effectUi.gameObject.SetActive(true);
-    }
-
-    IEnumerator HideEffectAfterDelay()
-    {
-        yield return new WaitForSeconds(itemDuration);
-        effectUi.gameObject.SetActive(false);
-    }
-
-    void ItemTrap()
-    {
-        Instantiate(trapItem, dropLocation.transform.position, Quaternion.identity);
-    }
-
-    void ItemBoost()
-    {
-        driftMode |= 2;
-        Boost();
-    }
-
-    void ItemShield()
-    {
-        //SHIELD
-    }
-
     public void IncrementLap()
     {
         lapCounter++;
@@ -388,6 +301,7 @@ public class KartController : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        print("Die");
     }
 }

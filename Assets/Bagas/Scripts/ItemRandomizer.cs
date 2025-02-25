@@ -10,20 +10,20 @@ public class ItemRandomizer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        KartController playerKart = other.transform.root.GetComponentInChildren<KartController>();
-        if (playerKart != null)
+        PlayerItemHandler playerItem = other.transform.root.GetComponentInChildren<PlayerItemHandler>();
+        if (playerItem != null && !playerItem.HasItem()) // Memastikan tidak menimpa item yang ada
         {
-            ApplyRandomEffect(playerKart);
+            ApplyRandomEffect(playerItem);
             gameObject.SetActive(false);
-            GameManager.Instance.StartCoroutine(RespawnItem()); // Panggil dari GameManager
+            GameManager.Instance.StartCoroutine(RespawnItem()); 
         }
     }
 
-    void ApplyRandomEffect(KartController kartController)
+    void ApplyRandomEffect(PlayerItemHandler playerItem)
     {
-        ItemEffect randomEffect = (ItemEffect)Random.Range(0, 3);
-        Debug.Log(kartController.name + " mendapatkan item: " + randomEffect);
-        kartController.PickItem(randomEffect);
+        ItemEffect randomEffect = (ItemEffect)Random.Range(0, System.Enum.GetValues(typeof(ItemEffect)).Length);
+        Debug.Log(playerItem.name + " mendapatkan item: " + randomEffect);
+        playerItem.PickItem(randomEffect);
     }
 
     IEnumerator RespawnItem()
