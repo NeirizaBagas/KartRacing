@@ -15,7 +15,7 @@ public class ItemRandomizer : MonoBehaviour
         {
             ApplyRandomEffect(playerItem);
             gameObject.SetActive(false);
-            GameManager.Instance.StartCoroutine(RespawnItem()); 
+            RaceManager.Instance.StartCoroutine(RespawnItem()); 
         }
     }
 

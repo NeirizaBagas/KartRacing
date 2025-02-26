@@ -6,7 +6,6 @@ public class RespawnPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("Check");
             PlayerRespawn player = other.transform.root.GetComponentInChildren<PlayerRespawn>();
             if (player != null)
             {

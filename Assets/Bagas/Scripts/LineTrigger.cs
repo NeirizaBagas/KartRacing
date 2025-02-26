@@ -2,35 +2,43 @@ using UnityEngine;
 
 public class LineTrigger : MonoBehaviour
 {
-    public GameManager gameManager; // Assign GameManager di Inspector
-    public string lineType; // "Start", "Checkpoint", atau "Finish"
+    public string lineType; // Tipe garis: "Start", "Checkpoint", atau "Finish"
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            // Kirimkan event ke GameManager berdasarkan lineType
-            if (lineType == "Start")
-            {
-                gameManager.StartLineTriggered();
-            }
-            else if (lineType == "Checkpoint")
-            {
-                gameManager.CheckpointLineTriggered();
-            }
-            else if (lineType == "Finish")
-            {
-                gameManager.FinishLineTriggered();
+        // Cari LapManager di objek yang bertabrakan
+        LapManager lapManager = other.transform.root.GetComponentInChildren<LapManager>();
 
-                if (other.CompareTag("Player")) // Pastikan Player punya tag "Player"
-                {
-                    KartController kart = other.transform.root.GetComponentInChildren<KartController>();
-                    if (kart != null)
-                    {
-                        kart.IncrementLap();
-                    }
-                }
+        if (lapManager == null)
+        {
+            Debug.LogError("LapManager tidak ditemukan!");
+            return;
+        }
+
+        // Pengecekan Start
+        if (lineType == "StartFinish" && !lapManager.hasStarted)
+        {
+            Debug.Log("Start dipicu!");
+            lapManager.hasStarted = true; // Set hasStarted ke true
+        }
+        else if (lineType == "StartFinish" && lapManager.hasStarted && !lapManager.hasFinished)
+        {
+            Debug.Log("Finish dipicu!");
+            lapManager.hasFinished = true; // Set hasFinished ke true
+            lapManager.lapCounter++; // Tambah lap counter
+
+            // Update UI lap counter
+            if (lapManager._lapCounter != null)
+            {
+                lapManager._lapCounter.text = "Lap: " + lapManager.lapCounter + " / " + lapManager.maxLap;
             }
+        }
+
+        // Pengecekan Checkpoint
+        if (lineType == "Checkpoint")
+        {
+            Debug.Log("Checkpoint dipicu!");
+            lapManager.hasFinished = false; // Set hasFinished ke false
         }
     }
 }

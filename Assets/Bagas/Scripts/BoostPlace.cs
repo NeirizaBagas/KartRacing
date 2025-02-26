@@ -6,7 +6,7 @@ public class BoostPlace : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             KartController kart = other.transform.root.GetComponentInChildren<KartController>();
 
