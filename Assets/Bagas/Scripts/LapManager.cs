@@ -44,10 +44,17 @@ public class LapManager : MonoBehaviour
 
         UpdateLapCounterUI();
 
-        if (lapCounter >= maxLap)
+        if (lapCounter > maxLap)
         {
-            Debug.Log("Lap mencapai atau melebihi maxLap!");
-            winCon.gameObject.SetActive(true);
+            if (playerPosition == 1)
+            {
+                winCon.gameObject.SetActive(true);
+            }
+            else
+            {
+                loseCon.gameObject.SetActive(true);
+            }
+            
             Debug.Log(gameObject.name + " finished the race!");
         }
     }

@@ -18,26 +18,17 @@ public class LineTrigger : MonoBehaviour
         // Pengecekan Start
         if (lineType == "StartFinish" && !lapManager.hasStarted)
         {
-            Debug.Log("Start dipicu!");
             lapManager.hasStarted = true; // Set hasStarted ke true
         }
         else if (lineType == "StartFinish" && lapManager.hasStarted && !lapManager.hasFinished)
         {
-            Debug.Log("Finish dipicu!");
             lapManager.hasFinished = true; // Set hasFinished ke true
-            lapManager.lapCounter++; // Tambah lap counter
-
-            // Update UI lap counter
-            if (lapManager._lapCounter != null)
-            {
-                lapManager._lapCounter.text = "Lap: " + lapManager.lapCounter + " / " + lapManager.maxLap;
-            }
+            lapManager.IncrementLap(); // Tambah lap counter
         }
 
         // Pengecekan Checkpoint
         if (lineType == "Checkpoint")
         {
-            Debug.Log("Checkpoint dipicu!");
             lapManager.hasFinished = false; // Set hasFinished ke false
         }
     }

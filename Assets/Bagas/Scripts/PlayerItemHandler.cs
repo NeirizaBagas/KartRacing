@@ -93,7 +93,6 @@ public class PlayerItemHandler : MonoBehaviour
 
     private void ActivateShield()
     {
-        print("Shield Aktif!");
         kartController.shieldActive = true;
     }
 

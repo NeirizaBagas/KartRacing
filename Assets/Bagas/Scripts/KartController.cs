@@ -20,11 +20,6 @@ public class KartController : MonoBehaviour
     bool first, second, third, fourth;
     Color c;
 
-    [Header("Lap")]
-    //public int lapCounter;
-    //public int maxLap;
-    //public TextMeshProUGUI _lapCounter;
-
     [Header("Player")]
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveInput; // Nyimpen input gerakan
@@ -83,8 +78,6 @@ public class KartController : MonoBehaviour
         {
             secondaryParticles.Add(p);
         }
-
-        //UpdateLapCounterUI(); // Perbarui UI setelah lap bertambah
     }
 
     void Update()
@@ -198,7 +191,6 @@ public class KartController : MonoBehaviour
 
             if (playerInput.actions["Drift"].WasReleasedThisFrame() && drifting)
             {
-                Debug.Log("Drift Released! Boost activated.");
                 Boost();
             }
 
@@ -324,8 +316,6 @@ public class KartController : MonoBehaviour
     {
         if (!shieldActive)
         {
-            //Destroy(gameObject);
-            print("Die");
             canMove = false;
             StartCoroutine(BackToNormal(dieDuration));
         }
