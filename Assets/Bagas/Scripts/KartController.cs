@@ -163,6 +163,7 @@ public class KartController : MonoBehaviour
             // Input untuk penggerak (akselerasi/rem)
             //anim.SetTrigger("Move");
             float throttleInput = playerInput.actions["Throttle"].ReadValue<float>(); // Mengambil input akselerasi/mundur
+            AudioManager.Instance.PlaySFX(3);
 
             // Mengatur arah gerak
             if (directionInput.x != 0)
@@ -206,6 +207,7 @@ public class KartController : MonoBehaviour
 
     public void Boost()
     {
+        AudioManager.Instance.PlaySFX(1);
         drifting = false;
 
         if (driftMode > 1)

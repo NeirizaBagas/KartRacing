@@ -15,7 +15,7 @@ public class PlayerIndicator : MonoBehaviour
     public void MoveToCar(int carIndex)
     {
         // Pindahkan indikator ke posisi mobil yang dipilih
-        Transform car = CarSelectionManager.Instance.carList[carIndex].transform;
+        Transform car = PlayerInputManager.Instance.carList[carIndex].transform;
         transform.position = car.position;
     }
 }

@@ -308,6 +308,156 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403696717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 403696718}
+  - component: {fileID: 403696720}
+  - component: {fileID: 403696719}
+  m_Layer: 0
+  m_Name: P2Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &403696718
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403696717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1907200272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &403696719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403696717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.85634184, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &403696720
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403696717}
+  m_CullTransparentMesh: 1
+--- !u!1 &470294488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 470294489}
+  - component: {fileID: 470294491}
+  - component: {fileID: 470294490}
+  m_Layer: 0
+  m_Name: P1Cursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &470294489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470294488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1907200272}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &470294490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470294488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &470294491
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470294488}
+  m_CullTransparentMesh: 1
 --- !u!1 &534785526
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +967,7 @@ GameObject:
   - component: {fileID: 714521145}
   - component: {fileID: 714521144}
   - component: {fileID: 714521146}
+  - component: {fileID: 714521147}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -863,7 +1014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -909,39 +1060,39 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 714521146}
-        m_TargetAssemblyTypeName: CarSelectionInput, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
+      - m_Target: {fileID: 714521140}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: d518b81f-cb01-4272-8ca9-ab439432d57f
-    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/dpad/left]
+    m_ActionName: PlayerUI/Move
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 714521146}
-        m_TargetAssemblyTypeName: CarSelectionInput, Assembly-CSharp
-        m_MethodName: OnConfirm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 02956b00-f3b7-4c88-ac04-f5e253b28d79
-    m_ActionName: Player/Confirm[/DualShock4GamepadHID/buttonSouth]
+    m_ActionName: PlayerUI/Confirm
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 630415b0-e871-4c12-b669-15afc5b4d160
+    m_ActionName: New action map/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d674a6f-7819-41c2-bcf2-44fe459e31f9
+    m_ActionName: NavigationUI/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f6a81e70-4a9f-43c7-82e3-9af95741c322
+    m_ActionName: NavigationUI/New action
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerUI
+  m_DefaultControlScheme: Gamepad
+  m_DefaultActionMap: NavigationUI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &714521145
@@ -951,7 +1102,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714521140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8414c9bc8f76bcb47963479d7e21cf30, type: 3}
   m_Name: 
@@ -966,7 +1117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714521140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e648c9dca23bfec4f889ff99b08f66ec, type: 3}
   m_Name: 
@@ -976,6 +1127,25 @@ MonoBehaviour:
   selectedCars: 0000000000000000
   totalCars: 4
   playerIndex: 1
+--- !u!114 &714521147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714521140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d907da0a6ceb1a49b61bbe382e5b7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 0
+  selectorIcon: {fileID: 714521141}
+  characterButtons:
+  - {fileID: 1093249077}
+  - {fileID: 892610016}
+  - {fileID: 1889762070}
+  - {fileID: 1112544994}
 --- !u!1 &825607423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +2080,7 @@ GameObject:
   - component: {fileID: 1510274409}
   - component: {fileID: 1510274408}
   - component: {fileID: 1510274410}
+  - component: {fileID: 1510274411}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -1956,7 +2127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2032,9 +2203,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 02956b00-f3b7-4c88-ac04-f5e253b28d79
     m_ActionName: PlayerUI/Confirm[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 630415b0-e871-4c12-b669-15afc5b4d160
+    m_ActionName: NavigationUI/Move
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d674a6f-7819-41c2-bcf2-44fe459e31f9
+    m_ActionName: NavigationUI/Select
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f6a81e70-4a9f-43c7-82e3-9af95741c322
+    m_ActionName: NavigationUI/Back
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerUI
+  m_DefaultControlScheme: Gamepad
+  m_DefaultActionMap: NavigationUI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1510274409
@@ -2059,7 +2242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510274404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e648c9dca23bfec4f889ff99b08f66ec, type: 3}
   m_Name: 
@@ -2069,6 +2252,25 @@ MonoBehaviour:
   selectedCars: 0000000000000000
   totalCars: 4
   playerIndex: 2
+--- !u!114 &1510274411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510274404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d907da0a6ceb1a49b61bbe382e5b7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 1
+  selectorIcon: {fileID: 1510274405}
+  characterButtons:
+  - {fileID: 1093249077}
+  - {fileID: 892610016}
+  - {fileID: 1889762070}
+  - {fileID: 1112544994}
 --- !u!1 &1692924888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,6 +2717,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 634759114}
+  - {fileID: 470294489}
+  - {fileID: 403696718}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
