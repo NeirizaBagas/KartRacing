@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MotorKart
+  m_Controller: {fileID: 9100000, guid: 3694ddfc96b954743ab8149ffcc988a8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -1978303741906493279, guid: 6417a49eaf8aaf140bd28a218667fbea,
+      type: 3}
+    m_OverrideClip: {fileID: -1978303741906493279, guid: 35fff3279968c9c41979bc2dfb8365fe,
+      type: 3}
+  - m_OriginalClip: {fileID: -4593595628115445583, guid: 6417a49eaf8aaf140bd28a218667fbea,
+      type: 3}
+    m_OverrideClip: {fileID: -4593595628115445583, guid: 35fff3279968c9c41979bc2dfb8365fe,
+      type: 3}

@@ -16,20 +16,20 @@ public class LineTrigger : MonoBehaviour
         }
 
         // Pengecekan Start
-        if (lineType == "StartFinish" && !lapManager.hasStarted)
+        if (lineType == "StartFinish" && !lapManager.raceStarted)
         {
-            lapManager.hasStarted = true; // Set hasStarted ke true
+            lapManager.raceStarted = true; // Set hasStarted ke true
         }
-        else if (lineType == "StartFinish" && lapManager.hasStarted && !lapManager.hasFinished)
+        else if (lineType == "StartFinish" && lapManager.raceStarted && !lapManager.lapFinished)
         {
-            lapManager.hasFinished = true; // Set hasFinished ke true
+            lapManager.lapFinished = true; // Set hasFinished ke true
             lapManager.IncrementLap(); // Tambah lap counter
         }
 
         // Pengecekan Checkpoint
         if (lineType == "Checkpoint")
         {
-            lapManager.hasFinished = false; // Set hasFinished ke false
+            lapManager.lapFinished = false; // Set hasFinished ke false
         }
     }
 }

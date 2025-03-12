@@ -23,6 +23,7 @@ public class KartController : MonoBehaviour
     [Header("Player")]
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveInput; // Nyimpen input gerakan
+    Vector2 directionInput;
 
     [Header("Model")]
     public Transform kartModel;
@@ -54,6 +55,7 @@ public class KartController : MonoBehaviour
     public Color[] turboColors;
 
     public PlayerItemHandler playerItemHandler;
+    //public Animator anim;
 
     void Start()
     {
@@ -89,10 +91,10 @@ public class KartController : MonoBehaviour
 
         if (drifting)
         {
-            float control = (driftDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 0, 2)
-                                                  : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 2, 0);
-            float powerControl = (driftDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, .2f, 1)
-                                                       : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 1, .2f);
+            float control = (driftDirection == 1) ? ExtensionMethods.Remap(directionInput.x, -1, 1, 0, 2)
+                                                  : ExtensionMethods.Remap(directionInput.x, -1, 1, 2, 0);
+            float powerControl = (driftDirection == 1) ? ExtensionMethods.Remap(directionInput.x, -1, 1, .2f, 1)
+                                                       : ExtensionMethods.Remap(directionInput.x, -1, 1, 1, .2f);
             Steer(driftDirection, control);
             driftPower += powerControl;
 
@@ -109,21 +111,21 @@ public class KartController : MonoBehaviour
         //a) Kart
         if (!drifting)
         {
-            kartModel.localEulerAngles = Vector3.Lerp(kartModel.localEulerAngles, new Vector3(0, 90 + (Input.GetAxis("Horizontal") * 15), kartModel.localEulerAngles.z), .2f);
+            kartModel.localEulerAngles = Vector3.Lerp(kartModel.localEulerAngles, new Vector3(0, 90 + (directionInput.x * 15), kartModel.localEulerAngles.z), .2f);
         }
         else
         {
-            float control = (driftDirection == 1) ? ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, .5f, 2) : ExtensionMethods.Remap(Input.GetAxis("Horizontal"), -1, 1, 2, .5f);
+            float control = (driftDirection == 1) ? ExtensionMethods.Remap(directionInput.x, -1, 1, .5f, 2) : ExtensionMethods.Remap(directionInput.x, -1, 1, 2, .5f);
             kartModel.parent.localRotation = Quaternion.Euler(0, Mathf.LerpAngle(kartModel.parent.localEulerAngles.y, (control * 15) * driftDirection, .2f), 0);
         }
 
         //b) Wheels
-        frontWheels.localEulerAngles = new Vector3(0, (Input.GetAxis("Horizontal") * 15), frontWheels.localEulerAngles.z);
-        frontWheels.localEulerAngles += new Vector3(0, 0, sphere.velocity.magnitude / 2);
-        backWheels.localEulerAngles += new Vector3(0, 0, sphere.velocity.magnitude / 2);
+        frontWheels.localEulerAngles = new Vector3(0, (directionInput.x * 15), frontWheels.localEulerAngles.z);
+        frontWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
+        backWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
 
         //c) Steering Wheel
-        steeringWheel.localEulerAngles = new Vector3(-25, 90, ((Input.GetAxis("Horizontal") * 45)));
+        steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
         //boostBar.value = driftMode;
     }
 
@@ -156,13 +158,14 @@ public class KartController : MonoBehaviour
         if (canMove)
         {
             // Input arah gerak
-            Vector2 directionInput = playerInput.actions["Move"].ReadValue<Vector2>(); // Mengambil input arah
+            directionInput = this.playerInput.actions["Move"].ReadValue<Vector2>(); // Mengambil input arah
 
             // Input untuk penggerak (akselerasi/rem)
+            //anim.SetTrigger("Move");
             float throttleInput = playerInput.actions["Throttle"].ReadValue<float>(); // Mengambil input akselerasi/mundur
 
             // Mengatur arah gerak
-            if (directionInput != Vector2.zero)
+            if (directionInput.x != 0)
             {
                 // Mengubah arah objek berdasarkan input arah
                 int dir = directionInput.x > 0 ? 1 : -1;

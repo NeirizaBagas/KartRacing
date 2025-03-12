@@ -7,18 +7,22 @@ public class LapManager : MonoBehaviour
     public int lapCounter;
     public int maxLap;
     public TextMeshProUGUI _lapCounter;
-    public bool hasStarted = false;
-    public bool hasFinished = true;
+    public bool raceStarted = false;
+    public bool lapFinished = true;
     public TextMeshProUGUI winCon;
     public TextMeshProUGUI loseCon;
+    public bool raceFinished;
 
     [Header("Checkpoint System")]
     public int playerNumber;
     public int cpCrossed = 0;
     public int playerPosition;
     public TextMeshProUGUI currentPosition;
-    public RaceManager raceManager;
 
+    [Header("Reference Script")]
+    public LevelManager gameManager;
+    public RaceManager raceManager;
+    public KartController kartController;
 
 
     public void Start()
@@ -44,8 +48,13 @@ public class LapManager : MonoBehaviour
 
         UpdateLapCounterUI();
 
-        if (lapCounter > maxLap)
+        if (lapCounter > maxLap && !raceFinished)
         {
+            raceFinished = true;
+            gameManager.playerCount++; // Menambah jumlah player yang udah finish
+            gameManager.FinishCon(); // Mengecek apakah semua player sudah finish
+            kartController.canMove = false;
+
             if (playerPosition == 1)
             {
                 winCon.gameObject.SetActive(true);

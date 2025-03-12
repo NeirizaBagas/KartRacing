@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Bagas/SceneBagas/MainMenu.unity
+    guid: 5ee0f3a89711eb0458729ee8fe7e5539
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/PlayerSelect.unity
+    guid: e60a4fd7f1217e246a2f2d8b0e23efb0
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/MapSelect.unity
+    guid: 8f77f86cf0130c24a9c24628ba6fd79b
+  - enabled: 1
     path: Assets/Bagas/SceneBagas/Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/Level2.unity
+    guid: 367fdea71833206448d7b127df30fddf
   m_configObjects: {}
