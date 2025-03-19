@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance; // Singleton reference
 
     public int playerCount;
-    public List<CharacterSelector> characterSelector = new List<CharacterSelector>(); // Stores references to selectors
-    public List<int> characterIds = new List<int>(); // Stores selected character IDs
+    public List<CarSelector> carSelector = new List<CarSelector>(); // Stores references to selectors
+    public List<int> carIds = new List<int>(); // Stores selected character IDs
     public int[] ID; // Stores final selected character IDs
 
     void Awake()
@@ -32,36 +32,36 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         // Ensure all players have selected characters before switching scenes
-        if (characterSelector != null && characterSelector.Count > 0 && characterSelector.All(c => c.isSelected))
+        if (carSelector != null && carSelector.Count > 0 && carSelector.All(c => c.isSelected))
         {
-            StoreCharacterIDs(); // Save selected character IDs
-            SceneManager.LoadScene("CharacterSelector");
+            StoreCarIDs(); // Save selected character IDs
+            SceneManager.LoadScene("MapSelect");
         }
     }
 
-    public void StoreCharacterIDs()
+    public void StoreCarIDs()
     {
-        characterIds.Clear(); // Clear previous selection data
+        carIds.Clear(); // Clear previous selection data
 
-        foreach (CharacterSelector selector in characterSelector)
+        foreach (CarSelector selector in carSelector)
         {
-            characterIds.Add(selector.CharacterID);
+            carIds.Add(selector.carID);
         }
 
-        ID = characterIds.ToArray(); // Store IDs in an array
+        ID = carIds.ToArray(); // Store IDs in an array
     }
 
-    public List<int> GetSelectedCharacterIDs()
+    public List<int> GetSelectedCarIDs()
     {
         return new List<int>(ID); // Return a copy of the stored IDs
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "MapSelectionScreen")
+        if (scene.name == "MapSelect")
         {
-            characterSelector.Clear();
-            characterIds.Clear();
+            carSelector.Clear();
+            carIds.Clear();
         }
     }
 

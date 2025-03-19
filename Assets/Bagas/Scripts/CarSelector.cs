@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class CharacterSelector : MonoBehaviour
+public class CarSelector : MonoBehaviour
 {
     public int playerID;
     public RectTransform cursor;  // UI cursor to move around
-    public Button[] characterButtons; // Assign buttons in the inspector
+    public Button[] carButtons; // Assign buttons in the inspector
     private int currentIndex = 0;
     private float moveCooldown = 0.2f; // Time before another move is allowed
     private float lastMoveTime = 0f;
-    public GameObject[] characterDisplay;
-    public int CharacterID;
+    public GameObject[] carDisplay;
+    public int carID;
     public bool isSelected = false;
 
 
@@ -47,52 +47,52 @@ public class CharacterSelector : MonoBehaviour
 
         if (playerInput.actions["Submit"].WasPressedThisFrame())
         {
-            SelectCharacter();
+            SelectCar();
         }
         if (playerInput.actions["Cancel"].WasPressedThisFrame())
         {
-            CancelCharacter();
+            CancelCar();
         }
     }
     void UpdateCursorPosition()
     {
-        cursor.position = characterButtons[currentIndex].transform.position;
+        cursor.position = carButtons[currentIndex].transform.position;
     }
-    void UpdateCharacterDisplay()
+    void UpdateCarDisplay()
     {
         // Deactivate all character displays first
-        for (int i = 0; i < characterDisplay.Length; i++)
+        for (int i = 0; i < carDisplay.Length; i++)
         {
-            characterDisplay[i].SetActive(false);
+            carDisplay[i].SetActive(false);
         }
 
         // Activate the selected character's display
-        if (cursor.position == characterButtons[currentIndex].transform.position)
+        if (cursor.position == carButtons[currentIndex].transform.position)
         {
-            characterDisplay[currentIndex].SetActive(true);
+            carDisplay[currentIndex].SetActive(true);
         }
     }
     void MoveCursor(int direction)
     {
         currentIndex += direction;
-        currentIndex = Mathf.Clamp(currentIndex, 0, characterButtons.Length - 1);
+        currentIndex = Mathf.Clamp(currentIndex, 0, carButtons.Length - 1);
 
-        cursor.position = characterButtons[currentIndex].transform.position;
+        cursor.position = carButtons[currentIndex].transform.position;
 
-        UpdateCharacterDisplay(); // Update the character preview
+        UpdateCarDisplay(); // Update the character preview
     }
 
-    void SelectCharacter()
+    void SelectCar()
     {
-        Debug.Log($"Player {playerID} selected {characterButtons[currentIndex].name}");
+        Debug.Log($"Player {playerID} selected {carButtons[currentIndex].name}");
         isSelected = true;
-        CharacterID = currentIndex;
+        carID = currentIndex;
         // Store selection and move to game scene
     }
 
-    void CancelCharacter()
+    void CancelCar()
     {
         isSelected = false;
-        CharacterID = 0;
+        carID = 0;
     }
 }
