@@ -85,7 +85,7 @@ public class CarSelectionInput : MonoBehaviour
         // Pastikan playerIndex dalam batas array
         if (playerIndex >= 0 && playerIndex < selectedCars.Length)
         {
-            PlayerInputManager.Instance.ConfirmSelection(playerIndex);
+            //InputManager.Instance.ConfirmSelection(playerIndex);
         }
         else
         {

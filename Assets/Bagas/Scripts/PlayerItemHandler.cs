@@ -10,6 +10,7 @@ public class PlayerItemHandler : MonoBehaviour
     public Transform dropLocation;
     public int itemDuration = 3;
     public int shieldDuration;
+    public bool hasItem;
 
     public ItemEffect? currentItem = null;
 

@@ -75,7 +75,7 @@ public class RaceManager : MonoBehaviour
         }
 
         // Debugging posisi checkpoint sebelum diupdate
-        Debug.Log($"[PlayerCollected] Player {playerNumber} checkpoint pindah ke {cpNumber} ({checkpointPos[cpNumber].position})");
+        //Debug.Log($"[PlayerCollected] Player {playerNumber} checkpoint pindah ke {cpNumber} ({checkpointPos[cpNumber].position})");
 
         // Pindahkan checkpoint ke posisi selanjutnya
         checkPointEachPlayer[playerNumber].transform.position = checkpointPos[cpNumber].position;
