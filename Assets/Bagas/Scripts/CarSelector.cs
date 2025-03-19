@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CarSelector : MonoBehaviour
@@ -51,14 +52,24 @@ public class CarSelector : MonoBehaviour
         }
         if (playerInput.actions["Cancel"].WasPressedThisFrame())
         {
-            CancelCar();
+            if (isSelected) // Jika player sudah memilih, batalkan saja, jangan keluar ke Main Menu
+            {
+                CancelCar();
+            }
+            else // Jika player belum memilih, dia keluar ke Main Menu
+            {
+                SceneManager.LoadScene("MainMenu");
+            }
         }
+
+
+
     }
     void UpdateCursorPosition()
     {
         cursor.position = carButtons[currentIndex].transform.position;
     }
-    void UpdateCarDisplay()
+    void UpdateCharacterDisplay()
     {
         // Deactivate all character displays first
         for (int i = 0; i < carDisplay.Length; i++)
@@ -79,7 +90,7 @@ public class CarSelector : MonoBehaviour
 
         cursor.position = carButtons[currentIndex].transform.position;
 
-        UpdateCarDisplay(); // Update the character preview
+        UpdateCharacterDisplay(); // Update the character preview
     }
 
     void SelectCar()
