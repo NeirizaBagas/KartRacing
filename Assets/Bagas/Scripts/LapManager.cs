@@ -20,7 +20,7 @@ public class LapManager : MonoBehaviour
     public TextMeshProUGUI currentPosition;
 
     [Header("Reference Script")]
-    public LevelManager gameManager;
+    public LevelManager levelManager;
     public RaceManager raceManager;
     public KartController kartController;
 
@@ -51,8 +51,7 @@ public class LapManager : MonoBehaviour
         if (lapCounter > maxLap && !raceFinished)
         {
             raceFinished = true;
-            gameManager.playerCount++; // Menambah jumlah player yang udah finish
-            gameManager.FinishCon(); // Mengecek apakah semua player sudah finish
+            levelManager.FinishCon(gameObject.name); // Kirim nama pemain ke leaderboard
             kartController.canMove = false;
 
             if (playerPosition == 1)
@@ -63,9 +62,8 @@ public class LapManager : MonoBehaviour
             {
                 loseCon.gameObject.SetActive(true);
             }
-            
-            Debug.Log(gameObject.name + " finished the race!");
         }
+
     }
 
 
