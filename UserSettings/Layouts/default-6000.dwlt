@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 113
+  controlID: 115
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 114
+  controlID: 116
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -1002,9 +1002,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 137.08301, y: 94.26701, z: -241.10439}
+    m_Target: {x: -0.23865356, y: 1.212086, z: -2.54698}
     speed: 2
-    m_Value: {x: 137.08301, y: 94.26701, z: -241.10439}
+    m_Value: {x: -0.23865356, y: 1.212086, z: -2.54698}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1050,13 +1050,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.10428328, y: -0.8574865, z: 0.19193858, w: -0.46588126}
+    m_Target: {x: 0.27271637, y: -0.21783625, z: 0.0635431, w: 0.9349781}
     speed: 2
-    m_Value: {x: -0.1040506, y: -0.8580261, z: 0.19205937, w: -0.46484175}
+    m_Value: {x: 0.27247924, y: -0.22119541, z: 0.06452291, w: 0.9341652}
   m_Size:
-    m_Target: 10
+    m_Target: 1.5775156
     speed: 2
-    m_Value: 5.693937
+    m_Value: 1.6518488
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1293,7 +1293,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1c75fcff7c78fcfff02afdffbee3fdff
+      m_ExpandedIDs: 4e61fcff5466fcff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1366,7 +1366,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Bagas/SceneBagas
+    - Assets/Yohana_Envi/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1410,10 +1410,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 180}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000228c0100ea8d0100ee8d0100e29d0100e89d0100
+    m_ExpandedIDs: ffffffff185902005a59020068590200
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
