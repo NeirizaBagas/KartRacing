@@ -1,0 +1,357 @@
+fileFormatVersion: 2
+guid: c73cf0a21109c1949b549bfbf5a468a3
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: fb3d5d9938c3ece44a5f9a77ec710148, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_double tip
+    second: {fileID: 2100000, guid: c7f489f4ee74359459b3f1a229b461be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: besi_meja murid perpus
+    second: {fileID: 2100000, guid: ed62f5406b24bb941a7a0b8166e88223, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru_inner_tempat pensil
+    second: {fileID: 2100000, guid: 8fbecd809028347429e8ec4d4bdfc5a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru_main_tempat pensil
+    second: {fileID: 2100000, guid: 155509098d453e143b4aa4fa52351bb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru_zipper_tempat pensil
+    second: {fileID: 2100000, guid: fa898dfb55443784db989f615be8e433, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 1
+    second: {fileID: 2100000, guid: 1e40e2c06b7438f4795d5c69d01e35be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 2
+    second: {fileID: 2100000, guid: 23b2a0db30246f941a6c0b4da2db6304, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 3
+    second: {fileID: 2100000, guid: 2b0413b7bd21a9845a735a65aa649f77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 4
+    second: {fileID: 2100000, guid: 9e9efd0dc90fd2146a3fc6a9c4cf5d26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak
+    second: {fileID: 2100000, guid: 7e9be190fa7e5ce46bc81e0158a7a6dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.001
+    second: {fileID: 2100000, guid: 7690737789f7bd942bfaddb06cae7105, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.002
+    second: {fileID: 2100000, guid: b77a55feb397f394aae9380fb9dba4f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.003
+    second: {fileID: 2100000, guid: ec41888d44870c64698a5c6b366e8747, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.004
+    second: {fileID: 2100000, guid: c6a196a6165df4d41b6656819f076c5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.005
+    second: {fileID: 2100000, guid: 6fa3a849488381b49a1313fbb2907132, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.006
+    second: {fileID: 2100000, guid: 7d330fa26b455f14abe5cdc9b9f8ff34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.007
+    second: {fileID: 2100000, guid: ae6dabb4985fa0148848b80c6cbd8cba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 1
+    second: {fileID: 2100000, guid: 1250c81b962f7304091bfdaa71dfce5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 2
+    second: {fileID: 2100000, guid: 131ebefa6fd57304085e9dac80b88f7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 3
+    second: {fileID: 2100000, guid: f8c066f9ae3b49246b2510573b6c0e6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 4
+    second: {fileID: 2100000, guid: 809438e9bde29c944beaf48eaa42e7e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 5
+    second: {fileID: 2100000, guid: 0778fee77e607ce4bb0ef177c1ea91b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 1
+    second: {fileID: 2100000, guid: 004971b70a27ef04da8d9e0922afd65b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 2
+    second: {fileID: 2100000, guid: f98455cfdc136344e90ff91125a2edd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 3
+    second: {fileID: 2100000, guid: 891a7b29eb02a8447b4d7effc7be4eb0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 4
+    second: {fileID: 2100000, guid: 3b99618bacd2d4847abf20d35a44f396, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hihau_main_tempat pensil
+    second: {fileID: 2100000, guid: 87b1c9ef94a7b4841b3414ef4a58e247, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hijau_inner_tempat pensil
+    second: {fileID: 2100000, guid: b304a34573ab57e4c9232612cb30033d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hijau_zipper_tempat pensil
+    second: {fileID: 2100000, guid: 5b0c8a9cf00449242b55c126c67b0e75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inner_double tip
+    second: {fileID: 2100000, guid: b6e49f25414b39a45a7ae85d6c07b7eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inner_tempat pensil
+    second: {fileID: 2100000, guid: 3f6ad1aaa2043764fae5f37c6d61768a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kayu_meja murid perpus
+    second: {fileID: 2100000, guid: 32f02174738682c409c8c86095b8f937, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kotak pensil
+    second: {fileID: 2100000, guid: 54c492d336a209345ade09747f3f2ae6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lompatan
+    second: {fileID: 2100000, guid: edbd4fa512f4ac146878b09b5b0cc484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: main_tempat pensil
+    second: {fileID: 2100000, guid: 90206b10f2b822e499be9b25a8c7f853, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer_double tip
+    second: {fileID: 2100000, guid: 981faf6690ef06845ab49833c6f5128d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: penggaris
+    second: {fileID: 2100000, guid: 4b781a1f1cc619f4e8a8ae4256074ef2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: penggaris.001
+    second: {fileID: 2100000, guid: 62bde5583edab484a8e37bd40d60f054, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: penggaris.002
+    second: {fileID: 2100000, guid: e4eca5a2886e99a449805bbc13ef0aa8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pensil biasa
+    second: {fileID: 2100000, guid: 27a11c1984fdcc740a52e469e4303b7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pensil warna
+    second: {fileID: 2100000, guid: 6ef4c937a70e18b46a5fbdeb20d62d4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: selotip
+    second: {fileID: 2100000, guid: 69f503dbbda7a5b43af35999100dcecd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: selotip_dalam
+    second: {fileID: 2100000, guid: 62f755668ff83dc4da3b7ecfb15620b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: selotip_luar
+    second: {fileID: 2100000, guid: bf6ff7b80a00a334f9fe64884cb8d20f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spidol
+    second: {fileID: 2100000, guid: 959225062cb2ae24a88c7ab2ce70ceab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat pensil_main
+    second: {fileID: 2100000, guid: 7425fa6694e9d794fb04fd191c2a972d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat pensil_zipper1
+    second: {fileID: 2100000, guid: d005ef307ad18404ba2ee0eb3d5c2d84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat pensil_zipper2
+    second: {fileID: 2100000, guid: 09b12bf0386eabd4c98a0704c78a7d08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zipper_tempat pensil
+    second: {fileID: 2100000, guid: 2f2dc1e532fd7c641bcb933934a9d1cc, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
