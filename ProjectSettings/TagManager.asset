@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Undefined
-  - CP
-  - Selector
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -14,14 +11,14 @@ TagManager:
   - 
   - Water
   - UI
-  - Minimap
-  - Level
-  - Kart
-  - Post
-  - Player1
-  - Player2
-  - Player3
-  - Player4
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
