@@ -42,3 +42,9 @@ logs/AssetImportWorker.log
 Logs/*.log
 Logs/*.exe
 
+Packages/packages-lock.json
+Packages/packages-lock.json
+UserSettings/EditorUserSettings.asset
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+*.dwlt
+*.json
