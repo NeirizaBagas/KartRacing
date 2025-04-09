@@ -50,6 +50,8 @@ public class RaceManager : MonoBehaviour
         for (int i = 0;i < totalPlayers;i++)
         {
             checkPointEachPlayer[i] = Instantiate(cp, checkpointPos[0].position, checkpointPos[0].rotation);
+            checkPointEachPlayer[i].transform.SetParent(null); // Lepas dari parent
+            checkPointEachPlayer[i].transform.localScale = Vector3.one;
             checkPointEachPlayer[i].name = "CP " + i;
             checkPointEachPlayer[i].layer = 10 + i;
         }
