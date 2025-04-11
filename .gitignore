@@ -42,3 +42,7 @@ logs/AssetImportWorker.log
 Logs/*.log
 Logs/*.exe
 
+UserSettings/Layouts/default-2022.dwlt
+ProjectSettings/ShaderGraphSettings.asset
+UserSettings/EditorUserSettings.asset
+*.asset
