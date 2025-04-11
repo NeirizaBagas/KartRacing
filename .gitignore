@@ -42,17 +42,8 @@ logs/AssetImportWorker.log
 Logs/*.log
 Logs/*.exe
 
-Packages/packages-lock.json
-Packages/packages-lock.json
-UserSettings/EditorUserSettings.asset
-UserSettings/Layouts/CurrentMaximizeLayout.dwlt
-*.dwlt
-*.json
-UserSettings/Layouts/default-6000.dwlt
 UserSettings/Layouts/default-2022.dwlt
-Assets/TextMesh Pro/Sprites/EmojiOne.json.meta
-Assets/Settings/URP-HighFidelity.asset.meta
-Assets/Resources/BillingMode.json.meta
-Assets/Bawaan/Resources/BillingMode.json.meta
-*.meta
-*.meta
+ProjectSettings/ShaderGraphSettings.asset
+UserSettings/EditorUserSettings.asset
+*.asset
+UserSettings/EditorUserSettings.asset

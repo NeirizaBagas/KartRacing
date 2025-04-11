@@ -125,7 +125,7 @@ public class KartController : MonoBehaviour
         backWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
 
         //c) Steering Wheel
-        steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
+        //steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
         //boostBar.value = driftMode;
     }
 
