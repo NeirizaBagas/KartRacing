@@ -1,0 +1,437 @@
+fileFormatVersion: 2
+guid: 196a1d1e025a5b146af1fda5c7ec6de8
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 48ba7cb2b0441b14e9d2008bbcf0ab39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: a24219d1d247dc14bbd26d9cfda96bca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 0468290ded1364f428e298e0a2028c02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base_double tip.001
+    second: {fileID: 2100000, guid: 4e2331cb170b31941a3c8902c97e6bbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru_inner_tempat pensil.001
+    second: {fileID: 2100000, guid: 270ffc1f88804f343b7ea350d9c0ce52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru_main_tempat pensil.001
+    second: {fileID: 2100000, guid: 9e0c52d4fe495df4ea6705183c0a3e4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: biru_zipper_tempat pensil.001
+    second: {fileID: 2100000, guid: a8c296763a8ed2c4f9807d2a7aee5380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: box 4
+    second: {fileID: 2100000, guid: e21fdc4b1b00aa4408f7cb87a487b6a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: box.001
+    second: {fileID: 2100000, guid: 5aa7a56565571044c9a030ca210424c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.004
+    second: {fileID: 2100000, guid: d44b4af4861bf9e4bb7dc77055cd21cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.005
+    second: {fileID: 2100000, guid: 13cca20d3e79e7b40af0d61505228173, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.008
+    second: {fileID: 2100000, guid: 52dcea95a0a428c4c94409854a5194b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.009
+    second: {fileID: 2100000, guid: 639da1968fb1ecd46a65fd786fd13429, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.010
+    second: {fileID: 2100000, guid: 03b1b6cee6e870644a5ad8f83f9135b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.011
+    second: {fileID: 2100000, guid: 42ac7a9a904e8a042945eb3c71cad83d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.012
+    second: {fileID: 2100000, guid: 166d77ea5685286458139bb9a14ce88d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.013
+    second: {fileID: 2100000, guid: ecdddf3c331811c4e9cf90b60d281086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.014
+    second: {fileID: 2100000, guid: 06e7fe1092e24b042b96c12a6c930ded, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku cetak.015
+    second: {fileID: 2100000, guid: 5f3431c4f048b084ca5007eb5081f17c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floating.001
+    second: {fileID: 2100000, guid: 74f387892138ce94bbaf94aa68ca350e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hihau_main_tempat pensil.001
+    second: {fileID: 2100000, guid: 21ef1ca2b63369443b1256e83d360362, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hijau_inner_tempat pensil.001
+    second: {fileID: 2100000, guid: 5b9eee4fc1a339c4382a74aabdbf9864, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hijau_zipper_tempat pensil.001
+    second: {fileID: 2100000, guid: 5ec5671bfc857cf449e0a9fc20ad61e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inner_double tip.001
+    second: {fileID: 2100000, guid: e5c733ab184dfd14687eafadc46200f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: inner_tempat pensil.001
+    second: {fileID: 2100000, guid: c448c634a20058640b5987d3c5a96612, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kayu.001
+    second: {fileID: 2100000, guid: 18ffe9ad0b36d3946a523b61c20d6fc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kertas
+    second: {fileID: 2100000, guid: 285b46c66cd8176448e504f5007e082c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kotak pensil.001
+    second: {fileID: 2100000, guid: a7e484142ed57b3439d509f8ca8ce545, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kursi.001
+    second: {fileID: 2100000, guid: b1dbd76ebdb47564abbb392ee08cf78c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kursi_dudukan.001
+    second: {fileID: 2100000, guid: 2da59981f4cd77e4d83a37aea37b7a0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kursi_roda.001
+    second: {fileID: 2100000, guid: 80332f889c7604342b139967e3c63fa3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kursi_tempat roda.001
+    second: {fileID: 2100000, guid: 195fa32346b4b9a4b9ad0c7140261745, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kursi_tungkai.001
+    second: {fileID: 2100000, guid: 6297778684cd403488f9672e31bd1c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: main_tempat pensil.001
+    second: {fileID: 2100000, guid: bebfea554adfedf4fb2a2e3810573037, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map 1
+    second: {fileID: 2100000, guid: e2b705db66c47bf479dbc3903c2d04a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map 2
+    second: {fileID: 2100000, guid: 70a19f60776dda747a9d4bb00444c01c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map 3
+    second: {fileID: 2100000, guid: f52e34ac2039fe449945b97ab576cb2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map 4
+    second: {fileID: 2100000, guid: 064ba505ecae6b84ba6d2bd250875506, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map 5
+    second: {fileID: 2100000, guid: 8dabecc526cc81c4da4467bf3594afee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map_plastik
+    second: {fileID: 2100000, guid: 2c6be6a979b2cc2459009c5b6be5bb51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: map_tanda
+    second: {fileID: 2100000, guid: 639462c7bea54754397e33272ddbcd28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: note.001
+    second: {fileID: 2100000, guid: 6d3df7b001b8ea34b9e4f8d87355e797, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: note_1.001
+    second: {fileID: 2100000, guid: 8fb33682a41fd1546819609dc9d077f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: outer_double tip.001
+    second: {fileID: 2100000, guid: 87b60a26096020a41b234812516cfec3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: penggaris.003
+    second: {fileID: 2100000, guid: e3e4a6e816b0f8c4a8634cade0ef9ff6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: penggaris.004
+    second: {fileID: 2100000, guid: 29d5497865508cc40ae9f08b10744247, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: penggaris.005
+    second: {fileID: 2100000, guid: 89c402faad16d064daf2d6610cdf2abb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pensil biasa.001
+    second: {fileID: 2100000, guid: a82ad5aca3be79b489a7d4079161a242, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pensil warna.001
+    second: {fileID: 2100000, guid: 1fe5a3ee073e0e240ae02cd7c98f85c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: selotip.001
+    second: {fileID: 2100000, guid: f7061c722b5ec1b4cb8cfe4740ca9313, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: selotip_dalam.001
+    second: {fileID: 2100000, guid: 51f6d75ac9211d944b279d523b179d8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: selotip_luar.001
+    second: {fileID: 2100000, guid: 7d9c24256724a454fbc2f9d848e95c7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: spidol.001
+    second: {fileID: 2100000, guid: 0d1374ee9b4c2954ea9dbc17887b3cd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map
+    second: {fileID: 2100000, guid: e84ea37b715e5584c8408a15454ac57f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 2
+    second: {fileID: 2100000, guid: 23f69e1018f277940b41399e6833f672, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 3
+    second: {fileID: 2100000, guid: e42a5f4b53210064e866e73ef358a34d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 4
+    second: {fileID: 2100000, guid: 6f4ab1b2dd7ff5a4fae23cde937299ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 5
+    second: {fileID: 2100000, guid: bb99267622263ae42b9998096687d288, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 6
+    second: {fileID: 2100000, guid: f14bf3ab73615c94698761a7e1c7e3f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 7
+    second: {fileID: 2100000, guid: c1d8b0afa5337944ebc45ff86c826909, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map 8
+    second: {fileID: 2100000, guid: d4d6cc1ca87d3eb46815808bea4a4960, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat map_tag
+    second: {fileID: 2100000, guid: 27860e001eb66dd46adfbb7e86e3669a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat pensil_main.001
+    second: {fileID: 2100000, guid: 44ac49aa9b22fad42b99e8c30106da48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat pensil_zipper1.001
+    second: {fileID: 2100000, guid: d47a9c0f5e6c7f8459108e0ff1233dcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tempat pensil_zipper2.001
+    second: {fileID: 2100000, guid: b859698c7c132cf4d819ead4442b6d78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: zipper_tempat pensil.001
+    second: {fileID: 2100000, guid: 8a1efef58284d06479ec69fcb09d2734, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
