@@ -15,6 +15,7 @@ public class PlayerMatchmakingInstance : MonoBehaviour
     [Header("Configurations")]
     [SerializeField] private Color defaultColor = Color.yellow;
     [SerializeField] private Color readyColor = Color.green;
+    public PlayerMatchmakingData blueprint;
     
     [Header("References")]
     [SerializeField] private RectTransform _playerIndicator;
@@ -47,8 +48,9 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         _inputMap = _actionAsset.FindActionMap("UI");
         
         // Save data as PlayerMatchmakingData
-        _dataRef = ScriptableObject.CreateInstance($"PlayerMatchmakingData") as PlayerMatchmakingData;
-        _dataRef.Initialize(_input.playerIndex,_selectionId, _input);
+        // _dataRef = ScriptableObject.CreateInstance($"PlayerMatchmakingData") as PlayerMatchmakingData;
+        // _dataRef.Initialize(_input.playerIndex,_selectionId, _input);
+        _dataRef = blueprint.CreateInstance(_input.playerIndex,_selectionId, _input);
         MatchmakingLobby.RegisterPlayer(_dataRef);
         
         // Indicator label by player ID which given from InputSystem
@@ -67,6 +69,8 @@ public class PlayerMatchmakingInstance : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!MatchmakingLobby.Instance) return;
+        
         // Called when player left match/destroyed
         var data = MatchmakingLobby.GetPlayerMatchmakingData(_dataRef); // Get actual data from list
         MatchmakingLobby.UnregisterPlayer(data);

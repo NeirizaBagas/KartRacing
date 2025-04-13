@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.6745098, b: 0, a: 1}
   readyColor: {r: 0, g: 1, b: 0.2810154, a: 1}
+  blueprint: {fileID: 11400000, guid: caa7cabd8ce49241fb08bfcee820bad9, type: 2}
   _playerIndicator: {fileID: 877141506907242528}
   _kartLabelsParent: {fileID: 0}
   playerLabel: {fileID: 6456491750113671515}

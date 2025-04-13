@@ -9,7 +9,6 @@ using UnityEngine.EventSystems;
 public class MatchmakingLobby : MonoBehaviour
 {
     [Header("Data")]
-    // public PlayerMatchmakingData[] playersData;
     public MatchmakingData matchmakingData;
     
     [Header("References")]
@@ -91,11 +90,17 @@ public class MatchmakingLobby : MonoBehaviour
         }
     }
 
-    // public void LoadGameplayMap()
-    // {
-    //     GameManager.Instance.playerCount = playerData.Count;
-    //     UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Multiplayer2");
-    // }
+    public void LoadGameplayMap()
+    {
+        if (matchmakingData.gameplayScene == "null") return;
+         UnityEngine.SceneManagement.SceneManager.LoadScene(matchmakingData.gameplayScene);
+    }
+
+    public void SetGameplayScene(string name)
+    {
+        matchmakingData.gameplayScene = name;
+        Debug.Log($"Map to load is set to: {matchmakingData.gameplayScene}");
+    }
 
     #region Utilities
     
@@ -153,6 +158,8 @@ public class MatchmakingLobby : MonoBehaviour
 
     public static void SetEventSystemFocus(bool isFocus)
     {
+        if (!EventSystem.current) return;
+        
         if (isFocus)
         {
             // Focus EventSystem UI navigation
@@ -168,6 +175,8 @@ public class MatchmakingLobby : MonoBehaviour
 
     public static void SetEventSystemFocus(bool isFocus, float delay)
     {
+        if (!EventSystem.current) return;
+        
         if (isFocus)
         {
             // Delayed focus
