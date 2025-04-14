@@ -48,9 +48,7 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         _inputMap = _actionAsset.FindActionMap("UI");
         
         // Save data as PlayerMatchmakingData
-        // _dataRef = ScriptableObject.CreateInstance($"PlayerMatchmakingData") as PlayerMatchmakingData;
-        // _dataRef.Initialize(_input.playerIndex,_selectionId, _input);
-        _dataRef = blueprint.CreateInstance(_input.playerIndex,_selectionId, _input);
+        _dataRef = blueprint.CreateInstance(_input.playerIndex,_selectionId, _input.actions, _input.currentControlScheme, _input.devices[0]);
         MatchmakingLobby.RegisterPlayer(_dataRef);
         
         // Indicator label by player ID which given from InputSystem

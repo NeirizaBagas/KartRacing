@@ -152,6 +152,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e6193ebc-3e37-43c0-a309-c4449cfe29db
     m_ActionName: UI/Join[/Gamepad1/start,/Gamepad2/start,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a69bd59e-686e-442d-b66d-148f75dba8ee
+    m_ActionName: Player/UseItem[/Gamepad/buttonSouth,/Gamepad1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 264e2765-40e6-4e6f-baaa-5d78c18e6f62
+    m_ActionName: Player/Drift[/Gamepad/leftTrigger,/Gamepad1/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 77abb88f-e662-4785-acf3-92fd8d8ec754
+    m_ActionName: Player/Throttle[/Gamepad/rightTrigger,/Gamepad1/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: UI

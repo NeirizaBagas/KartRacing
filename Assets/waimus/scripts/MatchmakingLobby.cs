@@ -4,7 +4,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.Users;
 
+/// <summary>
+/// Manages matchmaking data which to be transferred to GamePlayerManager via MatchmakingData
+/// </summary>
 [RequireComponent(typeof(PlayerInputManager))]
 public class MatchmakingLobby : MonoBehaviour
 {
@@ -56,13 +60,13 @@ public class MatchmakingLobby : MonoBehaviour
             Destroy(player.gameObject);
         }
         
-        Debug.Log($"Player {player.playerIndex} Joined match");
+        // Debug.Log($"Player {player.playerIndex} Joined match");
         // UpdateCameraPosition();
     }
 
     private void OnPlayerLeft(PlayerInput player)
     {
-        Debug.Log($"Player {player.playerIndex} left match");
+        // Debug.Log($"Player {player.playerIndex} left match");
         // UpdateCameraPosition();
     }
 
@@ -143,16 +147,20 @@ public class MatchmakingLobby : MonoBehaviour
     public static void ValidatePlayer(int id, bool isReady)
     {
         Instance.matchmakingData.playersData[id].isReady = isReady;
-        
-        // if (isReady) Debug.Log($"Player {id} is ready", Instance);
-        // else Debug.Log($"Player {id} is invalidated", Instance);
 
         // If all players ready
-        var players = Instance.matchmakingData.playersData.Where((d) => d != null);
+        var players = Instance.matchmakingData.playersData.Where((d) => d != null).ToArray();
         if (players.All(p => p.isReady != false))
         {
             Debug.Log("All players ready", Instance);
-            // Instance.matchmakingData.playersData = Instance.matchmakingData.playersData;
+
+            // Submit data to GameManager
+            GameManager.Instance.playerCount = players.Length;
+            GameManager.Instance.ID = new int[players.Length];
+            for (int i = 0; i < players.Length; i++)
+            {
+                GameManager.Instance.ID[i] = Instance.matchmakingData.playersData[i].playerId;
+            }
         }
     }
 

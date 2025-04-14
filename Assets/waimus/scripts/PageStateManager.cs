@@ -29,10 +29,7 @@ public class PageStateManager : MonoBehaviour
 
     public void ChangeState(int state)
     {
-        currentPageState = (EPageStates) state;
-        
-        pageMatchmaking.SetActive(currentPageState == EPageStates.Matchmaking);
-        pageMapSelect.SetActive(currentPageState == EPageStates.MapSelect);
+        ChangeState((EPageStates)state);
     }
     
     public EPageStates GetCurrentPageState() => currentPageState;
