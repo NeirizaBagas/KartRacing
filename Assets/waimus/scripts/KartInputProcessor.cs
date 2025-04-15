@@ -29,6 +29,15 @@ public class KartInputProcessor : MonoBehaviour
             };
         }
     }
+    
+    public Vector2 GetMovementInput() => GetVectorInput(_inputMap.FindAction("Move"));
+
+    #region static helpers
+    public static Vector2 GetVectorInput(InputAction action) => action.ReadValue<Vector2>();
+    public static bool GetActionPressed(InputAction action) => action.WasPressedThisFrame();
+    public static bool GetActionReleased(InputAction action) => action.WasReleasedThisFrame();
+    public static bool GetActionHeld(InputAction action) => action.IsPressed();
+    #endregion
 
     [System.Serializable]
     public class DebugData

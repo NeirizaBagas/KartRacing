@@ -32,6 +32,7 @@ public class GamePlayerManager : MonoBehaviour
     private void Start()
     {
         _inputManager.playerPrefab = playerPrefab;
+        _inputManager.onPlayerJoined += OnPlayerJoined;
         
         // Join player from matchmaking data
         var validData = data.playersData.Where((d) => d != null).ToArray();
@@ -42,11 +43,18 @@ public class GamePlayerManager : MonoBehaviour
                 i,
                 validData[i].controlScheme,
                 validData[i].inputDevice);
-            
-            p.actions = validData[i].inputActions;
-            p.actions.devices = new[] { validData[i].inputDevice };
-            p.transform.position = spawnPoints[i].position;
-            p.GetComponent<KartInputProcessor>().InitializeInput();
         }
+    }
+
+    private void OnPlayerJoined(PlayerInput player)
+    {
+        // Additional configuration to player during joined
+        player.actions = data.playersData[player.playerIndex].inputActions;
+        player.actions.devices = new[] { data.playersData[player.playerIndex].inputDevice };
+        player.transform.position = spawnPoints[player.playerIndex].position;
+        player.GetComponent<KartInputProcessor>().InitializeInput();
+
+        // Update split screen layout
+        CameraSplitscreenManager.Instance.CreateCamera(player.transform);
     }
 }
