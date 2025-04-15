@@ -124,6 +124,12 @@ public class MatchmakingLobby : MonoBehaviour
 
     public void LoadGameplayMap()
     {
+        if (_inputManager.playerCount < _maxPlayerSize)
+        {
+            Debug.Log("Not enough player joined yet!\nJoin new player or pick other mode.");
+            return;
+        }
+
         if (matchmakingData.gameplayScene == "null") return;
          UnityEngine.SceneManagement.SceneManager.LoadScene(matchmakingData.gameplayScene);
     }
