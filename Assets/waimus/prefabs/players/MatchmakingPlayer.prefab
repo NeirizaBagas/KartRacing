@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8404720941789846924}
   m_Layer: 0
   m_Name: MatchmakingPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,13 +181,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d701c57645c39dfbc54c1e15a77a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 1, g: 0.6745098, b: 0, a: 1}
-  readyColor: {r: 0, g: 1, b: 0.2810154, a: 1}
+  _defaultColor: {r: 0.8396226, g: 0.6377313, b: 0.41585082, a: 1}
+  _readyColor: {r: 0, g: 0.8207547, b: 0.3437895, a: 1}
   blueprint: {fileID: 11400000, guid: caa7cabd8ce49241fb08bfcee820bad9, type: 2}
   _playerIndicator: {fileID: 877141506907242528}
   _kartLabelsParent: {fileID: 0}
-  playerLabel: {fileID: 6456491750113671515}
-  playerPanel: {fileID: 1691460243131052270}
+  _playerLabel: {fileID: 6456491750113671515}
+  _playerPanel: {fileID: 1691460243131052270}
 --- !u!1 &1931932190646651361
 GameObject:
   m_ObjectHideFlags: 0

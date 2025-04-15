@@ -1,30 +1,33 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public enum EPageStates
 {
-    Matchmaking = 0, MapSelect = 1
+    PlayerSize = 0, Matchmaking = 1, MapSelect = 2
 };
 
 public class PageStateManager : MonoBehaviour
 {
+    public GameObject pagePlayerSizeSelect;
     public GameObject pageMatchmaking;
     public GameObject pageMapSelect;
     
-    [SerializeField] private EPageStates currentPageState = EPageStates.Matchmaking;
+    [SerializeField] private EPageStates _currentPageState = EPageStates.Matchmaking;
 
     public static PageStateManager Instance { get; private set; }
 
     private void Awake() => Instance ??= this;
 
-    private void Start() => ChangeState(EPageStates.Matchmaking);
+    private void Start() => ChangeState(EPageStates.PlayerSize);
 
     public void ChangeState(EPageStates state)
     {
-        currentPageState = state;
+        _currentPageState = state;
 
-        pageMatchmaking.SetActive(currentPageState == EPageStates.Matchmaking);
-        pageMapSelect.SetActive(currentPageState == EPageStates.MapSelect);
+        pagePlayerSizeSelect.SetActive(_currentPageState == EPageStates.PlayerSize);
+        pageMatchmaking.SetActive(_currentPageState == EPageStates.Matchmaking);
+        pageMapSelect.SetActive(_currentPageState == EPageStates.MapSelect);
     }
 
     public void ChangeState(int state)
@@ -32,5 +35,5 @@ public class PageStateManager : MonoBehaviour
         ChangeState((EPageStates)state);
     }
     
-    public EPageStates GetCurrentPageState() => currentPageState;
+    public EPageStates GetCurrentPageState() => _currentPageState;
 }

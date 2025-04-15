@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEngine.EventSystems;
 
 /// <summary>
 ///  A class of player instance during matchmaking as a UI element. 
@@ -13,8 +12,8 @@ using UnityEngine.EventSystems;
 public class PlayerMatchmakingInstance : MonoBehaviour
 {
     [Header("Configurations")]
-    [SerializeField] private Color defaultColor = Color.yellow;
-    [SerializeField] private Color readyColor = Color.green;
+    [SerializeField] private Color _defaultColor = Color.yellow;
+    [SerializeField] private Color _readyColor = Color.green;
     public PlayerMatchmakingData blueprint;
     
     [Header("References")]
@@ -30,8 +29,8 @@ public class PlayerMatchmakingInstance : MonoBehaviour
     private InputActionMap _inputMap;
 
     [Header("UI References")] 
-    [SerializeField] private TextMeshProUGUI playerLabel;
-    [SerializeField] private Image playerPanel;
+    [SerializeField] private TextMeshProUGUI _playerLabel;
+    [SerializeField] private Image _playerPanel;
 
     private void Awake()
     {
@@ -43,6 +42,7 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         for (int i = 0; i < _kartLabelsParent.childCount; i++) 
             _kartLabels[i] = _kartLabelsParent.GetChild(i) as RectTransform;
         
+        // Input references setup
         _input = GetComponent<PlayerInput>();
         _actionAsset = _input.actions;
         _inputMap = _actionAsset.FindActionMap("UI");
@@ -52,7 +52,7 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         MatchmakingLobby.RegisterPlayer(_dataRef);
         
         // Indicator label by player ID which given from InputSystem
-        if (playerLabel) playerLabel.text = $"P{_dataRef.playerId + 1}";
+        if (_playerLabel) _playerLabel.text = $"P{_dataRef.playerId + 1}";
     }
 
     private void OnEnable()
@@ -60,7 +60,7 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         // Input action event subscription
         _inputMap.FindAction("Navigate").performed += (ctx) => CycleThroughSelection((int)ctx.ReadValue<Vector2>().x);
         _inputMap.FindAction("Submit").performed += (ctx) => ToggleValidatePlayer();
-        _inputMap.FindAction("Join").performed += (ctx) => { Destroy(_playerIndicator.gameObject); Destroy(gameObject); }; // Disconnect
+        _inputMap.FindAction("Join").performed += (ctx) => { DisconnectPlayer(); }; // Disconnect
         
         if (_dataRef.playerId == 0) MatchmakingLobby.SetEventSystemFocus(false);
     }
@@ -72,13 +72,19 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         // Called when player left match/destroyed
         var data = MatchmakingLobby.GetPlayerMatchmakingData(_dataRef); // Get actual data from list
         MatchmakingLobby.UnregisterPlayer(data);
-        if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(true);
+        // if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(true);
     }
 
     private void Start()
     {
         _playerIndicator.transform.SetParent(_kartLabels[_selectionId], false);
         MatchmakingLobby.Instance.SetActiveSelectedKart(_dataRef.playerId, _selectionId);
+    }
+
+    public void DisconnectPlayer()
+    {
+        Destroy(_playerIndicator.gameObject); 
+        Destroy(gameObject);
     }
 
     private void CycleThroughSelection(int direction)
@@ -108,14 +114,14 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         var data = MatchmakingLobby.GetPlayerMatchmakingData(_dataRef);
         MatchmakingLobby.ValidatePlayer(data.playerId, !data.isReady);
 
-        if (playerPanel && data.isReady)
+        if (_playerPanel && data.isReady)
         {
-            playerPanel.color = readyColor;
+            _playerPanel.color = _readyColor;
             if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(true, 1f);
         }
         else
         {
-            playerPanel.color = defaultColor;
+            _playerPanel.color = _defaultColor;
             if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(false);
         }
     }

@@ -14,12 +14,16 @@ public class MatchmakingLobby : MonoBehaviour
 {
     [Header("Data")]
     public MatchmakingData matchmakingData;
+    private int _maxPlayerSize;
+    private bool _isMatchReady = false;
     
     [Header("References")]
     public Transform kartsLabelParent;
     public Transform kartsDisplay;
-    private Transform[] kartsDisplayPivots;
-    private Transform[] activeKartPivots;
+    public Transform kartsDisplayBase;
+    private Transform[] _kartsDisplayPivots;
+    private Transform[] _kartsDisplayBase;
+    private Transform[] _activeKartPivots;
 
     [SerializeField] private PlayerInputManager _inputManager;
     [SerializeField] private Camera _camera;
@@ -33,20 +37,25 @@ public class MatchmakingLobby : MonoBehaviour
         _inputManager ??= GetComponent<PlayerInputManager>();
         _inputManager.playerJoinedEvent.AddListener(OnPlayerJoined);
         _inputManager.playerLeftEvent.AddListener(OnPlayerLeft);
-
-        // Reserve list space with the size of max player count
-        matchmakingData.playersData = new PlayerMatchmakingData[_inputManager.maxPlayerCount];
     }
 
     private void Start()
     {
         // Hide kart display
         if (!kartsDisplay) return;
-        kartsDisplayPivots = new Transform[kartsDisplay.childCount];
+        _kartsDisplayPivots = new Transform[kartsDisplay.childCount];
         for (int i = 0; i < kartsDisplay.childCount; i++)
         {
-            kartsDisplayPivots[i] = kartsDisplay.GetChild(i).transform;
+            _kartsDisplayPivots[i] = kartsDisplay.GetChild(i).transform;
             kartsDisplay.GetChild(i).gameObject.SetActive(false);
+        }
+
+        if (!kartsDisplayBase) return;
+        _kartsDisplayBase = new Transform[kartsDisplayBase.childCount];
+        for (int i = 0; i < kartsDisplayBase.childCount; i++)
+        {
+            _kartsDisplayBase[i] = kartsDisplayBase.GetChild(i).transform;
+            kartsDisplayBase.GetChild(i).gameObject.SetActive(false);
         }
         
         SetEventSystemFocus(true);
@@ -62,30 +71,49 @@ public class MatchmakingLobby : MonoBehaviour
         
         // Debug.Log($"Player {player.playerIndex} Joined match");
         // UpdateCameraPosition();
+        
+        if (_inputManager.playerCount >= _maxPlayerSize) _inputManager.DisableJoining();
     }
 
     private void OnPlayerLeft(PlayerInput player)
     {
+        if (_inputManager.playerCount < _maxPlayerSize) _inputManager.EnableJoining();
         // Debug.Log($"Player {player.playerIndex} left match");
         // UpdateCameraPosition();
     }
 
-    private void UpdateCameraPosition()
+    private void FocusCameraToKartDisplay()
     {
         // Get any active karts display
-        activeKartPivots =  Array.FindAll(kartsDisplayPivots, (p) => p.gameObject.activeInHierarchy);
-        if (activeKartPivots is { Length: <= 0}) return;
+        _activeKartPivots =  Array.FindAll(_kartsDisplayPivots, (p) => p.gameObject.activeInHierarchy);
+        if (_activeKartPivots is { Length: <= 0}) return;
         
         // Update camera position to center between first and last active karts
         Vector3[] posRange = new Vector3[2];
-        posRange[0] = activeKartPivots.First().position;
-        posRange[1] = activeKartPivots.Last().position;
+        posRange[0] = _activeKartPivots.First().position;
+        posRange[1] = _activeKartPivots.Last().position;
+        Vector3 mid = new Vector3(Vector3.Lerp(posRange[0], posRange[1], 0.5f).x, 0, 0);
+        _camera.transform.parent.DOMove(mid, 0.5f).SetAutoKill(true);
+    }
+    
+    private void FocusCameraToKartBase()
+    {
+        // Get any active karts display
+        _activeKartPivots =  Array.FindAll(_kartsDisplayBase, (p) => p.gameObject.activeInHierarchy);
+        if (_activeKartPivots is { Length: <= 0}) return;
+        
+        // Update camera position to center between first and last active karts
+        Vector3[] posRange = new Vector3[2];
+        posRange[0] = _activeKartPivots.First().position;
+        posRange[1] = _activeKartPivots.Last().position;
         Vector3 mid = new Vector3(Vector3.Lerp(posRange[0], posRange[1], 0.5f).x, 0, 0);
         _camera.transform.parent.DOMove(mid, 0.5f).SetAutoKill(true);
     }
 
     public void SetActiveSelectedKart(int pid, int kid)
     {
+        if (PageStateManager.Instance.GetCurrentPageState() != EPageStates.Matchmaking) return;
+        
         Transform pivot = kartsDisplay.GetChild(pid);
         for (int i = 0; i < pivot.childCount; i++)
         {
@@ -106,7 +134,40 @@ public class MatchmakingLobby : MonoBehaviour
         Debug.Log($"Map to load is set to: {matchmakingData.gameplayScene}");
     }
 
-    #region Utilities
+    public void ResetMatchmaking()
+    {
+        var current = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(current.name);
+    }
+
+    public void CreateGame(int playerSize)
+    {
+        _maxPlayerSize = playerSize;
+        // Reserve list space with the size of max player count
+        // matchmakingData.playersData = new PlayerMatchmakingData[_inputManager.maxPlayerCount];
+        matchmakingData.playersData = new PlayerMatchmakingData[_maxPlayerSize];
+        Debug.Log($"Game is set to {playerSize}-player mode");
+
+        GameObject[] existingPlayers;
+        if ((existingPlayers = GameObject.FindGameObjectsWithTag("Player")) != null)
+            foreach (var p in existingPlayers)
+                p.GetComponent<PlayerMatchmakingInstance>().DisconnectPlayer();
+        
+        // Reset car display
+        for (int i = 0; i < kartsDisplay.childCount; i++)
+        {
+            _kartsDisplayPivots[i] = kartsDisplay.GetChild(i).transform;
+            kartsDisplay.GetChild(i).gameObject.SetActive(false);
+        }
+        for (int i = 0; i < kartsDisplayBase.childCount; i++)
+        {
+            _kartsDisplayBase[i] = kartsDisplayBase.GetChild(i).transform;
+            kartsDisplayBase.GetChild(i).gameObject.SetActive(false);
+        }
+        for (int i = 0; i < playerSize; i++)
+            kartsDisplayBase.GetChild(i).gameObject.SetActive(true);
+        FocusCameraToKartBase();
+    }
     
     public static PlayerMatchmakingData GetPlayerMatchmakingData(int id)
     {
@@ -129,7 +190,7 @@ public class MatchmakingLobby : MonoBehaviour
         // Show kart by player index
         if (!Instance.kartsDisplay) return;
         Instance.kartsDisplay?.GetChild(data.playerId).gameObject?.SetActive(true);
-        Instance.UpdateCameraPosition();
+        // Instance.FocusCameraToKartDisplay();
     }
     
     public static void UnregisterPlayer(PlayerMatchmakingData data)
@@ -141,7 +202,7 @@ public class MatchmakingLobby : MonoBehaviour
         // Hide kart by player index
         if (!Instance.kartsDisplay) return;
         Instance.kartsDisplay?.GetChild(data.playerId).gameObject?.SetActive(false);
-        Instance.UpdateCameraPosition();
+        // Instance.FocusCameraToKartDisplay();
     }
 
     public static void ValidatePlayer(int id, bool isReady)
@@ -150,7 +211,9 @@ public class MatchmakingLobby : MonoBehaviour
 
         // If all players ready
         var players = Instance.matchmakingData.playersData.Where((d) => d != null).ToArray();
-        if (players.All(p => p.isReady != false))
+        Instance._isMatchReady = players.All(p => p.isReady != false);
+        
+        if (Instance._isMatchReady)
         {
             Debug.Log("All players ready", Instance);
 
@@ -163,6 +226,8 @@ public class MatchmakingLobby : MonoBehaviour
             }
         }
     }
+    
+#region Utilities
 
     public static void SetEventSystemFocus(bool isFocus)
     {
@@ -202,5 +267,5 @@ public class MatchmakingLobby : MonoBehaviour
         }
     }
     
-    #endregion
+#endregion
 }
