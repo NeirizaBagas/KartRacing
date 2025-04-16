@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Users;
 
 /// <summary>
 /// Manages player spawning given matchmaking data
@@ -53,6 +52,7 @@ public class GamePlayerManager : MonoBehaviour
         player.actions.devices = new[] { data.playersData[player.playerIndex].inputDevice };
         player.transform.position = spawnPoints[player.playerIndex].position;
         player.GetComponent<KartInputProcessor>().InitializeInput();
+        player.GetComponent<KartMeshesManager>().selectedId = data.playersData[player.playerIndex].kartId;
 
         // Update split screen layout
         CameraSplitscreenManager.Instance.CreateCamera(player.transform);

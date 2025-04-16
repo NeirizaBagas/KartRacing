@@ -4,7 +4,6 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.Users;
 
 /// <summary>
 /// Manages matchmaking data which to be transferred to GamePlayerManager via MatchmakingData
@@ -57,6 +56,8 @@ public class MatchmakingLobby : MonoBehaviour
             _kartsDisplayBase[i] = kartsDisplayBase.GetChild(i).transform;
             kartsDisplayBase.GetChild(i).gameObject.SetActive(false);
         }
+        
+        _inputManager.DisableJoining();
         
         SetEventSystemFocus(true);
     }
@@ -150,7 +151,6 @@ public class MatchmakingLobby : MonoBehaviour
     {
         _maxPlayerSize = playerSize;
         // Reserve list space with the size of max player count
-        // matchmakingData.playersData = new PlayerMatchmakingData[_inputManager.maxPlayerCount];
         matchmakingData.playersData = new PlayerMatchmakingData[_maxPlayerSize];
         Debug.Log($"Game is set to {playerSize}-player mode");
 

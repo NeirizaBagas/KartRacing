@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,11 +28,13 @@ public class KartInputProcessor : MonoBehaviour
             };
         }
     }
-    
-    public Vector2 GetMovementInput() => GetVectorInput(_inputMap.FindAction("Move"));
+
+    public InputAction GetAction(string name) => _inputMap.FindAction(name);
+    public Vector2 GetMovementInput() => GetVectorInput(GetAction("Move"));
 
     #region static helpers
     public static Vector2 GetVectorInput(InputAction action) => action.ReadValue<Vector2>();
+    public static float GetFloatInput(InputAction action) => action.ReadValue<float>();
     public static bool GetActionPressed(InputAction action) => action.WasPressedThisFrame();
     public static bool GetActionReleased(InputAction action) => action.WasReleasedThisFrame();
     public static bool GetActionHeld(InputAction action) => action.IsPressed();
