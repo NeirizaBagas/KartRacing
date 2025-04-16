@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Bagas/SceneBagas/Level2.unity
     guid: 367fdea71833206448d7b127df30fddf
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: d03cf619d5097494fa40b9e8d8fb4c15,
+      type: 2}
