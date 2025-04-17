@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 243325536}
   - component: {fileID: 243325535}
   m_Layer: 5
-  m_Name: Map (2)
+  m_Name: SelectMap (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,19 +687,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627313870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 477925188}
-        m_TargetAssemblyTypeName: MatchmakingLobby, Assembly-CSharp
-        m_MethodName: SetGameplayScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: null
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &243325536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +955,7 @@ GameObject:
   - component: {fileID: 297381479}
   - component: {fileID: 297381478}
   m_Layer: 5
-  m_Name: Map (1)
+  m_Name: SelectMap (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,19 +1026,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 434359610}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 477925188}
-        m_TargetAssemblyTypeName: MatchmakingLobby, Assembly-CSharp
-        m_MethodName: SetGameplayScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameplayScene
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &297381479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1404,7 +1380,7 @@ GameObject:
   - component: {fileID: 451290410}
   - component: {fileID: 451290409}
   m_Layer: 5
-  m_Name: Map (3)
+  m_Name: SelectMap (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1475,19 +1451,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1663804453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 477925188}
-        m_TargetAssemblyTypeName: MatchmakingLobby, Assembly-CSharp
-        m_MethodName: SetGameplayScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: null
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &451290410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1682,6 +1646,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matchmakingData: {fileID: 11400000, guid: a262aa7624b64a87ab8c195f73ecdc2a, type: 2}
+  _levelsData:
+  - sceneName: GameplayScene
+    associatedSelectButton: {fileID: 297381478}
+  - sceneName: Level 1
+    associatedSelectButton: {fileID: 243325535}
+  - sceneName: null
+    associatedSelectButton: {fileID: 451290409}
+  startMatchButton: {fileID: 1882756631}
   kartsLabelParent: {fileID: 1461985160}
   kartsDisplay: {fileID: 1680946873}
   kartsDisplayBase: {fileID: 1418495864}
@@ -5805,7 +5777,7 @@ GameObject:
   - component: {fileID: 1882756632}
   - component: {fileID: 1882756631}
   m_Layer: 5
-  m_Name: ButtonAccept
+  m_Name: ButtonStartMatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5874,19 +5846,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1882756632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 477925188}
-        m_TargetAssemblyTypeName: MatchmakingLobby, Assembly-CSharp
-        m_MethodName: LoadGameplayMap
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1882756632
 MonoBehaviour:
   m_ObjectHideFlags: 0

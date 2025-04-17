@@ -13,6 +13,8 @@ public class MatchmakingLobby : MonoBehaviour
 {
     [Header("Data")]
     public MatchmakingData matchmakingData;
+    [SerializeField] private LevelData[] _levelsData;
+    [SerializeField] private UnityEngine.UI.Button startMatchButton;
     private int _maxPlayerSize;
     private bool _isMatchReady = false;
     
@@ -60,6 +62,33 @@ public class MatchmakingLobby : MonoBehaviour
         _inputManager.DisableJoining();
         
         SetEventSystemFocus(true);
+    }
+
+    private void OnEnable()
+    {
+        // Centralize level data via this script once object references are setup
+        foreach (var ld in _levelsData)
+        {
+            // Level select button
+            ld.associatedSelectButton.onClick.AddListener(() =>
+            {
+                matchmakingData.gameplayScene = ld.sceneName;
+                Debug.Log($"Map to load is set to: {matchmakingData.gameplayScene}");
+            });
+        }
+        
+        // Start game button
+        startMatchButton.onClick.AddListener(() =>
+        {
+            if (_inputManager.playerCount < _maxPlayerSize)
+            {
+                Debug.Log("Not enough player joined yet!\nJoin new player or pick other mode.");
+                return;
+            }
+
+            if (matchmakingData.gameplayScene == "null") return;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(matchmakingData.gameplayScene);
+        });
     }
 
     private void OnPlayerJoined(PlayerInput player)
@@ -121,30 +150,6 @@ public class MatchmakingLobby : MonoBehaviour
             // Show kart when index is the requested id, otherwise hide
             pivot.GetChild(i).gameObject.SetActive(i == kid);
         }
-    }
-
-    public void LoadGameplayMap()
-    {
-        if (_inputManager.playerCount < _maxPlayerSize)
-        {
-            Debug.Log("Not enough player joined yet!\nJoin new player or pick other mode.");
-            return;
-        }
-
-        if (matchmakingData.gameplayScene == "null") return;
-         UnityEngine.SceneManagement.SceneManager.LoadScene(matchmakingData.gameplayScene);
-    }
-
-    public void SetGameplayScene(string name)
-    {
-        matchmakingData.gameplayScene = name;
-        Debug.Log($"Map to load is set to: {matchmakingData.gameplayScene}");
-    }
-
-    public void ResetMatchmaking()
-    {
-        var current = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(current.name);
     }
 
     public void CreateGame(int playerSize)
@@ -273,5 +278,13 @@ public class MatchmakingLobby : MonoBehaviour
         }
     }
     
+#endregion
+#region Level Utility Class
+    [Serializable]
+    public class LevelData
+    {
+        public string sceneName;
+        public UnityEngine.UI.Button associatedSelectButton;
+    }
 #endregion
 }
