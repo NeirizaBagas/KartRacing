@@ -6,10 +6,10 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MotorKart
+  m_Name: BuggyKart
   m_Controller: {fileID: 9100000, guid: 3694ddfc96b954743ab8149ffcc988a8, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: b73a06cc04826824d805dc0ec0d91206, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e6364c662fc000545a425aa3668b577a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 974547c776c6ba94695177af7257c8c6, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: cf23b4306181b2a42943136a9887c578, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 872678a90ad020945a18385345ba7019, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4e5c83efd788f504c9517d955d3146ca, type: 2}

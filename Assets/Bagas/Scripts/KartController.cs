@@ -21,6 +21,8 @@ public class KartController : MonoBehaviour
     Color c;
 
     [Header("Player")]
+    public int ID;
+    Player playerID;
     [SerializeField] private PlayerInput playerInput;
     private Vector2 moveInput; // Nyimpen input gerakan
     Vector2 directionInput;
@@ -28,9 +30,7 @@ public class KartController : MonoBehaviour
     [Header("Model")]
     public Transform kartModel;
     public Transform kartNormal;
-    public Transform frontWheels;
-    public Transform backWheels;
-    public Transform steeringWheel;
+    //public Transform steeringWheel;
     public Rigidbody sphere;
 
     [Header("Bools")]
@@ -57,14 +57,17 @@ public class KartController : MonoBehaviour
     public PlayerItemHandler playerItemHandler;
     //public Animator anim;
 
-    void Start()
+    void Awake()
     {
+        playerID = GetComponentInParent<Player>();
+        ID = playerID.id;
+        if (playerInput == null) playerInput = GetComponentInParent<PlayerInput>();
+        playerItemHandler = GetComponent<PlayerItemHandler>();
+
         //postVolume = Camera.main.GetComponent<PostProcessVolume>(); // Poss Process
         //postProfile = postVolume.profile;
         canMove = true;
 
-        playerInput = GetComponent<PlayerInput>();
-        playerItemHandler = GetComponent<PlayerItemHandler>();
 
         for (int i = 0; i < wheelParticles.GetChild(0).childCount; i++)
         {
@@ -119,13 +122,9 @@ public class KartController : MonoBehaviour
             kartModel.parent.localRotation = Quaternion.Euler(0, Mathf.LerpAngle(kartModel.parent.localEulerAngles.y, (control * 15) * driftDirection, .2f), 0);
         }
 
-        //b) Wheels
-        frontWheels.localEulerAngles = new Vector3(0, (directionInput.x * 15), frontWheels.localEulerAngles.z);
-        frontWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
-        backWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
 
         //c) Steering Wheel
-        steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
+        //steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
         //boostBar.value = driftMode;
     }
 
@@ -134,7 +133,12 @@ public class KartController : MonoBehaviour
         if (!drifting)
             sphere.AddForce(-kartModel.transform.right * currentSpeed, ForceMode.Acceleration);
         else
+        {
+            currentSpeed *= 0.8f; 
+            ApplyDriftAssist();
             sphere.AddForce(transform.forward * currentSpeed, ForceMode.Acceleration);
+        }
+
 
         sphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
 
@@ -142,14 +146,12 @@ public class KartController : MonoBehaviour
                                              new Vector3(0, transform.eulerAngles.y + currentRotate, 0),
                                              Time.deltaTime * 5f);
 
-        RaycastHit hitOn;
-        RaycastHit hitNear;
+        RaycastHit hitOn, hitNear;
 
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitOn, 1.1f, layerMask);
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out hitNear, 2.0f, layerMask);
+        Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitOn, 1.1f, layerMask);
+        Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitNear, 2.0f, layerMask);
 
-        //Normal Rotation
-        kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8.0f);
+        kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8f);
         kartNormal.Rotate(0, transform.eulerAngles.y, 0);
     }
 
@@ -205,6 +207,21 @@ public class KartController : MonoBehaviour
 
     }
 
+    private void ApplyDriftAssist()
+    {
+        if (drifting)
+        {
+            float driftAngle = Vector3.Angle(transform.forward, sphere.velocity);
+            if (driftAngle > 15f) //Adjust the angle threshold as needed
+            {
+                float assistForce = Mathf.Clamp(0.5f * (driftAngle / 90f), 0f, 1f);
+                transform.eulerAngles = Vector3.Lerp(transform.eulerAngles,
+                    new Vector3(0, transform.eulerAngles.y + assistForce * steering, 0),
+                    Time.fixedDeltaTime * 4f);
+            }
+        }
+    }
+
     public void Boost()
     {
         //AudioManager.Instance.PlaySFX(1);
@@ -215,8 +232,7 @@ public class KartController : MonoBehaviour
             DOVirtual.Float(currentSpeed * 3, currentSpeed, .3f * driftMode, Speed);
             //DOVirtual.Float(0, 1, .5f, ChromaticAmount).OnComplete(() => DOVirtual.Float(1, 0, .5f, ChromaticAmount));
 
-            kartModel.Find("Tube001").GetComponentInChildren<ParticleSystem>().Play();
-            kartModel.Find("Tube002").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("VFX Knalpot").GetComponentInChildren<ParticleSystem>().Play();
         }
 
         driftPower = 0;
