@@ -38,6 +38,7 @@ public class KartController : MonoBehaviour
     public bool boosting;
     public bool canMove;
     public bool shieldActive;
+    public bool isMoving;
 
     [Header("Parameters")]
     public int driftMode = 0;
@@ -54,19 +55,37 @@ public class KartController : MonoBehaviour
     public Transform flashParticles;
     public Color[] turboColors;
 
+    [Header("Cinemachine")]
+    public CinemachineVirtualCamera vCam;
+    private float defaultFOV;
+
     public PlayerItemHandler playerItemHandler;
-    //public Animator anim;
+    public Animator anim;
 
     void Awake()
     {
         playerID = GetComponentInParent<Player>();
         ID = playerID.id;
-        if (playerInput == null) playerInput = GetComponentInParent<PlayerInput>();
+        if (playerInput == null) playerInput = GetComponent<PlayerInput>();
         playerItemHandler = GetComponent<PlayerItemHandler>();
+        anim = GetComponentInChildren<Animator>();
 
         //postVolume = Camera.main.GetComponent<PostProcessVolume>(); // Poss Process
         //postProfile = postVolume.profile;
         canMove = true;
+
+        //if (vCam != null)
+        //{
+        //    defaultFOV = vCam.m_Lens.FieldOfView;
+        //    vCam.Follow = this.transform;
+        //    vCam.LookAt = this.transform;
+        //}
+
+        //if (this.gameObject.activeSelf == true)
+        //{
+        //    vCam.Follow = this.transform;
+        //    vCam.LookAt = this.transform;
+        //}
 
 
         for (int i = 0; i < wheelParticles.GetChild(0).childCount; i++)
@@ -179,6 +198,17 @@ public class KartController : MonoBehaviour
             // Mengatur kecepatan berdasarkan input gerak
             speed = acceleration * throttleInput;
 
+            if (speed > 0)
+            {
+                isMoving = true;
+                anim.SetBool("Move", true);
+            }
+            else
+            {
+                isMoving = false;
+                anim.SetBool("Move", false);
+            }
+
             // Drift
             if (playerInput.actions["Drift"].WasPressedThisFrame() && !drifting && directionInput.x != 0)
             {
@@ -232,7 +262,9 @@ public class KartController : MonoBehaviour
             DOVirtual.Float(currentSpeed * 3, currentSpeed, .3f * driftMode, Speed);
             //DOVirtual.Float(0, 1, .5f, ChromaticAmount).OnComplete(() => DOVirtual.Float(1, 0, .5f, ChromaticAmount));
 
-            kartModel.Find("VFX Knalpot").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("Booster1").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("Booster2").GetComponentInChildren<ParticleSystem>().Play();
+
         }
 
         driftPower = 0;
