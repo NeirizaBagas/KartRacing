@@ -167,8 +167,18 @@ public class KartController : MonoBehaviour
 
         RaycastHit hitOn, hitNear;
 
-        Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitOn, 1.1f, layerMask);
-        Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitNear, 2.0f, layerMask);
+        bool hitGround1 = Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitOn, 1.1f, layerMask);
+        bool hitGround2 = Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitNear, 2.0f, layerMask);
+
+        if (!hitGround1 || !hitGround2)
+        {
+            Debug.LogWarning("Raycast tidak mendeteksi tanah! Pastikan ada collider dan layerMask benar.");
+        }
+        else
+        {
+            kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8f);
+            kartNormal.Rotate(0, transform.eulerAngles.y, 0);
+        }
 
         kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8f);
         kartNormal.Rotate(0, transform.eulerAngles.y, 0);

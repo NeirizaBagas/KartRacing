@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/waimus/scenes/GameplayScene.unity
     guid: d1fc25cb54575d54b9fc0a838c447c48
   m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: 9476b01e8402a5810be3dedfd9912a43,
+    com.unity.input.settings: {fileID: 11400000, guid: d03cf619d5097494fa40b9e8d8fb4c15,
       type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 22043e5fbea837e6db750547eb3fb030,
       type: 3}

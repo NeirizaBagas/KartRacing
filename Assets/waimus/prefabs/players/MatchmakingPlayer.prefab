@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultColor: {r: 0.8396226, g: 0.6377313, b: 0.41585082, a: 1}
   _readyColor: {r: 0, g: 0.8207547, b: 0.3437895, a: 1}
-  blueprint: {fileID: 11400000, guid: caa7cabd8ce49241fb08bfcee820bad9, type: 2}
+  blueprint: {fileID: 11400000, guid: 18f47d7639f705f4aacb350543b591da, type: 2}
   _playerIndicator: {fileID: 877141506907242528}
   _kartLabelsParent: {fileID: 0}
   _playerLabel: {fileID: 6456491750113671515}
