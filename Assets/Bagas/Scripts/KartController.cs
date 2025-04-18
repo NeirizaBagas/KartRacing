@@ -68,7 +68,7 @@ public class KartController : MonoBehaviour
         ID = playerID.id;
         if (playerInput == null) playerInput = GetComponent<PlayerInput>();
         playerItemHandler = GetComponent<PlayerItemHandler>();
-        anim = GetComponentInChildren<Animator>();
+        if (anim == null) anim = kartModel.GetComponentInChildren<Animator>();
 
         //postVolume = Camera.main.GetComponent<PostProcessVolume>(); // Poss Process
         //postProfile = postVolume.profile;
