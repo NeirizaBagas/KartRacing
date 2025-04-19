@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [System.Serializable]
 public enum EPageStates
 {
-    PlayerSize = 0, Matchmaking = 1, MapSelect = 2
+    PlayerModeSelect = 0, Matchmaking = 1, MapSelect = 2
 };
 
 public class PageStateManager : MonoBehaviour
@@ -19,13 +18,13 @@ public class PageStateManager : MonoBehaviour
 
     private void Awake() => Instance ??= this;
 
-    private void Start() => ChangeState(EPageStates.PlayerSize);
+    private void Start() => ChangeState(EPageStates.PlayerModeSelect);
 
     public void ChangeState(EPageStates state)
     {
         _currentPageState = state;
 
-        pagePlayerSizeSelect.SetActive(_currentPageState == EPageStates.PlayerSize);
+        pagePlayerSizeSelect.SetActive(_currentPageState == EPageStates.PlayerModeSelect);
         pageMatchmaking.SetActive(_currentPageState == EPageStates.Matchmaking);
         pageMapSelect.SetActive(_currentPageState == EPageStates.MapSelect);
     }
