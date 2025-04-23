@@ -5121,6 +5121,60 @@ Transform:
   - {fileID: 1661449637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &1668905118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668905116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13231424b2f2460ba2da00d8b8c34166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainMenuName: MainMenu
+  _levelsData:
+  - sceneName: GameplayScene
+    associatedSelectButton: {fileID: 297381478}
+  - sceneName: Map 2
+    associatedSelectButton: {fileID: 243325535}
+  - sceneName: null
+    associatedSelectButton: {fileID: 451290409}
+  _pages:
+  - pageState: 0
+    pageRoot: {fileID: 482644456}
+    buttonPreviousPage: {fileID: 1175070655}
+    buttonNextPage: {fileID: 1492764375}
+  - pageState: 1
+    pageRoot: {fileID: 706466012}
+    buttonPreviousPage: {fileID: 213282156}
+    buttonNextPage: {fileID: 645378011}
+  - pageState: 2
+    pageRoot: {fileID: 1661449633}
+    buttonPreviousPage: {fileID: 790385062}
+    buttonNextPage: {fileID: 1882756631}
+  _matchmakingLobby: {fileID: 477925188}
+  _inputManager: {fileID: 477925186}
+--- !u!114 &1668905119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668905116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bae322b865148cb8547f809abe47f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pagePlayerSizeSelect: {fileID: 482644456}
+  pageMatchmaking: {fileID: 706466012}
+  pageMapSelect: {fileID: 1661449633}
+  _currentPageState: 1
+>>>>>>> Stashed changes
 --- !u!1 &1680946872
 GameObject:
   m_ObjectHideFlags: 0

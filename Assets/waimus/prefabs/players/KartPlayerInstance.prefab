@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c48083900ca4155b0f657358430ba7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kartId: 0
+  selectedId: 0
   kartMeshes:
   - {fileID: 1310004434523583924}
   - {fileID: 7355540754715971282}
@@ -54266,14 +54266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kartModel: {fileID: 719226863758924496}
   kartNormal: {fileID: 4598131496036289645}
-  frontWheels: {fileID: 3646141022633622954}
-  backWheels: {fileID: 1184242775491349129}
   steeringWheel: {fileID: 8663344925823245334}
   sphere: {fileID: 8814381627773278461}
   drifting: 0
   boosting: 0
   canMove: 0
   shieldActive: 0
+  isMoving: 0
   driftMode: 0
   acceleration: 65
   steering: 10
@@ -54282,6 +54281,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 51
   dieDuration: 3
+  follow: 0.006
   primaryParticles: []
   secondaryParticles: []
   wheelParticles: {fileID: 276995558475369379}
@@ -54292,6 +54292,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   playerItemHandler: {fileID: 5313371717344837452}
+  anim: {fileID: 0}
 --- !u!114 &3068544940995113172
 MonoBehaviour:
   m_ObjectHideFlags: 0
