@@ -5515,7 +5515,7 @@ PrefabInstance:
     - target: {fileID: 8931118257056373143, guid: 76d721da6daa23add88d5e6b7c7aca98,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15623,8 +15623,13 @@ PrefabInstance:
         type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 2115763408170088479, guid: 06bbf287bb1f16246badf8545c664547,
+      objectReference: {fileID: 297763742061928003, guid: 00898649af1760d629af63b8cb232ba1,
         type: 3}
+    - target: {fileID: 3828041150671893497, guid: f577d82f969ca3ff2aa3c36e3774315d,
+        type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7182496666037959652, guid: f577d82f969ca3ff2aa3c36e3774315d,
         type: 3}
       propertyPath: m_Name
@@ -194301,7 +194306,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 190
+  far clip plane: 500
   field of view: 43
   orthographic: 0
   orthographic size: 10
@@ -286613,7 +286618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &6220376986347672231
 MeshFilter:
   m_ObjectHideFlags: 0
