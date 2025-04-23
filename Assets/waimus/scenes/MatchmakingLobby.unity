@@ -5134,10 +5134,22 @@ MonoBehaviour:
   - sceneName: GameplayScene
     associatedSelectButton: {fileID: 297381478}
   - sceneName: Map 2
-    associatedSelectButton: {fileID: 451290409}
+    associatedSelectButton: {fileID: 243325535}
   - sceneName: Null
     associatedSelectButton: {fileID: 451290409}
-  _pages: []
+  _pages:
+  - pageState: 0
+    pageRoot: {fileID: 482644456}
+    buttonPreviousPage: {fileID: 1175070655}
+    buttonNextPage: {fileID: 1492764375}
+  - pageState: 1
+    pageRoot: {fileID: 706466012}
+    buttonPreviousPage: {fileID: 213282156}
+    buttonNextPage: {fileID: 645378011}
+  - pageState: 2
+    pageRoot: {fileID: 1661449633}
+    buttonPreviousPage: {fileID: 790385062}
+    buttonNextPage: {fileID: 1882756631}
   _matchmakingLobby: {fileID: 477925188}
   _inputManager: {fileID: 477925186}
 --- !u!114 &1668905119

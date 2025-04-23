@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -34,7 +33,7 @@ public class MatchMakingLobbyPageController : MonoBehaviour
         p.buttonNextPage.onClick.AddListener(StartMatch);
         
         // Centralize level data via this script once object references are setup
-        Array.ForEach(_levelsData, (ld) =>
+        System.Array.ForEach(_levelsData, (ld) =>
         {
             // Level select button
             ld.associatedSelectButton.onClick.AddListener(() =>
