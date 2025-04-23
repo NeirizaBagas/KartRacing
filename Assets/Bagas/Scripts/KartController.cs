@@ -39,7 +39,6 @@ public class KartController : MonoBehaviour
     public bool canMove;
     public bool shieldActive;
     public bool isMoving;
-    public bool isGrounding;
 
     [Header("Parameters")]
     public int driftMode = 0;
@@ -48,7 +47,6 @@ public class KartController : MonoBehaviour
     public float gravity = 10f;
     public LayerMask layerMask;
     public int dieDuration;
-    public float follow = 0.4f;
 
     [Header("Particles")]
     public List<ParticleSystem> primaryParticles = new List<ParticleSystem>();
@@ -109,7 +107,7 @@ public class KartController : MonoBehaviour
     void Update()
     {
         // Follow Collider
-        transform.position = sphere.transform.position - new Vector3(0, follow, 0);
+        transform.position = sphere.transform.position - new Vector3(0, 0.4f, 0);
 
         _Input();
 
@@ -155,7 +153,7 @@ public class KartController : MonoBehaviour
             sphere.AddForce(-kartModel.transform.right * currentSpeed, ForceMode.Acceleration);
         else
         {
-            currentSpeed *= 0.8f;
+            currentSpeed *= 0.8f; 
             ApplyDriftAssist();
             sphere.AddForce(transform.forward * currentSpeed, ForceMode.Acceleration);
         }
@@ -175,11 +173,9 @@ public class KartController : MonoBehaviour
         if (!hitGround1 || !hitGround2)
         {
             Debug.LogWarning("Raycast tidak mendeteksi tanah! Pastikan ada collider dan layerMask benar.");
-            isGrounding = false;
         }
         else
         {
-            isGrounding = true;
             kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8f);
             kartNormal.Rotate(0, transform.eulerAngles.y, 0);
         }
@@ -247,7 +243,7 @@ public class KartController : MonoBehaviour
             if (playerInput.actions["UseItem"].WasPressedThisFrame() && playerItemHandler.currentItem.HasValue)
                 playerItemHandler.ApplyItem();
         }
-
+        
 
     }
 
@@ -393,22 +389,5 @@ public class KartController : MonoBehaviour
         yield return new WaitForSeconds(dieDuration);
 
         canMove = true;
-    }
-
-    private void OnDrawGizmos()
-    {
-        // Raycast 1 visualization
-        Gizmos.color = Color.red; // Color for hitGround1
-        Vector3 start1 = transform.position + (transform.up * 0.1f);
-        Vector3 end1 = start1 + Vector3.down * 1.1f;
-        Gizmos.DrawLine(start1, end1);
-        Gizmos.DrawSphere(end1, 0.05f); // Small sphere at the end of the ray
-
-        // Raycast 2 visualization
-        Gizmos.color = Color.blue; // Color for hitGround2
-        Vector3 start2 = transform.position + (transform.up * 0.1f);
-        Vector3 end2 = start2 + Vector3.down * 2.0f;
-        Gizmos.DrawLine(start2, end2);
-        Gizmos.DrawSphere(end2, 0.05f); // Small sphere at the
     }
 }
