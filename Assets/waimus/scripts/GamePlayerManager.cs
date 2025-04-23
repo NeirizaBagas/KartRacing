@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -50,6 +51,7 @@ public class GamePlayerManager : MonoBehaviour
         // Additional configuration to player during joined
         player.actions = data.playersData[player.playerIndex].inputActions;
         player.actions.devices = new[] { data.playersData[player.playerIndex].inputDevice };
+        Debug.LogWarning("Player index out of range: " + player.playerIndex);
         player.transform.position = spawnPoints[player.playerIndex].position;
         player.GetComponent<KartInputProcessor>().InitializeInput();
         player.GetComponent<KartMeshesManager>().selectedId = data.playersData[player.playerIndex].kartId;

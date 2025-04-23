@@ -214,9 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d05c6714304e2e82871afebc92dee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugData:
-    counter: 0
-    lastActionPerformed: 
 --- !u!114 &4634183923335426038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +332,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e6193ebc-3e37-43c0-a309-c4449cfe29db
     m_ActionName: UI/Join[/Gamepad1/start,/Gamepad/start,/Keyboard/space]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1

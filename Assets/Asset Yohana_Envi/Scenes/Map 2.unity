@@ -5390,7 +5390,7 @@ PrefabInstance:
     - target: {fileID: 3440324349674597894, guid: 76d721da6daa23add88d5e6b7c7aca98,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3630543885474489693, guid: 76d721da6daa23add88d5e6b7c7aca98,
         type: 3}
@@ -8267,7 +8267,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969450880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
@@ -15634,6 +15634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MultiplayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182496666037959652, guid: f577d82f969ca3ff2aa3c36e3774315d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8418674593152008723, guid: f577d82f969ca3ff2aa3c36e3774315d,
         type: 3}
