@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Unity.Burst.CompilerServices;
 
 /// <summary>
 /// Component that processes movement implementation given the input from an InputProcessor modified from KartController
@@ -22,8 +23,6 @@ public class KartMover : MonoBehaviour
     [Header("Model")]
     public Transform kartModel;
     public Transform kartNormal;
-    public Transform frontWheels;
-    public Transform backWheels;
     public Transform steeringWheel;
     public Rigidbody sphere;
 
@@ -32,6 +31,7 @@ public class KartMover : MonoBehaviour
     public bool boosting;
     public bool canMove;
     public bool shieldActive;
+    public bool isMoving;
 
     [Header("Parameters")]
     public int driftMode = 0;
@@ -40,6 +40,7 @@ public class KartMover : MonoBehaviour
     public float gravity = 10f;
     public LayerMask layerMask;
     public int dieDuration;
+    public float follow = 0.4f;
 
     [Header("Particles")]
     public List<ParticleSystem> primaryParticles = new List<ParticleSystem>();
@@ -49,6 +50,7 @@ public class KartMover : MonoBehaviour
     public Color[] turboColors;
 
     public PlayerItemHandler playerItemHandler;
+    public Animator anim;
 
     private void Awake()
     {
@@ -82,7 +84,7 @@ public class KartMover : MonoBehaviour
     void Update()
     {
         // Follow Collider
-        transform.position = sphere.transform.position - new Vector3(0, 0.4f, 0);
+        transform.position = sphere.transform.position - new Vector3(0, follow, 0);
 
         _Input();
 
@@ -116,11 +118,6 @@ public class KartMover : MonoBehaviour
             kartModel.parent.localRotation = Quaternion.Euler(0, Mathf.LerpAngle(kartModel.parent.localEulerAngles.y, (control * 15) * driftDirection, .2f), 0);
         }
 
-        //b) Wheels
-        frontWheels.localEulerAngles = new Vector3(0, (directionInput.x * 15), frontWheels.localEulerAngles.z);
-        frontWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
-        backWheels.localEulerAngles += new Vector3(sphere.velocity.magnitude / 2, 0, 0);
-
         //c) Steering Wheel
         //steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
         //boostBar.value = driftMode;
@@ -131,17 +128,33 @@ public class KartMover : MonoBehaviour
         if (!drifting)
             sphere.AddForce(-kartModel.transform.right * currentSpeed, ForceMode.Acceleration);
         else
+        {
+            currentSpeed *= 0.8f;
+            ApplyDriftAssist();
             sphere.AddForce(transform.forward * currentSpeed, ForceMode.Acceleration);
-        
+        }
+
         sphere.AddForce(Vector3.down * gravity, ForceMode.Acceleration);
-        
+
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles,
                                              new Vector3(0, transform.eulerAngles.y + currentRotate, 0),
-                                             Time.deltaTime * 5f);
-        
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out RaycastHit hitOn, 1.1f, layerMask);
-        Physics.Raycast(transform.position + (transform.up * .1f), Vector3.down, out RaycastHit hitNear, 2.0f, layerMask);
-        
+        Time.deltaTime * 5f);
+
+        RaycastHit hitOn, hitNear;
+
+        bool hitGround1 = Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitOn, 1.1f, layerMask);
+        bool hitGround2 = Physics.Raycast(transform.position + (transform.up * 0.1f), Vector3.down, out hitNear, 2.0f, layerMask);
+
+        if (!hitGround1 || !hitGround2)
+        {
+            Debug.LogWarning("Raycast tidak mendeteksi tanah! Pastikan ada collider dan layerMask benar.");
+        }
+        else
+        {
+            kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8f);
+            kartNormal.Rotate(0, transform.eulerAngles.y, 0);
+        }
+
         //Normal Rotation
         kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8.0f);
         kartNormal.Rotate(0, transform.eulerAngles.y, 0);
@@ -195,8 +208,23 @@ public class KartMover : MonoBehaviour
             if (KartInputProcessor.GetActionPressed(_inputProcessor.GetAction("UseItem")) && playerItemHandler.currentItem.HasValue)
                 playerItemHandler.ApplyItem();
         }
-        
 
+
+    }
+
+    private void ApplyDriftAssist()
+    {
+        if (drifting)
+        {
+            float driftAngle = Vector3.Angle(transform.forward, sphere.velocity);
+            if (driftAngle > 15f) //Adjust the angle threshold as needed
+            {
+                float assistForce = Mathf.Clamp(0.5f * (driftAngle / 90f), 0f, 1f);
+                transform.eulerAngles = Vector3.Lerp(transform.eulerAngles,
+                    new Vector3(0, transform.eulerAngles.y + assistForce * steering, 0),
+                    Time.fixedDeltaTime * 4f);
+            }
+        }
     }
 
     public void Boost()
