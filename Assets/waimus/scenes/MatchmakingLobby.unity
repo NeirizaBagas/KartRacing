@@ -1646,14 +1646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matchmakingData: {fileID: 11400000, guid: 4847e04afde3df44384833e4bd647ce4, type: 2}
-  _levelsData:
-  - sceneName: GameplayScene
-    associatedSelectButton: {fileID: 297381478}
-  - sceneName: Map 2
-    associatedSelectButton: {fileID: 243325535}
-  - sceneName: null
-    associatedSelectButton: {fileID: 451290409}
-  startMatchButton: {fileID: 1882756631}
+  isMatchReady: 0
+  isGameCreated: 0
   kartsLabelParent: {fileID: 1461985160}
   kartsDisplay: {fileID: 1680946873}
   kartsDisplayBase: {fileID: 1418495864}
@@ -5096,6 +5090,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1668905117}
+  - component: {fileID: 1668905119}
+  - component: {fileID: 1668905118}
   m_Layer: 0
   m_Name: Pages
   m_TagString: Untagged
@@ -5121,8 +5117,6 @@ Transform:
   - {fileID: 1661449637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1668905118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5141,7 +5135,7 @@ MonoBehaviour:
     associatedSelectButton: {fileID: 297381478}
   - sceneName: Map 2
     associatedSelectButton: {fileID: 243325535}
-  - sceneName: null
+  - sceneName: Null
     associatedSelectButton: {fileID: 451290409}
   _pages:
   - pageState: 0
@@ -5174,7 +5168,6 @@ MonoBehaviour:
   pageMatchmaking: {fileID: 706466012}
   pageMapSelect: {fileID: 1661449633}
   _currentPageState: 1
->>>>>>> Stashed changes
 --- !u!1 &1680946872
 GameObject:
   m_ObjectHideFlags: 0

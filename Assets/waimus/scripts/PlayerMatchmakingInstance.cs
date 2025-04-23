@@ -117,12 +117,12 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         if (_playerPanel && data.isReady)
         {
             _playerPanel.color = _readyColor;
-            if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(true, 1f);
+            // if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(true, 1f);
         }
         else
         {
             _playerPanel.color = _defaultColor;
-            if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(false);
+            // if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(false);
         }
     }
 }
