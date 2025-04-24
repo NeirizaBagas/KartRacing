@@ -23,7 +23,6 @@ public class KartMover : MonoBehaviour
     [Header("Model")]
     public Transform kartModel;
     public Transform kartNormal;
-    public Transform steeringWheel;
     public Rigidbody sphere;
 
     [Header("Bools")]
@@ -110,17 +109,26 @@ public class KartMover : MonoBehaviour
         //a) Kart
         if (!drifting)
         {
+            anim.SetBool("DriftKanan", false);
+            anim.SetBool("DriftKiri", false);
+
+            if (driftDirection == 0)
+            {
+                
+            }
+
             kartModel.localEulerAngles = Vector3.Lerp(kartModel.localEulerAngles, new Vector3(0, 90 + (directionInput.x * 15), kartModel.localEulerAngles.z), .2f);
         }
         else
         {
+            if (driftDirection == 1)
+                anim.SetBool("DriftKanan", true);
+            else
+                anim.SetBool("DriftKiri", true);
+
             float control = (driftDirection == 1) ? ExtensionMethods.Remap(directionInput.x, -1, 1, .5f, 2) : ExtensionMethods.Remap(directionInput.x, -1, 1, 2, .5f);
             kartModel.parent.localRotation = Quaternion.Euler(0, Mathf.LerpAngle(kartModel.parent.localEulerAngles.y, (control * 15) * driftDirection, .2f), 0);
         }
-
-        //c) Steering Wheel
-        //steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
-        //boostBar.value = driftMode;
     }
 
     private void FixedUpdate()
@@ -202,6 +210,8 @@ public class KartMover : MonoBehaviour
 
             if (KartInputProcessor.GetActionReleased(_inputProcessor.GetAction("Drift")) && drifting)
             {
+                
+                
                 Boost();
             }
 

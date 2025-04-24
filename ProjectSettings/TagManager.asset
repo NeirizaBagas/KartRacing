@@ -8,6 +8,7 @@ TagManager:
   - CP
   - Selector
   - SpawnPointCollection
+  - Kart
   layers:
   - Default
   - TransparentFX

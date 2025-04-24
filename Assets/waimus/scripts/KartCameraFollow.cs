@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class KartCameraFollow : MonoBehaviour
 {
-    private Transform _target;
+    public Transform _target;
     private float _speed;
 
     private void FixedUpdate()

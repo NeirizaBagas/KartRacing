@@ -7,9 +7,11 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MotorKart
-  m_Controller: {fileID: 9100000, guid: 3694ddfc96b954743ab8149ffcc988a8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 13badca648ddd474aaf7861e6dce40fe, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: b73a06cc04826824d805dc0ec0d91206, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e6364c662fc000545a425aa3668b577a, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: cf23b4306181b2a42943136a9887c578, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 872678a90ad020945a18385345ba7019, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6c64991ac6f4a8b4c9977778bbd9771c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 00a4910f9c0fe044487c01f8d454cbe4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 86e8f65c50d8f664299e2103e0a0af98, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e40e4dd2fe907624689cb586b00aa056, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c7b181386fb1c3e47bd271a3f64959dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3e792513b46be82478ea0a0bfd055c70, type: 2}
