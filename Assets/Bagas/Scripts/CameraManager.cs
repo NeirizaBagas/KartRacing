@@ -1,33 +1,125 @@
 using UnityEngine;
 using Cinemachine;
 
-public class CameraSetup : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
-    public Transform player1; // Objek Player 1
-    public Transform player2; // Objek Player 2
-    public CinemachineVirtualCamera vcamPlayer1; // Cinemachine Virtual Camera untuk Player 1
-    public CinemachineVirtualCamera vcamPlayer2; // Cinemachine Virtual Camera untuk Player 2
-    public Camera cameraPlayer1; // Kamera utama untuk Player 1
-    public Camera cameraPlayer2; // Kamera utama untuk Player 2
+    [Header("References")]
+    [SerializeField] private Camera[] camPlayer;
+    [SerializeField] private GameObject[] playerGameObjects;
 
-    private void Start()
+    [Header("Settings")]
+    [SerializeField] private bool isConfigured = false;
+    private const int MIN_PLAYERS = 2;
+    private const int MAX_PLAYERS = 4;
+
+    private void LateUpdate()
     {
-        // Atur Follow dan Look At untuk Player 1
-        vcamPlayer1.Follow = player1;
-        vcamPlayer1.LookAt = player1;
+        if (!isConfigured && GameManager.Instance != null)
+        {
+            ConfigureSplitScreen(GameManager.Instance.playerCount);
+            isConfigured = true;
+        }
+    }
 
-        // Atur Follow dan Look At untuk Player 2
-        vcamPlayer2.Follow = player2;
-        vcamPlayer2.LookAt = player2;
+    private void ConfigureSplitScreen(int playerCount)
+    {
+        // Validasi input
+        playerCount = Mathf.Clamp(playerCount, MIN_PLAYERS, MAX_PLAYERS);
 
-        // Atur Viewport Rect untuk Player 1
-        cameraPlayer1.rect = new Rect(0, 0, 0.5f, 1);
+        // Validasi arrays
+        if (camPlayer.Length < playerCount || playerGameObjects.Length < playerCount)
+        {
+            Debug.LogError($"Not enough cameras or player objects configured for {playerCount} players!");
+            return;
+        }
 
-        // Atur Viewport Rect untuk Player 2
-        cameraPlayer2.rect = new Rect(0.5f, 0, 0.5f, 1);
+        // Nonaktifkan semua player terlebih dahulu
+        DeactivateAllPlayers();
 
-        // Atur prioritas CinemachineVirtualCamera
-        vcamPlayer1.Priority = 10;
-        vcamPlayer2.Priority = 11;
+        // Konfigurasi berdasarkan jumlah player
+        switch (playerCount)
+        {
+            case 1:
+                SetupSinglePlayer();
+                break;
+            case 2:
+                SetupTwoPlayers();
+                break;
+            case 3:
+                SetupThreePlayers();
+                break;
+            case 4:
+                SetupFourPlayers();
+                break;
+        }
+    }
+
+    private void DeactivateAllPlayers()
+    {
+        foreach (var player in playerGameObjects)
+        {
+            if (player != null)
+                player.SetActive(false);
+        }
+    }
+
+    private void SetupSinglePlayer()
+    {
+        playerGameObjects[0].SetActive(true);
+        camPlayer[0].rect = new Rect(0, 0, 1, 1);
+    }
+
+    private void SetupTwoPlayers()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            playerGameObjects[i].SetActive(true);
+        }
+
+        camPlayer[0].rect = new Rect(0, 0, 0.5f, 1);
+        camPlayer[1].rect = new Rect(0.5f, 0, 0.5f, 1);
+    }
+
+    private void SetupThreePlayers()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            playerGameObjects[i].SetActive(true);
+        }
+
+        camPlayer[0].rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+        camPlayer[1].rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+        camPlayer[2].rect = new Rect(0.25f, 0, 0.5f, 0.5f);
+    }
+
+    private void SetupFourPlayers()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            playerGameObjects[i].SetActive(true);
+        }
+
+        camPlayer[0].rect = new Rect(0, 0.5f, 0.5f, 0.5f);
+        camPlayer[1].rect = new Rect(0.5f, 0.5f, 0.5f, 0.5f);
+        camPlayer[2].rect = new Rect(0, 0, 0.5f, 0.5f);
+        camPlayer[3].rect = new Rect(0.5f, 0, 0.5f, 0.5f);
+    }
+
+    // Method untuk reset konfigurasi jika diperlukan
+    public void ReconfigureSplitScreen()
+    {
+        isConfigured = false;
+    }
+
+    // Method untuk validasi di editor
+    private void OnValidate()
+    {
+        if (camPlayer != null && playerGameObjects != null)
+        {
+            if (camPlayer.Length != playerGameObjects.Length)
+            {
+                Debug.LogWarning("Camera array and player objects array should have the same length!");
+            }
+        }
     }
 }

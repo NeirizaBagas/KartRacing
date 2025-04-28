@@ -132,7 +132,7 @@ public class KartController : MonoBehaviour
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f);
         rotate = 0f;
 
-        //a) Kart
+        //a) KartType
         if (!drifting)
         {
             kartModel.localEulerAngles = Vector3.Lerp(kartModel.localEulerAngles, new Vector3(0, 90 + (directionInput.x * 15), kartModel.localEulerAngles.z), .2f);

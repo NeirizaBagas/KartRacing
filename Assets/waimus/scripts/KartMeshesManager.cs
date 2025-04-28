@@ -4,7 +4,7 @@ public class KartMeshesManager : MonoBehaviour
 {
     public int selectedId;
 
-    [SerializeField] private GameObject[] kartMeshes; 
+    public GameObject[] kartMeshes; 
 
     private void Start()
     {
