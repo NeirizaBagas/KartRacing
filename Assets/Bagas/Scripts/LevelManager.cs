@@ -6,7 +6,7 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-    public int playerCount;
+    public int playerFinish;
     public int totalPlayers;
     public GameObject leaderboardPanel;
     public TextMeshProUGUI leaderboardText;
@@ -16,17 +16,17 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         leaderboardPanel.SetActive(false);
-        totalPlayers = GameObject.FindGameObjectsWithTag("Player").Length; // Hitung semua pemain di scene
+        totalPlayers = GameManager.Instance.playerCount;
         Debug.Log("Total player: " + totalPlayers);
     }
 
     public void FinishCon(string playerName) // Dipanggil saat pemain mencapai garis finis
     {
-        playerCount++;
-        leaderboardEntries.Add($"{playerCount}. {playerName}"); // Tambahkan nama pemain ke leaderboard
-        Debug.Log($"{playerName} selesai di posisi {playerCount}");
+        playerFinish++;
+        leaderboardEntries.Add($"{playerFinish}. {playerName}"); // Tambahkan nama pemain ke leaderboard
+        Debug.Log($"{playerName} selesai di posisi {playerFinish}");
 
-        if (playerCount >= totalPlayers) // Jika semua pemain selesai, tampilkan leaderboard
+        if (playerFinish >= totalPlayers) // Jika semua pemain selesai, tampilkan leaderboard
         {
             ShowLeaderboard();
         }

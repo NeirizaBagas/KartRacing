@@ -12,26 +12,15 @@ public class GamePlayerManager : MonoBehaviour
     [Header("Match Data")] 
     public MatchmakingData data;
 
-    [Header("Spawn Data References")] 
-    public GameObject playerPrefab;
-    public Transform[] spawnPoints;
-
     private PlayerInputManager _inputManager;
 
     private void Awake()
     {
-        // Retrieve spawn points from collections;
-        var collection = GameObject.FindGameObjectWithTag("SpawnPointCollection");
-        spawnPoints = new Transform[collection.transform.childCount];
-        for (int i = 0; i < collection.transform.childCount; i++)
-            spawnPoints[i] = collection.transform.GetChild(i);
-        
         _inputManager ??= GetComponent<PlayerInputManager>();
     }
 
     private void Start()
     {
-        _inputManager.playerPrefab = playerPrefab;
         _inputManager.onPlayerJoined += OnPlayerJoined;
         
         // Join player from matchmaking data
@@ -52,11 +41,8 @@ public class GamePlayerManager : MonoBehaviour
         player.actions = data.playersData[player.playerIndex].inputActions;
         player.actions.devices = new[] { data.playersData[player.playerIndex].inputDevice };
         Debug.LogWarning("Player index out of range: " + player.playerIndex);
-        player.transform.position = spawnPoints[player.playerIndex].position;
-        player.GetComponent<KartInputProcessor>().InitializeInput();
         player.GetComponent<KartMeshesManager>().selectedId = data.playersData[player.playerIndex].kartId;
 
-        // Update split screen layout
-        CameraSplitscreenManager.Instance.CreateCamera(player.transform);
+
     }
 }
