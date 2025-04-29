@@ -9,11 +9,7 @@ AnimatorOverrideController:
   m_Name: MotorKart
   m_Controller: {fileID: 9100000, guid: 3694ddfc96b954743ab8149ffcc988a8, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: -1978303741906493279, guid: 6417a49eaf8aaf140bd28a218667fbea,
-      type: 3}
-    m_OverrideClip: {fileID: -1978303741906493279, guid: 35fff3279968c9c41979bc2dfb8365fe,
-      type: 3}
-  - m_OriginalClip: {fileID: -4593595628115445583, guid: 6417a49eaf8aaf140bd28a218667fbea,
-      type: 3}
-    m_OverrideClip: {fileID: -4593595628115445583, guid: 35fff3279968c9c41979bc2dfb8365fe,
-      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: b73a06cc04826824d805dc0ec0d91206, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e6364c662fc000545a425aa3668b577a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cf23b4306181b2a42943136a9887c578, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 872678a90ad020945a18385345ba7019, type: 2}
