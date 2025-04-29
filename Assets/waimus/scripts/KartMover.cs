@@ -56,12 +56,14 @@ public class KartMover : MonoBehaviour
     private float defaultFOV;
 
     public PlayerItemHandler playerItemHandler;
+    public LapManager lap;
     public Animator anim;
 
     private void Awake()
     {
         // Ambil referensi KartInputProcessor dari parent
         _inputProcessor = GetComponentInParent<KartInputProcessor>();
+
         if (_inputProcessor == null)
         {
             Debug.LogError("KartInputProcessor not found in parent!");
@@ -88,7 +90,6 @@ public class KartMover : MonoBehaviour
 
     void Start()
     {
-        canMove = true;
 
         for (int i = 0; i < wheelParticles.GetChild(0).childCount; i++)
         {
@@ -137,11 +138,6 @@ public class KartMover : MonoBehaviour
         {
             anim.SetBool("DriftKanan", false);
             anim.SetBool("DriftKiri", false);
-
-            if (driftDirection == 0)
-            {
-
-            }
 
             kartModel.localEulerAngles = Vector3.Lerp(kartModel.localEulerAngles, new Vector3(0, 90 + (directionInput.x * 15), kartModel.localEulerAngles.z), .2f);
         }
@@ -242,7 +238,11 @@ public class KartMover : MonoBehaviour
             }
 
             if (KartInputProcessor.GetActionPressed(_inputProcessor.GetAction("UseItem")) && playerItemHandler.currentItem.HasValue)
+            {
+                print("Pake Item");
                 playerItemHandler.ApplyItem();
+            }
+                
         }
 
 
@@ -268,13 +268,13 @@ public class KartMover : MonoBehaviour
         //AudioManager.Instance.PlaySFX(1);
         drifting = false;
 
-        if (driftMode > 1)
+        if (driftMode > 0)
         {
             DOVirtual.Float(currentSpeed * 3, currentSpeed, .3f * driftMode, Speed);
             //DOVirtual.Float(0, 1, .5f, ChromaticAmount).OnComplete(() => DOVirtual.Float(1, 0, .5f, ChromaticAmount));
 
-            kartModel.Find("Tube001").GetComponentInChildren<ParticleSystem>().Play();
-            kartModel.Find("Tube002").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("Booster1").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("Booster2").GetComponentInChildren<ParticleSystem>().Play();
         }
 
         driftPower = 0;
@@ -371,7 +371,7 @@ public class KartMover : MonoBehaviour
 
     public void BoostExternal()
     {
-        driftMode |= 2;
+        driftMode |= 1;
         Boost();
     }
 

@@ -6,30 +6,37 @@ public class LineTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Cari LapManager di objek yang bertabrakan
-        LapManager lapManager = other.transform.root.GetComponentInChildren<LapManager>();
 
-        if (lapManager == null)
+        if (other.CompareTag("Player"))
         {
-            Debug.LogError("LapManager tidak ditemukan!");
-            return;
-        }
+            Debug.Log(other.name + " memasuki " + lineType);
 
-        // Pengecekan Start
-        if (lineType == "StartFinish" && !lapManager.raceStarted)
-        {
-            lapManager.raceStarted = true; // Set hasStarted ke true
-        }
-        else if (lineType == "StartFinish" && lapManager.raceStarted && !lapManager.lapFinished)
-        {
-            lapManager.lapFinished = true; // Set hasFinished ke true
-            lapManager.IncrementLap(); // Tambah lap counter
-        }
+            // Cari LapManager di objek yang bertabrakan
+            LapManager lapManager = other.GetComponent<LapManager>();
 
-        // Pengecekan Checkpoint
-        if (lineType == "Checkpoint")
-        {
-            lapManager.lapFinished = false; // Set hasFinished ke false
+            if (lapManager == null)
+            {
+                Debug.Log(other.name + " tidak memiliki LapManager! Mencari di parent...");
+                Debug.LogError("LapManager tidak ditemukan!");
+                return;
+            }
+
+            // Pengecekan Start
+            if (lineType == "StartFinish" && !lapManager.raceStarted)
+            {
+                lapManager.raceStarted = true; // Set hasStarted ke true
+            }
+            else if (lineType == "StartFinish" && lapManager.raceStarted && !lapManager.lapFinished)
+            {
+                lapManager.lapFinished = true; // Set hasFinished ke true
+                lapManager.IncrementLap(); // Tambah lap counter
+            }
+
+            // Pengecekan Checkpoint
+            if (lineType == "Checkpoint")
+            {
+                lapManager.lapFinished = false; // Set hasFinished ke false
+            }
         }
     }
 }
