@@ -25,6 +25,7 @@ public class LapManager : MonoBehaviour
     public RaceManager raceManager;
     public KartMover kartMover;
     private bool isKartFound = false;
+    public GameObject gUI;
 
     [Header("CountDown")]
     public int countdownTime = 3;
@@ -114,6 +115,7 @@ public class LapManager : MonoBehaviour
         {
             raceFinished = true;
             levelManager.FinishCon(gameObject.name);
+
 
             if (kartMover != null)
             {

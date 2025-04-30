@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Map 2
   m_EditorClassIdentifier: 
   mapIndex: 2
-  mapName: Map3
+  mapName: 
   nameColor: {r: 1, g: 0, b: 0, a: 0}
   mapImage: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  sceneToLoad: {fileID: 0}
+  sceneToLoad: {fileID: 102900000, guid: 30835d647634ece4fba7cf6b9d6c8754, type: 3}
