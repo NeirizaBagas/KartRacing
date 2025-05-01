@@ -2,24 +2,42 @@ using UnityEngine;
 
 public class KartMeshesManager : MonoBehaviour
 {
-    public int id;
-
+    public int id; // ID untuk identifikasi player
     public int selectedId;
-
     public GameObject[] kartMeshes;
 
-    //private void Awake()
-    //{
-    //    // Activate character based on GameManager's selected ID
-    //    kartMeshes[GameManager.Instance.ID[id]].SetActive(true);
-    //}
+    private GamePlayerManager gamePlayerManager;
+
+    private void Awake()
+    {
+        // Cari GamePlayerManager di scene
+        gamePlayerManager = FindObjectOfType<GamePlayerManager>();
+    }
 
     private void Start()
     {
-        if (kartMeshes.Length < 1) return;
-        for (int i = 0; i < kartMeshes.Length; i++)
+        if (gamePlayerManager != null)
         {
-            kartMeshes[i].SetActive(i == selectedId);
+            // Ambil data kart langsung dari GamePlayerManager
+            selectedId = gamePlayerManager.GetKartIdForPlayer(id);
+            InitializeKart();
+        }
+    }
+
+    public void InitializeKart()
+    {
+        if (kartMeshes.Length < 1) return;
+
+        // Nonaktifkan semua mesh dulu
+        foreach (var mesh in kartMeshes)
+        {
+            mesh.SetActive(false);
+        }
+
+        // Aktifkan mesh yang sesuai
+        if (selectedId >= 0 && selectedId < kartMeshes.Length)
+        {
+            kartMeshes[selectedId].SetActive(true);
         }
     }
 }

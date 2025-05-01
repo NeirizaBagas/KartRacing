@@ -63,6 +63,7 @@ public class KartMover : MonoBehaviour
     {
         // Ambil referensi KartInputProcessor dari parent
         _inputProcessor = GetComponentInParent<KartInputProcessor>();
+        anim = kartModel.GetComponentInChildren<Animator>();
 
         if (_inputProcessor == null)
         {

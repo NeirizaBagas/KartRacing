@@ -5,14 +5,14 @@ using UnityEngine;
 public class LapManager : MonoBehaviour
 {
     [Header("Lap System")]
+    public bool raceStarted = false;
+    public bool lapFinished = true;
+    public bool raceFinished;
     public int lapCounter;
     public int maxLap;
     public TextMeshProUGUI _lapCounter;
-    public bool raceStarted = false;
-    public bool lapFinished = true;
     public TextMeshProUGUI winCon;
     public TextMeshProUGUI loseCon;
-    public bool raceFinished;
 
     [Header("Checkpoint System")]
     public int playerNumber;
@@ -21,10 +21,10 @@ public class LapManager : MonoBehaviour
     public TextMeshProUGUI currentPosition;
 
     [Header("Reference Script")]
+    private bool isKartFound = false;
     public LevelManager levelManager;
     public RaceManager raceManager;
     public KartMover kartMover;
-    private bool isKartFound = false;
     public GameObject gUI;
 
     [Header("CountDown")]

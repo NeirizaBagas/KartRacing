@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private bool isConfigured = false;
+    [SerializeField] private int playerCount;
     private const int MIN_PLAYERS = 2;
     private const int MAX_PLAYERS = 4;
 
