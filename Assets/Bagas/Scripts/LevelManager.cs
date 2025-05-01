@@ -1,15 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
-    public int playerFinish;
+    public int playerEntry;
     public int totalPlayers;
     public GameObject leaderboardPanel;
-    public TextMeshProUGUI leaderboardText;
+
+    // Array untuk menyimpan text posisi
+    public TextMeshProUGUI[] positionTexts; // Assign di inspector untuk 4 posisi
+    public float delayBeforeShowingLeaderboard = 2f;
 
     private List<string> leaderboardEntries = new List<string>();
 
@@ -17,25 +20,37 @@ public class LevelManager : MonoBehaviour
     {
         leaderboardPanel.SetActive(false);
         totalPlayers = GameManager.Instance.playerCount;
-        Debug.Log("Total player: " + totalPlayers);
+
+        // Reset semua text posisi
+        foreach (var posText in positionTexts)
+        {
+            posText.text = "";
+        }
+
+        Debug.Log($"Total players in race: {totalPlayers}");
     }
 
-    public void FinishCon(string playerName) // Dipanggil saat pemain mencapai garis finis
+    public void FinishCon(string playerName)
     {
-        playerFinish++;
-        leaderboardEntries.Add($"{playerFinish}. {playerName}"); // Tambahkan nama pemain ke leaderboard
-        Debug.Log($"{playerName} selesai di posisi {playerFinish}");
+        playerEntry++;
 
-        if (playerFinish >= totalPlayers) // Jika semua pemain selesai, tampilkan leaderboard
+        // Simpan nama player di posisi yang sesuai (array dimulai dari 0)
+        if (playerEntry <= positionTexts.Length)
         {
-            ShowLeaderboard();
+            positionTexts[playerEntry - 1].text = playerName;
+            Debug.Log($"{playerName} finished in position {playerEntry}");
+        }
+
+        if (playerEntry >= totalPlayers)
+        {
+            StartCoroutine(ShowLeaderboardWithDelay());
         }
     }
 
-    private void ShowLeaderboard()
+    private IEnumerator ShowLeaderboardWithDelay()
     {
+        yield return new WaitForSeconds(delayBeforeShowingLeaderboard);
         leaderboardPanel.SetActive(true);
-        leaderboardText.text = "Leaderboard:\n" + string.Join("\n", leaderboardEntries);
     }
 
     public void FinishLevel()

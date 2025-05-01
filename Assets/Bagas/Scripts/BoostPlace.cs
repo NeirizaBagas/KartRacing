@@ -8,7 +8,9 @@ public class BoostPlace : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            KartController kart = other.transform.root.GetComponentInChildren<KartController>();
+            print("Player");
+
+            KartMover kart = other.transform.root.GetComponentInChildren<KartMover>();
 
             if (kart != null)
             {

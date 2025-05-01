@@ -13,17 +13,17 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Minimap
   - Level
   - Kart
   - Post
-  - Player1
-  - Player2
-  - Player3
-  - Player4
+  - Cam1
+  - Cam2
+  - Cam3
+  - Cam4
   - 
   - 
   - 
