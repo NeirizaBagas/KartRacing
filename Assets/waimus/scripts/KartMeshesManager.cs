@@ -12,6 +12,10 @@ public class KartMeshesManager : MonoBehaviour
     {
         // Cari GamePlayerManager di scene
         gamePlayerManager = FindObjectOfType<GamePlayerManager>();
+        if (gamePlayerManager == null)
+        {
+            Debug.LogError("GamePlayerManager tidak ditemukan di scene!");
+        }
     }
 
     private void Start()
@@ -20,24 +24,52 @@ public class KartMeshesManager : MonoBehaviour
         {
             // Ambil data kart langsung dari GamePlayerManager
             selectedId = gamePlayerManager.GetKartIdForPlayer(id);
+            Debug.Log($"Kart ID untuk player {id} adalah {selectedId}");
             InitializeKart();
         }
     }
 
     public void InitializeKart()
     {
-        if (kartMeshes.Length < 1) return;
+        Debug.Log($"Menginisialisasi kart untuk player {id} dengan kart ID {selectedId}");
+
+        if (kartMeshes == null || kartMeshes.Length < 1 )
+        {
+            Debug.LogError("Kart meshes tidak ditemukan atau tidak ada yang diassign!");
+            return;
+        }
+
+        //if (kartMeshes.Length < 1) return;
 
         // Nonaktifkan semua mesh dulu
         foreach (var mesh in kartMeshes)
         {
-            mesh.SetActive(false);
+            if (mesh != null)
+            {
+                mesh.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Mesh kart tidak ditemukan!");
+            }
         }
 
         // Aktifkan mesh yang sesuai
         if (selectedId >= 0 && selectedId < kartMeshes.Length)
         {
-            kartMeshes[selectedId].SetActive(true);
+            if (kartMeshes[selectedId] != null)
+            {
+                kartMeshes[selectedId].SetActive(true);
+                Debug.Log($"Mesh kart dengan ID {selectedId} diaktifkan untuk {id}.");
+            }
+            else
+            {
+                Debug.LogError($"Mesh kart dengan ID {selectedId} tidak ditemukan untuk {id} !");
+            }
+        }
+        else
+        {
+            Debug.LogError($"ID kart {selectedId} tidak valid untuk player {id}!");
         }
     }
 }

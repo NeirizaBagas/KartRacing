@@ -85,7 +85,7 @@ public class LapManager : MonoBehaviour
         countdownText.text = "GO!";
         yield return new WaitForSeconds(1f);
 
-        raceStarted = true;
+        //raceStarted = true;
         if (kartMover != null)
         {
             kartMover.canMove = true;
