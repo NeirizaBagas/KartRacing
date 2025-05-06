@@ -21,7 +21,7 @@ public class LapManager : MonoBehaviour
     public TextMeshProUGUI currentPosition;
 
     [Header("Reference Script")]
-    private bool isKartFound = false;
+    public bool isKartFound = false;
     public LevelManager levelManager;
     public RaceManager raceManager;
     public KartMover kartMover;
@@ -45,6 +45,7 @@ public class LapManager : MonoBehaviour
         if (!isKartFound)
         {
             FindActiveKartMover();
+            Debug.Log("Mencari KartMover yang aktif: " + this.gameObject.name);
         }
     }
 
@@ -59,6 +60,7 @@ public class LapManager : MonoBehaviour
             {
                 kartMover = kart;
                 kartMover.canMove = false;
+                Debug.Log("KartMover ditemukan: " + kartMover.gameObject.name + this.gameObject.name);
                 isKartFound = true;
                 StartCoroutine(CountdownToStart());
                 break;
@@ -69,6 +71,7 @@ public class LapManager : MonoBehaviour
 
     IEnumerator CountdownToStart()
     {
+
         if (kartMover != null)
         {
             kartMover.canMove = false;

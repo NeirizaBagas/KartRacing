@@ -2927,6 +2927,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1680946873}
     m_Modifications:
+    - target: {fileID: 1377327001863497530, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240346541999785259, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883656468034667617, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5275818539074628545, guid: 779b43072d490a84da3f653d43585dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2987,6 +3002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KartsCollectionPivot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6729363781896742915, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3219,6 +3239,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1680946873}
     m_Modifications:
+    - target: {fileID: 1377327001863497530, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240346541999785259, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5275818539074628545, guid: 779b43072d490a84da3f653d43585dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5496,6 +5526,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1680946873}
     m_Modifications:
+    - target: {fileID: 1377327001863497530, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240346541999785259, guid: 779b43072d490a84da3f653d43585dd5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5275818539074628545, guid: 779b43072d490a84da3f653d43585dd5,
         type: 3}
       propertyPath: m_LocalPosition.x
