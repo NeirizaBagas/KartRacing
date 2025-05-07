@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Unity.Burst.CompilerServices;
 using Cinemachine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Component that processes movement implementation given the input from an InputProcessor modified from KartController
@@ -43,13 +44,14 @@ public class KartMover : MonoBehaviour
     public int dieDuration;
     public float follow = 0.4f;
 
-
     [Header("Particles")]
     public List<ParticleSystem> primaryParticles = new List<ParticleSystem>();
     public List<ParticleSystem> secondaryParticles = new List<ParticleSystem>();
     public Transform wheelParticles;
     public Transform flashParticles;
     public Color[] turboColors;
+    private VisualEffect[] booster1Effects;
+    private VisualEffect[] booster2Effects;
 
     [Header("Cinemachine")]
     public CinemachineVirtualCamera virtualCam;
@@ -106,6 +108,19 @@ public class KartMover : MonoBehaviour
         {
             secondaryParticles.Add(p);
         }
+
+        booster1Effects = kartModel.Find("Booster1").GetComponentsInChildren<VisualEffect>();
+        booster2Effects = kartModel.Find("Booster2").GetComponentsInChildren<VisualEffect>();
+
+        foreach (VisualEffect v in booster1Effects)
+        {
+            v.Stop();
+        }
+
+        foreach (VisualEffect v in booster2Effects)
+        {
+            v.Stop();
+        }
     }
 
     void Update()
@@ -126,8 +141,6 @@ public class KartMover : MonoBehaviour
 
             ColorDrift();
         }
-
-
 
         currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f);
         speed = 0f;
@@ -242,11 +255,8 @@ public class KartMover : MonoBehaviour
             {
                 print("Pake Item");
                 playerItemHandler.ApplyItem();
-            }
-                
+            }       
         }
-
-
     }
 
     private void ApplyDriftAssist()
@@ -276,6 +286,7 @@ public class KartMover : MonoBehaviour
 
             kartModel.Find("Booster1").GetComponentInChildren<ParticleSystem>().Play();
             kartModel.Find("Booster2").GetComponentInChildren<ParticleSystem>().Play();
+            PlayBoosterEffect(.5f * driftMode);
         }
 
         driftPower = 0;
@@ -292,6 +303,32 @@ public class KartMover : MonoBehaviour
         }
 
         kartModel.parent.DOLocalRotate(Vector3.zero, .5f).SetEase(Ease.OutBack);
+    }
+
+    public void PlayBoosterEffect(float duration)
+    {
+        //Play the booster effect
+        foreach (VisualEffect v in booster1Effects)
+        {
+            v.Play();
+        }
+        foreach (VisualEffect v in booster2Effects)
+        {
+            v.Play();
+        }
+
+        //Stop the effect after the duration
+        DOVirtual.DelayedCall(duration, () =>
+        {
+            foreach (VisualEffect v in booster1Effects)
+            {
+                v.Stop();
+            }
+            foreach (VisualEffect v in booster2Effects)
+            {
+                v.Stop();
+            }
+        });
     }
 
     public void Steer(int direction, float amount)
