@@ -18209,6 +18209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7737984038890431822, guid: d4a2828bc034de44a8abee8b23b951b1,
         type: 3}
+      propertyPath: m_Name
+      value: CF Player 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737984038890431822, guid: d4a2828bc034de44a8abee8b23b951b1,
+        type: 3}
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
@@ -18741,7 +18746,7 @@ PrefabInstance:
         type: 3}
       propertyPath: effectUi
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 569205718}
     - target: {fileID: 8008993453163145377, guid: d4a2828bc034de44a8abee8b23b951b1,
         type: 3}
       propertyPath: m_Enabled
@@ -22360,6 +22365,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 882270818}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &814432641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1982004488112077777, guid: d4a2828bc034de44a8abee8b23b951b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1270276445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &817925518
 GameObject:
   m_ObjectHideFlags: 0
@@ -40803,6 +40820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7737984038890431822, guid: d4a2828bc034de44a8abee8b23b951b1,
         type: 3}
+      propertyPath: m_Name
+      value: CF Player 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737984038890431822, guid: d4a2828bc034de44a8abee8b23b951b1,
+        type: 3}
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
@@ -41335,7 +41357,7 @@ PrefabInstance:
         type: 3}
       propertyPath: effectUi
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1241181816}
     - target: {fileID: 8008993453163145377, guid: d4a2828bc034de44a8abee8b23b951b1,
         type: 3}
       propertyPath: m_Enabled
@@ -59202,7 +59224,7 @@ PrefabInstance:
         type: 3}
       propertyPath: effectUi
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 814432641}
     - target: {fileID: 8008993453163145377, guid: d4a2828bc034de44a8abee8b23b951b1,
         type: 3}
       propertyPath: m_Enabled
