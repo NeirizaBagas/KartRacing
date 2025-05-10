@@ -72,7 +72,7 @@ public class KartMover : MonoBehaviour
             Debug.LogError("KartInputProcessor not found in parent!");
         }
 
-        playerItemHandler ??= GetComponent<PlayerItemHandler>();
+        //playerItemHandler ??= GetComponent<PlayerItemHandler>();
 
         if (virtualCam != null)
         {

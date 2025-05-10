@@ -34601,7 +34601,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   virtualCam: {fileID: 5164060842098454231}
-  playerItemHandler: {fileID: 9178365951751083106}
+  playerItemHandler: {fileID: 0}
   lap: {fileID: 6342824376049761793}
   anim: {fileID: 3736799904285154482}
 --- !u!114 &853800636202732272
@@ -34617,7 +34617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {x: 0, y: 0, z: 0}
-  rb: {fileID: 8814381627773278461}
+  rb: {fileID: 0}
 --- !u!114 &9178365951751083106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34630,7 +34630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6bb3a78732f054aa99369641ec26d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectUi: {fileID: 1982004488112077777}
+  effectUi: {fileID: 0}
   shieldIcon: {fileID: 0}
   trapIcon: {fileID: 0}
   boostIcon: {fileID: 0}
@@ -135239,7 +135239,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   virtualCam: {fileID: 5164060842098454231}
-  playerItemHandler: {fileID: 8008993453163145377}
+  playerItemHandler: {fileID: 0}
   lap: {fileID: 6342824376049761793}
   anim: {fileID: 3059101080691951940}
 --- !u!114 &7003096918847854912
@@ -135255,7 +135255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {x: 0, y: 0, z: 0}
-  rb: {fileID: 8814381627773278461}
+  rb: {fileID: 0}
 --- !u!114 &8008993453163145377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135268,7 +135268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6bb3a78732f054aa99369641ec26d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectUi: {fileID: 1982004488112077777}
+  effectUi: {fileID: 0}
   shieldIcon: {fileID: 0}
   trapIcon: {fileID: 0}
   boostIcon: {fileID: 0}
@@ -243425,7 +243425,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   virtualCam: {fileID: 5164060842098454231}
-  playerItemHandler: {fileID: 6442522372202226569}
+  playerItemHandler: {fileID: 0}
   lap: {fileID: 6342824376049761793}
   anim: {fileID: 9132324471982301646}
 --- !u!114 &5218748085704144086
@@ -243441,7 +243441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {x: 0, y: 0, z: 0}
-  rb: {fileID: 8814381627773278461}
+  rb: {fileID: 0}
 --- !u!114 &6442522372202226569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243454,7 +243454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6bb3a78732f054aa99369641ec26d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectUi: {fileID: 1982004488112077777}
+  effectUi: {fileID: 0}
   shieldIcon: {fileID: 0}
   trapIcon: {fileID: 0}
   boostIcon: {fileID: 0}
@@ -269566,7 +269566,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   virtualCam: {fileID: 5164060842098454231}
-  playerItemHandler: {fileID: 3639699208429491998}
+  playerItemHandler: {fileID: 0}
   lap: {fileID: 6342824376049761793}
   anim: {fileID: 4812604896230904186}
 --- !u!114 &1457574782949577863
@@ -623037,7 +623037,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   virtualCam: {fileID: 5164060842098454231}
-  playerItemHandler: {fileID: 6707611019326057769}
+  playerItemHandler: {fileID: 0}
   lap: {fileID: 6342824376049761793}
   anim: {fileID: 2081845568265531302}
 --- !u!114 &1278315721171866447
@@ -623053,7 +623053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {x: 0, y: 0, z: 0}
-  rb: {fileID: 8814381627773278461}
+  rb: {fileID: 0}
 --- !u!114 &6707611019326057769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -623066,7 +623066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6bb3a78732f054aa99369641ec26d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectUi: {fileID: 1982004488112077777}
+  effectUi: {fileID: 0}
   shieldIcon: {fileID: 0}
   trapIcon: {fileID: 0}
   boostIcon: {fileID: 0}
@@ -735920,7 +735920,7 @@ MonoBehaviour:
   - {r: 1, g: 0.23012516, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.6653695, a: 1}
   virtualCam: {fileID: 5164060842098454231}
-  playerItemHandler: {fileID: 4355466189571423628}
+  playerItemHandler: {fileID: 0}
   lap: {fileID: 6342824376049761793}
   anim: {fileID: 3138518672996307172}
 --- !u!114 &3113312284129974932
@@ -735936,7 +735936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnPoint: {x: 0, y: 0, z: 0}
-  rb: {fileID: 8814381627773278461}
+  rb: {fileID: 0}
 --- !u!114 &4355466189571423628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735949,7 +735949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6bb3a78732f054aa99369641ec26d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectUi: {fileID: 1982004488112077777}
+  effectUi: {fileID: 0}
   shieldIcon: {fileID: 0}
   trapIcon: {fileID: 0}
   boostIcon: {fileID: 0}

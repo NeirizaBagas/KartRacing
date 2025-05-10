@@ -10,6 +10,7 @@ public class ItemRandomizer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Yang nabrak: " + other.gameObject.name);
         PlayerItemHandler playerItem = other.transform.root.GetComponentInChildren<PlayerItemHandler>();
         playerItem.hasItem = true;
         if (playerItem != null && !playerItem.HasItem()) // Memastikan tidak menimpa item yang ada
