@@ -9,7 +9,6 @@ public class LevelManager : MonoBehaviour
     public int playerEntry;
     public int totalPlayers;
     public GameObject leaderboardPanel;
-    public GameObject miniMap;
 
     // Array untuk menyimpan text posisi
     public TextMeshProUGUI[] positionTexts; // Assign di inspector untuk 4 posisi
@@ -20,7 +19,6 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         leaderboardPanel.SetActive(false);
-        miniMap.SetActive(true);
         totalPlayers = GameManager.Instance.playerCount;
 
         // Reset semua text posisi
@@ -53,7 +51,6 @@ public class LevelManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delayBeforeShowingLeaderboard);
         leaderboardPanel.SetActive(true);
-        miniMap.SetActive(false);
     }
 
     public void FinishLevel()

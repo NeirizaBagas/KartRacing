@@ -1,40 +1,45 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LapManager : MonoBehaviour
 {
+    [Header("All Reference")]
+    public TextMeshProUGUI winCon;
+    public TextMeshProUGUI loseCon;
+    public TextMeshProUGUI _lapCounter;
+    public TextMeshProUGUI currentPosition;
+    public LevelManager levelManager;
+    public RaceManager raceManager;
+    public KartMover kartMover;
+    public GameObject gUI;
+    public TextMeshProUGUI countdownText;
+    public RawImage miniMap;
+
+
     [Header("Lap System")]
     public bool raceStarted = false;
     public bool lapFinished = true;
     public bool raceFinished;
     public int lapCounter;
     public int maxLap;
-    public TextMeshProUGUI _lapCounter;
-    public TextMeshProUGUI winCon;
-    public TextMeshProUGUI loseCon;
+    public int countdownTime = 3;
 
     [Header("Checkpoint System")]
     public int playerNumber;
     public int cpCrossed = 0;
     public int playerPosition;
-    public TextMeshProUGUI currentPosition;
 
     [Header("Reference Script")]
     public bool isKartFound = false;
-    public LevelManager levelManager;
-    public RaceManager raceManager;
-    public KartMover kartMover;
-    public GameObject gUI;
 
-    [Header("CountDown")]
-    public int countdownTime = 3;
-    public TextMeshProUGUI countdownText;
 
     private void Start()
     {
         winCon.gameObject.SetActive(false);
         loseCon.gameObject.SetActive(false);
+        miniMap.gameObject.SetActive(true);
         UpdateLapCounterUI();
         UpdatePositionUI();
     }
@@ -122,6 +127,7 @@ public class LapManager : MonoBehaviour
 
             if (kartMover != null)
             {
+                miniMap.gameObject.SetActive(false);
                 kartMover.canMove = false;
             }
 

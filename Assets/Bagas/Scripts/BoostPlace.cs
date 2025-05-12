@@ -10,7 +10,7 @@ public class BoostPlace : MonoBehaviour
         {
             print("Player");
 
-            KartMover kart = other.transform.root.GetComponentInChildren<KartMover>();
+            KartMover kart = other.transform.parent.GetComponentInChildren<KartMover>();
 
             if (kart != null)
             {

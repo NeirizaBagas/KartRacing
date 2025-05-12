@@ -77,8 +77,8 @@ public class CameraManager : MonoBehaviour
             playerGameObjects[i].SetActive(true);
         }
 
-        camPlayer[0].rect = new Rect(0, 0, 0.5f, 1);
-        camPlayer[1].rect = new Rect(0.5f, 0, 0.5f, 1);
+        camPlayer[0].rect = new Rect(0, 0.5f, 1, 1);
+        camPlayer[1].rect = new Rect(0, 0, 1, 0.5f);
     }
 
     private void SetupThreePlayers()
