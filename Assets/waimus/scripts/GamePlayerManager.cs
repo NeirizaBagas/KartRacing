@@ -1,60 +1,72 @@
 using System.Linq;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine;
 
-/// <summary>
-/// Manages player spawning given matchmaking data
-/// </summary>
-[RequireComponent(typeof(PlayerInputManager))]
 public class GamePlayerManager : MonoBehaviour
 {
-    [Header("Match Data")] 
     public MatchmakingData data;
-
-    [Header("Spawn Data References")] 
-    public GameObject playerPrefab;
-    public Transform[] spawnPoints;
-
     private PlayerInputManager _inputManager;
 
-    private void Awake()
-    {
-        // Retrieve spawn points from collections;
-        var collection = GameObject.FindGameObjectWithTag("SpawnPointCollection");
-        spawnPoints = new Transform[collection.transform.childCount];
-        for (int i = 0; i < collection.transform.childCount; i++)
-            spawnPoints[i] = collection.transform.GetChild(i);
-        
-        _inputManager ??= GetComponent<PlayerInputManager>();
-    }
+    // Tambahkan array untuk menyimpan referensi ke KartMeshesManager yang sudah ada di scene
+    public KartMeshesManager[] preSpawnedKarts;
 
     private void Start()
     {
-        _inputManager.playerPrefab = playerPrefab;
-        _inputManager.onPlayerJoined += OnPlayerJoined;
-        
-        // Join player from matchmaking data
-        var validData = data.playersData.Where((d) => d != null).ToArray();
-        for (int i = 0; i < validData.Length; i++)
+        if (data == null)
         {
-            var p = _inputManager.JoinPlayer(
-                validData[i].playerId,
-                i,
-                validData[i].controlScheme,
-                validData[i].inputDevice);
+            Debug.LogError("MatchmakingData tidak ditemukan!");
+            return;
         }
+
+        // Langsung assign data ke KartMeshesManager yang sesuai
+        var validData = data.playersData.Where((d) => d != null).ToArray();
+        Debug.Log($"Jumlah pemain yang valid: {validData.Length}");
+
+        foreach (var player in validData)
+        {
+            Debug.Log($"Player ID: {player.playerId}, Kart ID: {player.kartId}");
+        }
+
+
+        foreach (var kart in preSpawnedKarts)
+        {
+            if (kart == null) continue;
+
+            var playerData = validData.FirstOrDefault(d => d.playerId == kart.id);
+            if (playerData != null)
+            {
+                kart.selectedId = playerData.kartId;
+                kart.InitializeKart(); // Panggil method baru untuk setup kart
+            }
+            else
+            {
+                Debug.LogWarning($"Kart ID {kart.id} tidak ditemukan di data pemain yang valid.");
+            }
+        }
+
+        //for (int i = 0; i < validData.Length; i++)
+        //{
+        //    // Cari KartMeshesManager dengan ID yang sesuai
+        //    var kartMesh = preSpawnedKarts.FirstOrDefault(k => k.id == validData[i].playerId);
+        //    if (kartMesh != null)
+        //    {
+        //        kartMesh.selectedId = validData[i].kartId;
+        //        kartMesh.InitializeKart(); // Panggil method baru untuk setup kart
+        //    }
+        //}
     }
 
-    private void OnPlayerJoined(PlayerInput player)
+    // Method untuk mengambil data kart ID berdasarkan player ID
+    public int GetKartIdForPlayer(int playerId)
     {
-        // Additional configuration to player during joined
-        player.actions = data.playersData[player.playerIndex].inputActions;
-        player.actions.devices = new[] { data.playersData[player.playerIndex].inputDevice };
-        player.transform.position = spawnPoints[player.playerIndex].position;
-        player.GetComponent<KartInputProcessor>().InitializeInput();
-        player.GetComponent<KartMeshesManager>().selectedId = data.playersData[player.playerIndex].kartId;
+        var playerData = data.playersData.FirstOrDefault(d => d != null && d.playerId == playerId);
+        if (playerData == null)
+        {
+            Debug.LogWarning($"Player ID {playerId} tidak ditemukan di data pemain.");
+            return 0; // Atau nilai default lainnya
+        }
 
-        // Update split screen layout
-        CameraSplitscreenManager.Instance.CreateCamera(player.transform);
+        Debug.Log($"Mengambil kart ID {playerData.kartId} untuk player ID {playerId}");
+        return playerData.kartId;
     }
 }

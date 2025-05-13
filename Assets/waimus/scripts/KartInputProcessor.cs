@@ -11,11 +11,32 @@ public class KartInputProcessor : MonoBehaviour
     private InputActionAsset _actionAsset;
     private InputActionMap _inputMap;
 
+    private void Awake()
+    {
+        InitializeInput();
+    }
+
     public void InitializeInput()
     {
         _input = GetComponent<PlayerInput>();
+        if (_input == null)
+        {
+            Debug.LogError("PlayerInput component is missing!");
+            return;
+        }
+
         _actionAsset = _input.actions;
+        if (_actionAsset == null)
+        {
+            Debug.LogError("InputActionAsset is missing!");
+            return;
+        }
+
         _inputMap = _actionAsset.FindActionMap("Player");
+        if (_inputMap == null)
+        {
+            Debug.LogError("Action Map 'Player' not found in InputActionAsset!");
+        }
     }
 
     public InputAction GetAction(string name) => _inputMap.FindAction(name);

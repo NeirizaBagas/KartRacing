@@ -9,8 +9,8 @@ public class TrapScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            KartController kart = other.transform.root.GetComponentInChildren<KartController>();
-
+            KartMover kart = other.transform.root.GetComponentInChildren<KartMover>();
+            print("Die");
             kart.Die(dieDuration);
             Destroy(gameObject);
         }

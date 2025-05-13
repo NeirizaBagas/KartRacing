@@ -5131,9 +5131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainMenuName: MainMenu
   _levelsData:
-  - sceneName: GameplayScene
+  - sceneName: RuangKelas
     associatedSelectButton: {fileID: 297381478}
-  - sceneName: Map 2
+  - sceneName: RuangGuru
     associatedSelectButton: {fileID: 243325535}
   - sceneName: Null
     associatedSelectButton: {fileID: 451290409}

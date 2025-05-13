@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Unity.Burst.CompilerServices;
+using Cinemachine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Component that processes movement implementation given the input from an InputProcessor modified from KartController
@@ -17,13 +19,12 @@ public class KartMover : MonoBehaviour
     private Color c;
 
     [Header("Input data")]
-    private KartInputProcessor _inputProcessor;
+    public KartInputProcessor _inputProcessor;
     private Vector2 directionInput;
 
     [Header("Model")]
     public Transform kartModel;
     public Transform kartNormal;
-    public Transform steeringWheel;
     public Rigidbody sphere;
 
     [Header("Bools")]
@@ -32,6 +33,7 @@ public class KartMover : MonoBehaviour
     public bool canMove;
     public bool shieldActive;
     public bool isMoving;
+    public bool isGround;
 
     [Header("Parameters")]
     public int driftMode = 0;
@@ -48,22 +50,49 @@ public class KartMover : MonoBehaviour
     public Transform wheelParticles;
     public Transform flashParticles;
     public Color[] turboColors;
+    private VisualEffect[] booster1Effects;
+    private VisualEffect[] booster2Effects;
+
+    [Header("Cinemachine")]
+    public CinemachineVirtualCamera virtualCam;
+    private float defaultFOV;
 
     public PlayerItemHandler playerItemHandler;
+    public LapManager lap;
     public Animator anim;
 
     private void Awake()
     {
-        _inputProcessor ??= transform.parent.GetComponent<KartInputProcessor>();
+        // Ambil referensi KartInputProcessor dari parent
+        _inputProcessor = GetComponentInParent<KartInputProcessor>();
+        anim = kartModel.GetComponentInChildren<Animator>();
+
+        if (_inputProcessor == null)
+        {
+            Debug.LogError("KartInputProcessor not found in parent!");
+        }
+
         playerItemHandler ??= GetComponent<PlayerItemHandler>();
-        
+
+        if (virtualCam != null)
+        {
+            defaultFOV = virtualCam.m_Lens.FieldOfView;
+            virtualCam.Follow = this.transform;
+            virtualCam.LookAt = this.transform;
+        }
+
+        if (this.gameObject.activeSelf == true)
+        {
+            virtualCam.Follow = this.transform;
+            virtualCam.LookAt = this.transform;
+        }
+
         //postVolume = Camera.main.GetComponent<PostProcessVolume>(); // Poss Process
         //postProfile = postVolume.profile;
     }
 
     void Start()
     {
-        canMove = true;
 
         for (int i = 0; i < wheelParticles.GetChild(0).childCount; i++)
         {
@@ -78,6 +107,19 @@ public class KartMover : MonoBehaviour
         foreach (ParticleSystem p in flashParticles.GetComponentsInChildren<ParticleSystem>())
         {
             secondaryParticles.Add(p);
+        }
+
+        booster1Effects = kartModel.Find("Booster1").GetComponentsInChildren<VisualEffect>();
+        booster2Effects = kartModel.Find("Booster2").GetComponentsInChildren<VisualEffect>();
+
+        foreach (VisualEffect v in booster1Effects)
+        {
+            v.Stop();
+        }
+
+        foreach (VisualEffect v in booster2Effects)
+        {
+            v.Stop();
         }
     }
 
@@ -100,27 +142,29 @@ public class KartMover : MonoBehaviour
             ColorDrift();
         }
 
-
-
         currentSpeed = Mathf.SmoothStep(currentSpeed, speed, Time.deltaTime * 12f);
         speed = 0f;
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f);
         rotate = 0f;
 
-        //a) Kart
+        //a) KartType
         if (!drifting)
         {
+            anim.SetBool("DriftKanan", false);
+            anim.SetBool("DriftKiri", false);
+
             kartModel.localEulerAngles = Vector3.Lerp(kartModel.localEulerAngles, new Vector3(0, 90 + (directionInput.x * 15), kartModel.localEulerAngles.z), .2f);
         }
         else
         {
+            if (driftDirection == 1)
+                anim.SetBool("DriftKanan", true);
+            else
+                anim.SetBool("DriftKiri", true);
+
             float control = (driftDirection == 1) ? ExtensionMethods.Remap(directionInput.x, -1, 1, .5f, 2) : ExtensionMethods.Remap(directionInput.x, -1, 1, 2, .5f);
             kartModel.parent.localRotation = Quaternion.Euler(0, Mathf.LerpAngle(kartModel.parent.localEulerAngles.y, (control * 15) * driftDirection, .2f), 0);
         }
-
-        //c) Steering Wheel
-        //steeringWheel.localEulerAngles = new Vector3(-25, 90, (directionInput.x * 45));
-        //boostBar.value = driftMode;
     }
 
     private void FixedUpdate()
@@ -151,13 +195,13 @@ public class KartMover : MonoBehaviour
         }
         else
         {
-            kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8f);
+            isGround = true;
+            
+            Debug.DrawRay(hitNear.point, hitNear.normal * 2f, Color.green, 0.1f); // Visualisasi normal
+
+            kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.fixedDeltaTime * 8f);
             kartNormal.Rotate(0, transform.eulerAngles.y, 0);
         }
-
-        //Normal Rotation
-        kartNormal.up = Vector3.Lerp(kartNormal.up, hitNear.normal, Time.deltaTime * 8.0f);
-        kartNormal.Rotate(0, transform.eulerAngles.y, 0);
     }
 
     void _Input()
@@ -202,14 +246,17 @@ public class KartMover : MonoBehaviour
 
             if (KartInputProcessor.GetActionReleased(_inputProcessor.GetAction("Drift")) && drifting)
             {
+
+
                 Boost();
             }
 
             if (KartInputProcessor.GetActionPressed(_inputProcessor.GetAction("UseItem")) && playerItemHandler.currentItem.HasValue)
+            {
+                print("Pake Item");
                 playerItemHandler.ApplyItem();
+            }       
         }
-
-
     }
 
     private void ApplyDriftAssist()
@@ -232,13 +279,14 @@ public class KartMover : MonoBehaviour
         //AudioManager.Instance.PlaySFX(1);
         drifting = false;
 
-        if (driftMode > 1)
+        if (driftMode > 0)
         {
             DOVirtual.Float(currentSpeed * 3, currentSpeed, .3f * driftMode, Speed);
             //DOVirtual.Float(0, 1, .5f, ChromaticAmount).OnComplete(() => DOVirtual.Float(1, 0, .5f, ChromaticAmount));
 
-            kartModel.Find("Tube001").GetComponentInChildren<ParticleSystem>().Play();
-            kartModel.Find("Tube002").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("Booster1").GetComponentInChildren<ParticleSystem>().Play();
+            kartModel.Find("Booster2").GetComponentInChildren<ParticleSystem>().Play();
+            PlayBoosterEffect(.5f * driftMode);
         }
 
         driftPower = 0;
@@ -255,6 +303,32 @@ public class KartMover : MonoBehaviour
         }
 
         kartModel.parent.DOLocalRotate(Vector3.zero, .5f).SetEase(Ease.OutBack);
+    }
+
+    public void PlayBoosterEffect(float duration)
+    {
+        //Play the booster effect
+        foreach (VisualEffect v in booster1Effects)
+        {
+            v.Play();
+        }
+        foreach (VisualEffect v in booster2Effects)
+        {
+            v.Play();
+        }
+
+        //Stop the effect after the duration
+        DOVirtual.DelayedCall(duration, () =>
+        {
+            foreach (VisualEffect v in booster1Effects)
+            {
+                v.Stop();
+            }
+            foreach (VisualEffect v in booster2Effects)
+            {
+                v.Stop();
+            }
+        });
     }
 
     public void Steer(int direction, float amount)
@@ -335,7 +409,7 @@ public class KartMover : MonoBehaviour
 
     public void BoostExternal()
     {
-        driftMode |= 2;
+        driftMode |= 1;
         Boost();
     }
 
@@ -353,5 +427,22 @@ public class KartMover : MonoBehaviour
         yield return new WaitForSeconds(dieDuration);
 
         canMove = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Raycast 1 visualization
+        Gizmos.color = Color.red; // Color for hitGround1
+        Vector3 start1 = transform.position + (transform.up * 0.1f);
+        Vector3 end1 = start1 + Vector3.down * 1.1f;
+        Gizmos.DrawLine(start1, end1);
+        Gizmos.DrawSphere(end1, 0.05f); // Small sphere at the end of the ray
+
+        // Raycast 2 visualization
+        Gizmos.color = Color.blue; // Color for hitGround2
+        Vector3 start2 = transform.position + (transform.up * 0.1f);
+        Vector3 end2 = start2 + Vector3.down * 2.0f;
+        Gizmos.DrawLine(start2, end2);
+        Gizmos.DrawSphere(end2, 0.05f); // Small sphere at the
     }
 }

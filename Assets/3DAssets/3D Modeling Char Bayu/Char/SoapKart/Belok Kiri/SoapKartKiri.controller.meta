@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/UI/Countdown.controller.meta
+guid: 32292a90b568a4742b5b92bacdd3d1d8
+========
 guid: 8efb780e590cede4fb748faa2568c1b9
+>>>>>>>> 3DChar:Assets/3DAssets/3D Modeling Char Bayu/Char/SoapKart/Belok Kiri/SoapKartKiri.controller.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
