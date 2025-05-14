@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DeterKart
+  m_Controller: {fileID: 9100000, guid: 13badca648ddd474aaf7861e6dce40fe, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c7b181386fb1c3e47bd271a3f64959dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3e0c2d13cc2720a44811b9bd31d41bb9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 86e8f65c50d8f664299e2103e0a0af98, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3e405e517d325d04a94180a1151b5d14, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6c64991ac6f4a8b4c9977778bbd9771c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cd964e6d64402d2469aed66f5fbdf4cc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b2a8878f5e70dc04ab64a32f6f44a4fa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dc459756cc2bcf14d99c2ade495f4ab6, type: 2}

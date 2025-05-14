@@ -227,6 +227,7 @@ public class KartMover : MonoBehaviour
 
             // Mengatur kecepatan berdasarkan input gerak
             speed = acceleration * throttleInput;
+            anim.SetInteger("Speed", (int)speed);
 
             // Drift
             if (KartInputProcessor.GetActionPressed(_inputProcessor.GetAction("Drift")) && !drifting && directionInput.x != 0)

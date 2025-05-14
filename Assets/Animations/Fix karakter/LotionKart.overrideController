@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LotionKart
+  m_Controller: {fileID: 9100000, guid: 13badca648ddd474aaf7861e6dce40fe, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c7b181386fb1c3e47bd271a3f64959dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 922670180d8d00b4a81a377489464141, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 86e8f65c50d8f664299e2103e0a0af98, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8a724aa52f84381428acb6c65a358373, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6c64991ac6f4a8b4c9977778bbd9771c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a07a7187267cc1247b48ed6f49d98a15, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b2a8878f5e70dc04ab64a32f6f44a4fa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5df19b2831c035448a37dca0b4d265a3, type: 2}
