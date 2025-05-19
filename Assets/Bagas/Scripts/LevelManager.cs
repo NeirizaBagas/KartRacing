@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
     public int playerEntry;
     public int totalPlayers;
     public GameObject leaderboardPanel;
+    public AudioSource mainTheme;
+    public AudioSource endTheme;
 
     // Array untuk menyimpan text posisi
     public TextMeshProUGUI[] positionTexts; // Assign di inspector untuk 4 posisi
@@ -43,6 +45,8 @@ public class LevelManager : MonoBehaviour
 
         if (playerEntry >= totalPlayers)
         {
+            mainTheme.Stop();
+            endTheme.Play();
             StartCoroutine(ShowLeaderboardWithDelay());
         }
     }

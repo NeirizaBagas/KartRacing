@@ -70,7 +70,7 @@ public class CameraSplitscreenManager : MonoBehaviour
         pivot.transform.parent = transform;
         cam.transform.parent = pivot.transform;
         cam.transform.localPosition = followOffset;
-        follow.SetTarget(target.GetChild(0), pitchAngle, followSpeed);
+        //follow.SetTarget(target.GetChild(0), pitchAngle, followSpeed);
         
         // Internal configuration
         _cameras.Add(cam);

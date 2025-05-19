@@ -11,7 +11,7 @@ using UnityEngine.VFX;
 /// </summary>
 public class KartMover : MonoBehaviour
 {
-    private float speed, currentSpeed;
+    [SerializeField] private float speed, currentSpeed;
     private float rotate, currentRotate;
     private int driftDirection;
     private float driftPower;
@@ -34,6 +34,9 @@ public class KartMover : MonoBehaviour
     public bool shieldActive;
     public bool isMoving;
     public bool isGround;
+    public bool isAccelerating = false;
+    public bool isMove = false;
+    public bool isPeak = false;
 
     [Header("Parameters")]
     public int driftMode = 0;
@@ -56,6 +59,7 @@ public class KartMover : MonoBehaviour
     [Header("Cinemachine")]
     public CinemachineVirtualCamera virtualCam;
     private float defaultFOV;
+
 
     public PlayerItemHandler playerItemHandler;
     public LapManager lap;
@@ -129,6 +133,7 @@ public class KartMover : MonoBehaviour
         transform.position = sphere.transform.position - new Vector3(0, follow, 0);
 
         _Input();
+        UpdateSpeedAudio(currentSpeed);
 
         if (drifting)
         {
@@ -147,6 +152,30 @@ public class KartMover : MonoBehaviour
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f);
         rotate = 0f;
 
+        //if (currentSpeed > 0 && currentSpeed < 10 && !isPeak)
+        //{
+        //    print("Accelerate");
+        //    AudioManager.Instance.StopSFX();
+        //    AudioManager.Instance.PlaySFX(6);
+        //}
+        //else if (currentSpeed > 15 && currentSpeed < 40)
+        //{
+        //    print("Move");
+        //    AudioManager.Instance.StopSFX();
+        //    AudioManager.Instance.PlaySFX(7);
+        //}
+        //else if (currentSpeed > 30 && !isPeak)
+        //{
+        //    isPeak = true;
+        //}
+        //else if (currentSpeed < 38 && isPeak)
+        //{
+        //    print("Slow down");
+        //    AudioManager.Instance.StopSFX();
+        //    AudioManager.Instance.PlaySFX(8);
+        //    isPeak = false;
+        //}
+
         //a) KartType
         if (!drifting)
         {
@@ -161,6 +190,7 @@ public class KartMover : MonoBehaviour
                 anim.SetBool("DriftKanan", true);
             else
                 anim.SetBool("DriftKiri", true);
+            AudioManager.Instance.PlaySFX(2);
 
             float control = (driftDirection == 1) ? ExtensionMethods.Remap(directionInput.x, -1, 1, .5f, 2) : ExtensionMethods.Remap(directionInput.x, -1, 1, 2, .5f);
             kartModel.parent.localRotation = Quaternion.Euler(0, Mathf.LerpAngle(kartModel.parent.localEulerAngles.y, (control * 15) * driftDirection, .2f), 0);
@@ -260,6 +290,49 @@ public class KartMover : MonoBehaviour
         }
     }
 
+    // Method untuk handle audio state
+    void UpdateSpeedAudio(float currentSpeed)
+    {
+        // State Accelerating (0-10 speed)
+        if (currentSpeed > 0 && currentSpeed <= 10)
+        {
+            if (!isAccelerating)
+            {
+                AudioManager.Instance.StopSFX();
+                AudioManager.Instance.PlaySFX(6); // Accelerate sound
+                isAccelerating = true;
+                isMove = false;
+            }
+        }
+        // State Moving (>10 speed)
+        else if (currentSpeed > 10 && currentSpeed <= 40)
+        {
+            if (!isMove)
+            {
+                AudioManager.Instance.StopSFX();
+                AudioManager.Instance.PlaySFX(7); // Moving sound
+                isAccelerating = false;
+                isMove = true;
+            }
+        }
+        // State Peak (>30 speed)
+        else if (currentSpeed > 30)
+        {
+            isPeak = true;
+            isAccelerating = false;
+            isMove = false;
+        }
+        // State Decelerate (when speed drops after peak)
+        else if (currentSpeed < 30 && isPeak)
+        {
+            AudioManager.Instance.StopSFX();
+            AudioManager.Instance.PlaySFX(8); // Decelerate sound
+            isPeak = false;
+            isAccelerating = false;
+            isMove = false;
+        }
+    }
+
     private void ApplyDriftAssist()
     {
         if (drifting)
@@ -285,6 +358,8 @@ public class KartMover : MonoBehaviour
             DOVirtual.Float(currentSpeed * 3, currentSpeed, .3f * driftMode, Speed);
             //DOVirtual.Float(0, 1, .5f, ChromaticAmount).OnComplete(() => DOVirtual.Float(1, 0, .5f, ChromaticAmount));
 
+            AudioManager.Instance.PlaySFX(3);
+            print("Boost");
             kartModel.Find("Booster1").GetComponentInChildren<ParticleSystem>().Play();
             kartModel.Find("Booster2").GetComponentInChildren<ParticleSystem>().Play();
             PlayBoosterEffect(.5f * driftMode);
@@ -295,6 +370,7 @@ public class KartMover : MonoBehaviour
         first = false;
         second = false;
         third = false;
+        AudioManager.Instance.PlaySFX(4);
 
         foreach (ParticleSystem p in primaryParticles)
         {

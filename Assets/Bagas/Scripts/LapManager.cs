@@ -86,10 +86,12 @@ public class LapManager : MonoBehaviour
 
         for (int i = countdownTime; i > 0; i--)
         {
+            AudioManager.Instance.PlaySFX(0);
             countdownText.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
 
+        AudioManager.Instance.PlaySFX(1);
         countdownText.text = "GO!";
         yield return new WaitForSeconds(1f);
 
