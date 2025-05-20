@@ -92,10 +92,12 @@ public class RaceManager : MonoBehaviour
         GameObject currentPlayer = players[playerNumber];
         int currentPlayerPos = currentPlayer.GetComponentInChildren<LapManager>().playerPosition;
         int currentPlayerCP = currentPlayer.GetComponentInChildren<LapManager>().cpCrossed;
+        int currentPlayerLap = currentPlayer.GetComponentInChildren<LapManager>().lapCounter;
 
         GameObject playerInFront = null;
         int playerInFrontCP = 0;
         int playerInFrontPos = 0;
+        int playerInFrontLap = 0;
 
         for (int i = 0; i < totalPlayers; i++)
         {
@@ -104,20 +106,44 @@ public class RaceManager : MonoBehaviour
                 playerInFront = players[i];
                 playerInFrontCP = playerInFront.GetComponentInChildren<LapManager>().cpCrossed;
                 playerInFrontPos = playerInFront.GetComponentInChildren<LapManager>().playerPosition;
+                playerInFrontLap = playerInFront.GetComponentInChildren<LapManager>().lapCounter;
                 break;
             }
         }
 
-        if (playerInFront != null && currentPlayerCP > playerInFrontCP)
+        if (playerInFront != null)
         {
-            currentPlayer.GetComponentInChildren<LapManager>().playerPosition = currentPlayerPos - 1;
-            playerInFront.GetComponentInChildren<LapManager>().playerPosition = playerInFrontPos + 1;
+            bool shouldOvertake = false;
 
-            Debug.Log("Player " + playerNumber + " Has overtaken Player " + playerInFront.GetComponentInChildren<LapManager>().playerNumber);
+            if (currentPlayerLap > playerInFrontLap)
+            {
+                shouldOvertake = true;
+            }
+            else if (currentPlayerLap == playerInFrontLap)
+            {
+                if (currentPlayerCP > playerInFrontCP)
+                {
+                    shouldOvertake = true;
+                }
+                else if (currentPlayerCP == playerInFrontCP && currentPlayerPos < playerInFrontPos)
+                {
+                    shouldOvertake = true;
+                }
+            }
 
-            // Update UI setelah perubahan posisi
-            currentPlayer.GetComponentInChildren<LapManager>().UpdatePositionUI();
-            playerInFront.GetComponentInChildren<LapManager>().UpdatePositionUI();
+            if (shouldOvertake)
+            {
+                // Overtake
+                currentPlayer.GetComponentInChildren<LapManager>().playerPosition = currentPlayerPos - 1;
+                playerInFront.GetComponentInChildren<LapManager>().playerPosition = playerInFrontPos + 1;
+
+                Debug.Log("Player " + playerNumber + " Has overtaken Player " + playerInFront.GetComponentInChildren<LapManager>().playerNumber);
+
+                // Update UI setelah perubahan posisi
+                currentPlayer.GetComponentInChildren<LapManager>().UpdatePositionUI();
+                playerInFront.GetComponentInChildren<LapManager>().UpdatePositionUI();
+            }
+            
         }
     }
 

@@ -9,8 +9,10 @@ using UnityEngine;
 /// </summary>
 public class CameraSplitscreenManager : MonoBehaviour
 {
-    [Header("Data")] 
+    [Header("Data")]
     [SerializeField] private List<Camera> _cameras = new();
+
+    [Header("Referensi")]
 
     [Header("Camera Follow Configurations")]
     public Vector3 followOffset = new Vector3(0.0f, 2f, -5.0f);
@@ -20,7 +22,7 @@ public class CameraSplitscreenManager : MonoBehaviour
     private float _viewWidth, _viewHeight;
     private Canvas _canvas;
     private RectTransform[] _voids;
-    
+
     public static CameraSplitscreenManager Instance { get; private set; }
 
     private void Awake()

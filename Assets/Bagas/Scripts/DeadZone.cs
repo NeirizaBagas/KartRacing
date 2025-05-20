@@ -7,7 +7,7 @@ public class DeadZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             print("respawn");
-            PlayerRespawn player = other.transform.root.GetComponentInChildren<PlayerRespawn>();
+            PlayerRespawn player = other.transform.parent.GetComponentInChildren<PlayerRespawn>();
             if (player != null)
             {
                 player.Respawn();

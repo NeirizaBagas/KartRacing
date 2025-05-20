@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Animations/UI/Countdown.anim.meta
+guid: 005e179e8c7159e499e7dd5e37858635
+========
 guid: 966db4ff896319c4bbf83eef0d3b8553
+>>>>>>>> 3DChar:Assets/3DAssets/3D Modeling Char Bayu/Char/SoapKart/Belok Kiri/SoapKartKiri.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

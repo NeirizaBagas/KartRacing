@@ -14,11 +14,11 @@ public class PlayerItemHandler : MonoBehaviour
 
     public ItemEffect? currentItem = null;
 
-    private KartController kartController;
+    private KartMover kartMover;
 
     private void Start()
     {
-        kartController = GetComponent<KartController>();
+        kartMover = GetComponent<KartMover>();
     }
 
     public bool HasItem()
@@ -62,15 +62,15 @@ public class PlayerItemHandler : MonoBehaviour
         switch (item)
         {
             case ItemEffect.Shield:
-                effectUi.sprite = shieldIcon;
+                //effectUi.sprite = shieldIcon;
                 effectUi.color = Color.blue;
                 break;
             case ItemEffect.Trap:
-                effectUi.sprite = trapIcon;
+                //effectUi.sprite = trapIcon;
                 effectUi.color = Color.red;
                 break;
             case ItemEffect.Boost:
-                effectUi.sprite = boostIcon;
+                //effectUi.sprite = boostIcon;
                 effectUi.color = Color.green;
                 break;
         }
@@ -88,18 +88,18 @@ public class PlayerItemHandler : MonoBehaviour
     private void DropTrap() { Instantiate(trapItem, dropLocation.position, Quaternion.identity); }
     private void ActivateBoost()
     {
-        kartController.driftMode = 2;
-        kartController.Boost();
+        kartMover.driftMode = 2;
+        kartMover.Boost();
     }
 
     private void ActivateShield()
     {
-        kartController.shieldActive = true;
+        kartMover.shieldActive = true;
     }
 
     private IEnumerator UnactivateShield()
     {
         yield return new WaitForSeconds(shieldDuration);
-        kartController.shieldActive = false;
+        kartMover.shieldActive = false;
     }
 }
