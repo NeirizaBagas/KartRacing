@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Bagas/SceneBagas/Lobby.unity
     guid: e76b237df2a8a5342a643dc921a7901c
   - enabled: 1
-    path: Assets/Bagas/SceneBagas/RuangKelas.unity
+    path: Assets/Bagas/SceneBagas/Level Fix/RuangKelas.unity
     guid: d1fc25cb54575d54b9fc0a838c447c48
   - enabled: 1
-    path: Assets/Bagas/SceneBagas/Perpus.unity
+    path: Assets/Bagas/SceneBagas/Level Fix/Perpus.unity
     guid: 30835d647634ece4fba7cf6b9d6c8754
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: d03cf619d5097494fa40b9e8d8fb4c15,
