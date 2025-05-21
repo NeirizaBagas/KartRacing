@@ -112,6 +112,7 @@ public class LapManager : MonoBehaviour
 
     public void IncrementLap()
     {
+        AudioManager.Instance.PlaySFX(12);
         lapCounter++;
         Debug.Log($"Lap bertambah: {lapCounter}/{maxLap}");
 

@@ -23,7 +23,10 @@ public class ItemRandomizer : MonoBehaviour
 
     void ApplyRandomEffect(PlayerItemHandler playerItem)
     {
+        AudioManager.Instance.PlaySFX(10);
         ItemEffect randomEffect = (ItemEffect)Random.Range(0, System.Enum.GetValues(typeof(ItemEffect)).Length);
+        AudioManager.Instance.StopSFX();
+        AudioManager.Instance.PlaySFX(11);
         Debug.Log(playerItem.name + " mendapatkan item: " + randomEffect);
         playerItem.PickItem(randomEffect);
     }
