@@ -3,22 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Undefined
+  - CP
+  - Selector
+  - SpawnPointCollection
+  - Kart
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Minimap
+  - Level
+  - Kart
+  - Post
+  - Cam1
+  - Cam2
+  - Cam3
+  - Cam4
   - 
   - 
   - 

@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: f06aeeeccdb5f2e4ba2098755716ce6b
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 1.001
+    second: {fileID: 2100000, guid: 7d17a45e8c3e8c8449b0b6222bd930a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 2.001
+    second: {fileID: 2100000, guid: e416a1523055fae4a8a37b70da5281bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 3.001
+    second: {fileID: 2100000, guid: 0487deb60ea56ec40983776949570d86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku besar 4.001
+    second: {fileID: 2100000, guid: 1492887eb68b77b49af1554470eb939c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 1.001
+    second: {fileID: 2100000, guid: ddaa18a4e31d92a4590355b5d10a2b2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 2.001
+    second: {fileID: 2100000, guid: 6cb41edcc46cd8b41a628bb27bbdf94e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 3.001
+    second: {fileID: 2100000, guid: a85d8b91c7756a64eae03facf2e897bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 4.001
+    second: {fileID: 2100000, guid: 6dbdaea1b6b6c8b4585a4b219fbfa043, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku kecil 5.001
+    second: {fileID: 2100000, guid: 91d70418851e979488451205af607e8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 1.001
+    second: {fileID: 2100000, guid: e59fb4024870e284a992cb8e42faec5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 2.001
+    second: {fileID: 2100000, guid: 43d917d1ce484624db5ba3c18b4c1a2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 3.001
+    second: {fileID: 2100000, guid: 3709a03743f07b944b17df75efa0c3e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: buku sedang 4.001
+    second: {fileID: 2100000, guid: 6b3d7030f470c0a4c9cb7ceffde1d991, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cealing
+    second: {fileID: 2100000, guid: e279a1fe4d4213a4190113defd045019, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dinding
+    second: {fileID: 2100000, guid: af280d309776f4249943d11add630a2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_ R. A Kartini
+    second: {fileID: 2100000, guid: 4a1090074189c4d49a6bdbe68f0b4c45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_Cut Nyak Dien
+    second: {fileID: 2100000, guid: bbbf634e5da7d8648a0ec7ffd3c1be4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_Ir. Seokarna
+    second: {fileID: 2100000, guid: e2121f7d7a0fc4e428d031f43e7ec816, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_Jendral Soedirman
+    second: {fileID: 2100000, guid: 709ac2b05ab8fbc4c8e2bfe3c2014126, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_Ki Hajar Dewantara
+    second: {fileID: 2100000, guid: 6e052953cd931b44ebd89608294f78bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_Muh. Hatta
+    second: {fileID: 2100000, guid: 6b955deb548075c4abe648af1dbdf209, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_garuda
+    second: {fileID: 2100000, guid: 1e0cb632ca4eef743aca960e8718d809, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_pres.001
+    second: {fileID: 2100000, guid: 66ff4749b9e09d5438c8f1f2156c24be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: foto_wapres.001
+    second: {fileID: 2100000, guid: 5c51ee1c6a13e534ea2281da663f3fea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame jendela perpus
+    second: {fileID: 2100000, guid: 7a1b6c2b2b418a841a5ee59bf5dc978c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame lampu
+    second: {fileID: 2100000, guid: 9118f52c08f7f2247bd648fd47f5a493, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame_pahlawan
+    second: {fileID: 2100000, guid: c9523a37596b66247a9e1a8b8998496d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame_pintu pespus
+    second: {fileID: 2100000, guid: 8efdbffe04b97104ab3208f9abcd0cfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frame_pres-wapres-garuda
+    second: {fileID: 2100000, guid: 4701badbc423b29409d17cd21030e316, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gagang pintu perpus
+    second: {fileID: 2100000, guid: d5f7d9336f6a14a4f9280ad7600044cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jam dinding
+    second: {fileID: 2100000, guid: e145bd4d54d8ad949bfd321ccf6a9055, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kain bendara
+    second: {fileID: 2100000, guid: 64dd2bf8fb7679b4d80ae809f8c3b6d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kayu_pintu pespus
+    second: {fileID: 2100000, guid: e4091b9aa15c53a449aed55e8a563973, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laci buku_pespus_1
+    second: {fileID: 2100000, guid: 3bb4185487b18b34ba9cebae7c2abc01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laci buku_pespus_2
+    second: {fileID: 2100000, guid: 1dd1b695907af6c46ac720f469a22015, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laci buku_pespus_3
+    second: {fileID: 2100000, guid: a7747b37c6f1c49479e0589dfcd60d33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: laci buku_pespus_4
+    second: {fileID: 2100000, guid: e0897aa2e70544a4ba6f72ae4bd01e0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lampu
+    second: {fileID: 2100000, guid: 1ac6af5b120f430469579334e2ed6523, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantai
+    second: {fileID: 2100000, guid: a766b927a985d1e46803a29eb874f1c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster 1
+    second: {fileID: 2100000, guid: 681c519fd7aace944a764780e75ff96c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster 2
+    second: {fileID: 2100000, guid: e6e37d2f95766d84180f763695a5bfa8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster 3
+    second: {fileID: 2100000, guid: 0dd0dc828ecce0941900fe12747aff2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster 4
+    second: {fileID: 2100000, guid: c2510fe052fe7804e8b3ee46edbd8006, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster 5
+    second: {fileID: 2100000, guid: a6160c054224ed641a7eb0e0c9258912, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster 6
+    second: {fileID: 2100000, guid: 29316524049cbf8479a1e928d6f17694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poster besar
+    second: {fileID: 2100000, guid: 3c58326a6e848514db5df5992a8674b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rak sepatu
+    second: {fileID: 2100000, guid: 3e3e89b8337b56b4f83bba2e48dfebf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: resepsionis
+    second: {fileID: 2100000, guid: 94bcd00b605f4344fae2ed5773089eea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tiang bendara
+    second: {fileID: 2100000, guid: f9fde2cedb6bbc449aa46b440ede4400, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

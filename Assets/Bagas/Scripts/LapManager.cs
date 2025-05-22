@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -22,17 +23,75 @@ public class LapManager : MonoBehaviour
     [Header("Reference Script")]
     public LevelManager levelManager;
     public RaceManager raceManager;
-    public KartController kartController;
+    public KartMover kartMover;
+    private bool isKartFound = false;
+    public GameObject gUI;
 
+    [Header("CountDown")]
+    public int countdownTime = 3;
+    public TextMeshProUGUI countdownText;
 
-    public void Start()
+    private void Start()
     {
         winCon.gameObject.SetActive(false);
         loseCon.gameObject.SetActive(false);
         UpdateLapCounterUI();
         UpdatePositionUI();
+    }
 
-        Debug.Log($"Max Lap: {maxLap}, Lap Counter (Start): {lapCounter}");
+    private void Update()
+    {
+        // Cek jika belum menemukan KartMover yang aktif
+        if (!isKartFound)
+        {
+            FindActiveKartMover();
+        }
+    }
+
+    private void FindActiveKartMover()
+    {
+        // Cari KartMover yang aktif dari sibling objects
+        KartMover[] siblingKartMovers = transform.parent.GetComponentsInChildren<KartMover>();
+
+        foreach (var kart in siblingKartMovers)
+        {
+            if (kart.gameObject.activeInHierarchy)
+            {
+                kartMover = kart;
+                kartMover.canMove = false;
+                isKartFound = true;
+                StartCoroutine(CountdownToStart());
+                break;
+            }
+        }
+    }
+
+
+    IEnumerator CountdownToStart()
+    {
+        if (kartMover != null)
+        {
+            kartMover.canMove = false;
+        }
+
+        countdownText.gameObject.SetActive(true);
+
+        for (int i = countdownTime; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+
+        countdownText.text = "GO!";
+        yield return new WaitForSeconds(1f);
+
+        raceStarted = true;
+        if (kartMover != null)
+        {
+            kartMover.canMove = true;
+        }
+
+        countdownText.gameObject.SetActive(false);
     }
 
     public void UpdatePositionUI()
@@ -47,25 +106,29 @@ public class LapManager : MonoBehaviour
         Debug.Log($"Lap bertambah: {lapCounter}/{maxLap}");
 
         UpdateLapCounterUI();
+        if (lapCounter == maxLap)
+        {
+            print("Last Lap");
+        }
 
         if (lapCounter > maxLap && !raceFinished)
         {
             raceFinished = true;
-            levelManager.FinishCon(gameObject.name); // Kirim nama pemain ke leaderboard
-            kartController.canMove = false;
+            levelManager.FinishCon(gameObject.name);
+
+
+            if (kartMover != null)
+            {
+                kartMover.canMove = false;
+            }
 
             if (playerPosition == 1)
-            {
                 winCon.gameObject.SetActive(true);
-            }
             else
-            {
                 loseCon.gameObject.SetActive(true);
-            }
         }
 
     }
-
 
     private void UpdateLapCounterUI()
     {

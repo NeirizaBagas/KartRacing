@@ -4,7 +4,30 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/MainMenu.unity
+    guid: 5ee0f3a89711eb0458729ee8fe7e5539
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/Multiplayer2.unity
+    guid: cb46d75014f2be641be6b922ae3bf561
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/MapSelect.unity
+    guid: e60a4fd7f1217e246a2f2d8b0e23efb0
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/Level1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Asset Yohana_Envi/Scenes/Map 2.unity
+    guid: b93c3aa6fe8e1d94b936aa55bd3dfd23
+  - enabled: 1
+    path: Assets/waimus/scenes/GameplayScene.unity
+    guid: d1fc25cb54575d54b9fc0a838c447c48
+  - enabled: 1
+    path: Assets/Bagas/SceneBagas/Map 3.unity
+    guid: 30835d647634ece4fba7cf6b9d6c8754
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
-  m_UseUCBPForAssetBundles: 0
+    com.unity.input.settings: {fileID: 11400000, guid: d03cf619d5097494fa40b9e8d8fb4c15,
+      type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 22043e5fbea837e6db750547eb3fb030,
+      type: 3}
