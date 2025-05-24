@@ -6,34 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 5b570351030d5f580b5e5d7140200d44174e1b78787e74682f284b35e6b76d3a
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 0108050400505f0b5a5c0a2013220b44464e1a73287873672e7f1f37e1e36069
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5a08575f5207595a0f5d59741173094444164f7d7d2a23317c7a4465bbe1646d
-      flags: 0
-    RecentlyUsedSceneGuid-3:
-      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
-      flags: 0
-    RecentlyUsedSceneGuid-4:
-      value: 010807055654080d0b0b542741270644144e4b7c2d2973652f2d4e37e4e4666b
-      flags: 0
-    RecentlyUsedSceneGuid-5:
       value: 5508505655565c5a540b0f7316715a444f4f4e292a7b76347c2b1866b6b86560
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-1:
       value: 5a06555006025c580c5a5d2413740e4440154f7279787f677d2f4c62e0b6373b
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-2:
       value: 5b0307555207085a0f595d2016215a444e154a7f2e7d7060797b1e61b7b06c3a
       flags: 0
-    RecentlyUsedSceneGuid-8:
+    RecentlyUsedSceneGuid-3:
       value: 010055555407510b5f0f547a48725d4414161e782f2a77637a704932bbb0316e
       flags: 0
-    RecentlyUsedSceneGuid-9:
+    RecentlyUsedSceneGuid-4:
       value: 545252545c5158080f0c557015710e44474e1a2b7e717161792d1c63e7b26c6b
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 02050c0300010a0b585c5f2646775b4410164c2b7f7024662e7a1c62bbe2613b
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5b52570207065a5e5d0f0d75412106441416497c2a7b74607a7f4862bae16c69
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 020850035d020b0b5d580f70127008444e154e7b2d2977657a7b4e36e7b66c6c
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 575551535502500a0f5e0e7b12715944474f1a7c2d7b706675794b64b5b2676f
+      flags: 0
+    RecentlyUsedSceneGuid-9:
+      value: 5b57015751015d58085d547742765b44174e487b2d2d74687c2f1830e0b16239
       flags: 0
     lightmappingBakingProfile:
       value: 51
