@@ -91,11 +91,11 @@ public class KartMover : MonoBehaviour
             virtualCam.LookAt = this.transform;
         }
 
-        if (this.gameObject.activeSelf == true)
-        {
-            virtualCam.Follow = this.transform;
-            virtualCam.LookAt = this.transform;
-        }
+        //if (this.gameObject.activeSelf == true)
+        //{
+        //    virtualCam.Follow = this.transform;
+        //    virtualCam.LookAt = this.transform;
+        //}
 
         //postVolume = Camera.main.GetComponent<PostProcessVolume>(); // Poss Process
         //postProfile = postVolume.profile;

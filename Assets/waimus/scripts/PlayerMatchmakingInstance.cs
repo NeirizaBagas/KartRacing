@@ -12,8 +12,14 @@ using TMPro;
 public class PlayerMatchmakingInstance : MonoBehaviour
 {
     [Header("Configurations")]
-    [SerializeField] private Color _defaultColor = Color.yellow;
-    [SerializeField] private Color _readyColor = Color.green;
+    [SerializeField] private Color[] _playersColors = new Color[]
+    {
+        new Color(1f, 0.2f, 0,2f), // Red Color
+        new Color(0.05f, 0.92f, 1f), // Blue Color
+        new Color(0.2f, 1f, 0.2f), // Green Color
+        new Color(0.96f, 1f, 0f), // Yellow Color
+    };
+    [SerializeField] private Color _readyColor = Color.black;
     public PlayerMatchmakingData blueprint;
     
     [Header("References")]
@@ -53,6 +59,10 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         
         // Indicator label by player ID which given from InputSystem
         if (_playerLabel) _playerLabel.text = $"P{_dataRef.playerId + 1}";
+        if (_playerPanel && _dataRef.playerId < _playersColors.Length)
+        {
+            _playerPanel.color = _playersColors[_dataRef.playerId];
+        }
     }
 
     private void OnEnable()
@@ -121,7 +131,7 @@ public class PlayerMatchmakingInstance : MonoBehaviour
         }
         else
         {
-            _playerPanel.color = _defaultColor;
+            _playerPanel.color = _playersColors[data.playerId]; //Kembali ke warna default
             // if (data.playerId == 0) MatchmakingLobby.SetEventSystemFocus(false);
         }
     }

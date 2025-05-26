@@ -11,15 +11,17 @@ public class MainMenu : MonoBehaviour
 
     public GameObject _mainMenuCanvas;
     public GameObject _selectMenuCanvas;
+    public GameObject _settingMenuCanvas;
 
-    public GameObject _menu;
+    public GameObject startButton;
     public GameObject _select;
+    public GameObject audioButton;
 
     public bool isSelect;
 
     public void GameStart()
     {
-        _mainMenuCanvas.SetActive(false);
+        _mainMenuCanvas.SetActive(true);
         _selectMenuCanvas.SetActive(false);
     }
 
@@ -29,7 +31,7 @@ public class MainMenu : MonoBehaviour
         {
             if (!isSelect)
             {
-                Select();
+                Lobby();
             }
             //else
             //{
@@ -43,11 +45,11 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void Select()
+    public void Lobby()
     {
         isSelect = true;
 
-        OpenSelectMenu();
+        SceneManager.LoadSceneAsync("Lobby");
     }
 
     public void Unselect()
@@ -74,7 +76,7 @@ public class MainMenu : MonoBehaviour
 
         // Pastikan kembali ke tombol menu utama
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(_menu);
+        EventSystem.current.SetSelectedGameObject(startButton);
     }
 
 
