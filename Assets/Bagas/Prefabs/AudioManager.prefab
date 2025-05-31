@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1066302377704945314}
   - component: {fileID: 8998587756588541179}
   m_Layer: 0
-  m_Name: MainTheme
+  m_Name: Bgm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,11 +42,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3ab2a713e2e49044a8c2d32e17f76044, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 3286865826138007097}
   - component: {fileID: 6008189449323022602}
   m_Layer: 0
-  m_Name: EndTheme
+  m_Name: Sfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,14 +167,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4296967270518022599}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2b3a08a5a48e9b144b51d898b85a0018, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -266,10 +266,10 @@ GameObject:
   m_Component:
   - component: {fileID: 522955897796000503}
   - component: {fileID: 7587146661911938507}
-  - component: {fileID: 4794161026438137449}
+  - component: {fileID: 5352708877705634007}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioConfig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,20 +303,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84305c2213550934683302429bc9997c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxSource: {fileID: 4794161026438137449}
-  uiSource: {fileID: 4794161026438137449}
+  bgmSource: {fileID: 5352708877705634007}
+  sfxSource: {fileID: 6008189449323022602}
+  uiSource: {fileID: 6008189449323022602}
+  moveSound: []
+  boostSound: []
+  bgmClips:
+  - {fileID: 8300000, guid: c884f404445badc44b15df184d27f7c6, type: 3}
+  - {fileID: 8300000, guid: 3ab2a713e2e49044a8c2d32e17f76044, type: 3}
+  - {fileID: 8300000, guid: 2b3a08a5a48e9b144b51d898b85a0018, type: 3}
   sfxClips:
   - {fileID: 8300000, guid: 2b4011b6b5319d140b1e2bb1606cde35, type: 3}
   - {fileID: 8300000, guid: dc96bc692c22cbf4ebfbabd0a5aaf36f, type: 3}
   - {fileID: 8300000, guid: 4a521039ac742ee4f8217c94451f36fb, type: 3}
   - {fileID: 8300000, guid: 322cf58f6348ed54e94081d84def47ba, type: 3}
   - {fileID: 8300000, guid: 29fbdce74ee84024a81f09cf3e0aebcc, type: 3}
-  - {fileID: 8300000, guid: 29fbdce74ee84024a81f09cf3e0aebcc, type: 3}
+  - {fileID: 8300000, guid: 91fb3570aa5be3f4a886834cb08cef4a, type: 3}
   - {fileID: 8300000, guid: 9094ca2244f03004b9c3c1d3a0df3c8b, type: 3}
   - {fileID: 8300000, guid: 0b8ce8be202729f469f3f104d60784d9, type: 3}
   - {fileID: 8300000, guid: 59408cf78179d9d4e800661a80cc3cd0, type: 3}
+  - {fileID: 8300000, guid: 7d5bf4d03261c6645b3d90bc367258ec, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 9aedd261dc49ac14caea6badb72bedce, type: 3}
   uiClips: []
---- !u!82 &4794161026438137449
+--- !u!82 &5352708877705634007
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,7 +345,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 50
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

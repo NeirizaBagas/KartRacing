@@ -63,7 +63,7 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
@@ -513,6 +513,17 @@
                 },
                 {
                     "name": "",
+                    "id": "66b2edd2-ba16-4e34-9f89-69c7c46c42ed",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UseItem",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5e6baa5f-894f-4698-b708-62eb9c7ed05f",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
@@ -524,11 +535,33 @@
                 },
                 {
                     "name": "",
+                    "id": "63782128-373d-4cc0-9de5-f09b5a077389",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1383ffc1-e51b-407e-9d82-81fb7a320bb5",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7c342168-0865-402f-ae09-ffdc9a57f1b0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Throttle",
                     "isComposite": false,
                     "isPartOfComposite": false

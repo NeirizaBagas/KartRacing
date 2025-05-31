@@ -32,7 +32,9 @@ public class KartMover : MonoBehaviour
     public bool drifting;
     public bool boosting;
     public bool canMove;
+    public bool canSteer;
     public bool shieldActive;
+    public bool isDead = false;
     public bool isMoving;
     public bool isGround;
     public bool isAccelerating = false;
@@ -45,7 +47,6 @@ public class KartMover : MonoBehaviour
     public float steering = 80f;
     public float gravity = 10f;
     public LayerMask layerMask;
-    public int dieDuration;
     public float follow = 0.4f;
 
     [Header("Particles")]
@@ -76,6 +77,8 @@ public class KartMover : MonoBehaviour
         anim = kartModel.GetComponentInChildren<Animator>();
         moveSource = GetComponentInParent<AudioSource>();
         boostSource = kartModel.GetComponent<AudioSource>();
+
+        canSteer = true;
 
         if (_inputProcessor == null)
         {
@@ -158,30 +161,6 @@ public class KartMover : MonoBehaviour
         currentRotate = Mathf.Lerp(currentRotate, rotate, Time.deltaTime * 4f);
         rotate = 0f;
 
-        //if (currentSpeed > 0 && currentSpeed < 10 && !isPeak)
-        //{
-        //    print("Accelerate");
-        //    AudioManager.Instance.StopSFX();
-        //    AudioManager.Instance.PlaySFX(6);
-        //}
-        //else if (currentSpeed > 15 && currentSpeed < 40)
-        //{
-        //    print("Move");
-        //    AudioManager.Instance.StopSFX();
-        //    AudioManager.Instance.PlaySFX(7);
-        //}
-        //else if (currentSpeed > 30 && !isPeak)
-        //{
-        //    isPeak = true;
-        //}
-        //else if (currentSpeed < 38 && isPeak)
-        //{
-        //    print("Slow down");
-        //    AudioManager.Instance.StopSFX();
-        //    AudioManager.Instance.PlaySFX(8);
-        //    isPeak = false;
-        //}
-
         //a) KartType
         if (!drifting)
         {
@@ -253,7 +232,7 @@ public class KartMover : MonoBehaviour
             //AudioManager.Instance.PlaySFX(0);
 
             // Mengatur arah gerak
-            if (directionInput.x != 0)
+            if (directionInput.x != 0 && canSteer)
             {
                 // Mengubah arah objek berdasarkan input arah
                 int dir = directionInput.x > 0 ? 1 : -1;
@@ -266,7 +245,7 @@ public class KartMover : MonoBehaviour
             anim.SetInteger("Speed", (int)speed);
 
             // Drift
-            if (KartInputProcessor.GetActionPressed(_inputProcessor.GetAction("Drift")) && !drifting && directionInput.x != 0)
+            if (KartInputProcessor.GetActionPressed(_inputProcessor.GetAction("Drift")) && !drifting && directionInput.x != 0 && canSteer)
             {
                 drifting = true;
                 driftDirection = directionInput.x > 0 ? 1 : -1;
@@ -283,8 +262,6 @@ public class KartMover : MonoBehaviour
 
             if (KartInputProcessor.GetActionReleased(_inputProcessor.GetAction("Drift")) && drifting)
             {
-
-
                 Boost();
             }
 

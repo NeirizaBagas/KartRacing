@@ -16,6 +16,7 @@ public class LapManager : MonoBehaviour
     public GameObject gUI;
     public TextMeshProUGUI countdownText;
     public RawImage miniMap;
+    private KartItemEffect kartItemEffect;
 
 
     [Header("Lap System")]
@@ -37,6 +38,7 @@ public class LapManager : MonoBehaviour
 
     private void Start()
     {
+        kartItemEffect = GetComponent<KartItemEffect>();
         winCon.gameObject.SetActive(false);
         loseCon.gameObject.SetActive(false);
         miniMap.gameObject.SetActive(true);
@@ -64,6 +66,7 @@ public class LapManager : MonoBehaviour
             if (kart.gameObject.activeInHierarchy)
             {
                 kartMover = kart;
+                kartItemEffect._kart = kartMover; // Assign KartMover to KartItemEffect
                 kartMover.canMove = false;
                 Debug.Log("KartMover ditemukan: " + kartMover.gameObject.name + this.gameObject.name);
                 isKartFound = true;
@@ -112,7 +115,7 @@ public class LapManager : MonoBehaviour
 
     public void IncrementLap()
     {
-        AudioManager.Instance.PlaySFX(12);
+        AudioManager.Instance.PlaySFX(10);
         lapCounter++;
         Debug.Log($"Lap bertambah: {lapCounter}/{maxLap}");
 

@@ -9,6 +9,12 @@ TagManager:
   - Selector
   - SpawnPointCollection
   - Kart
+  - Trap
+  - Bgm
+  - Sfx
+  - AudioConfig
+  - Boost
+  - Move
   layers:
   - Default
   - TransparentFX

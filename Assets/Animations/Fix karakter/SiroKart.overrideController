@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SiroKart
+  m_Controller: {fileID: 9100000, guid: 13badca648ddd474aaf7861e6dce40fe, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c7b181386fb1c3e47bd271a3f64959dd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7fb87d5e22bd75146a3f42723d73b84b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 86e8f65c50d8f664299e2103e0a0af98, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ec4ab69343afbd442813fcc84df3a030, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6c64991ac6f4a8b4c9977778bbd9771c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9be67c9c45ebbb44faba9379f113f211, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b2a8878f5e70dc04ab64a32f6f44a4fa, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b3be7e9e6a192064b88edf6e3f714294, type: 2}

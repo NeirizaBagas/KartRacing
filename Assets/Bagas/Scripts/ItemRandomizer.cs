@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public enum ItemEffect { Shield, Trap, Boost, StickyNote, Stabilo, Sharpener, TipxMekanik, Pita, PaperStorm, GlueSpill, Strapler, SlipperyWater, Pin }
+public enum ItemEffect { Shield, Boost, StickyNote, Stabilo, Sharpener, TipxMekanik, Pita, PaperStorm, GlueSpill, Strapler, SlipperyWater, Pin }
 
 public class ItemRandomizer : MonoBehaviour
 {

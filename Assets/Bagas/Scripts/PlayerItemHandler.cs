@@ -7,20 +7,24 @@ public class PlayerItemHandler : MonoBehaviour
     public Image itemUi;
     [SerializeField] private Animator itemAnim;
     public Sprite shieldIcon, trapIcon, boostIcon;
-    public GameObject trapItem, _stickyNote;
     public Transform dropLocation;
     public int itemDuration = 3;
-    public int shieldDuration;
     public bool hasItem;
-
     public ItemEffect? currentItem = null;
-
     public KartMover kartMover;
+    private KartItemEffect kartItemEffect;
 
-    private void Start()
+    [Header("Shield properties")]
+
+    [Header("Trap properties")]
+    public int shieldDuration;
+    public GameObject[] trapItem;
+
+    //[Header("Boost properties")]
+
+    private void OnCollisionEnter(Collision collision)
     {
-        kartMover = transform.root.parent.GetComponent<KartMover>();
- 
+        
     }
 
     public void Gacha()
@@ -52,14 +56,13 @@ public class PlayerItemHandler : MonoBehaviour
             case ItemEffect.Shield:
                 ActivateShield();
                 break;
-            case ItemEffect.Trap:
-                DropTrap();
-                break;
             case ItemEffect.Boost:
                 ActivateBoost();
                 break;
             case ItemEffect.StickyNote:
-                DropPaper();
+                break;
+            case ItemEffect.TipxMekanik:
+                // Implement TipxMekanik effect
                 break;
             case ItemEffect.Stabilo:
                 // Implement Stabilo effect
@@ -67,26 +70,23 @@ public class PlayerItemHandler : MonoBehaviour
             case ItemEffect.Sharpener:
                 // Implement Sharpener effect
                 break;
-            case ItemEffect.TipxMekanik:
-                // Implement TipxMekanik effect
-                break;
             case ItemEffect.Pita:
                 // Implement Pita effect
                 break;
             case ItemEffect.PaperStorm:
-                // Implement PaperStorm effect
+                DropPaperStorm();
                 break;
             case ItemEffect.GlueSpill:
-                // Implement GlueSpill effect
+                DropGlueSpill();
                 break;
             case ItemEffect.Strapler:
-                // Implement Strapler effect
+                DropStrapler();
                 break;
             case ItemEffect.SlipperyWater:
-                // Implement SlipperyWater effect
+                DropSlipperyWater();
                 break;
             case ItemEffect.Pin:
-                // Implement Pin effect
+                DropPin();
                 break;
 
         }
@@ -104,33 +104,29 @@ public class PlayerItemHandler : MonoBehaviour
                 //itemUi.sprite = shieldIcon;
                 itemUi.color = Color.blue;
                 break;
-            case ItemEffect.Trap:
-                //itemUi.sprite = trapIcon;
-                itemUi.color = Color.red;
-                break;
             case ItemEffect.Boost:
                 //itemUi.sprite = boostIcon;
                 itemUi.color = Color.green;
                 break;
             case ItemEffect.StickyNote:
                 //itemUi.sprite = stickyNoteIcon;
-                itemUi.color = Color.yellow;
+                itemUi.color = Color.blue;
                 break;
             case ItemEffect.Stabilo:
                 //itemUi.sprite = stabiloIcon;
-                itemUi.color = Color.white;
+                itemUi.color = Color.green;
                 break;
             case ItemEffect.Sharpener:
                 //itemUi.sprite = sharpenerIcon;
-                itemUi.color = Color.black;
+                itemUi.color = Color.green;
                 break;
             case ItemEffect.TipxMekanik:
                 //itemUi.sprite = tipxMekanikIcon;
-                itemUi.color = Color.magenta;
+                itemUi.color = Color.blue;
                 break;
             case ItemEffect.Pita:
                 //itemUi.sprite = pitaIcon;
-                itemUi.color = Color.gray;
+                itemUi.color = Color.green;
                 break;
             case ItemEffect.PaperStorm:
                 //itemUi.sprite = paperStormIcon;
@@ -154,24 +150,39 @@ public class PlayerItemHandler : MonoBehaviour
                 break;
         }
 
-        //itemUi.gameObject.SetActive(true);
+        itemUi.gameObject.SetActive(true);
     }
 
     private IEnumerator HideEffectAfterDelay()
     {
         yield return new WaitForSeconds(itemDuration);
-        //itemUi.gameObject.SetActive(false);
+        itemUi.gameObject.SetActive(false);
     }
 
 
-    private void DropTrap()
+    private void DropPaperStorm()
     {
-        Instantiate(trapItem, dropLocation.position, Quaternion.identity);
+        Instantiate(trapItem[0], dropLocation.position, Quaternion.identity);
     }
 
-    private void DropPaper()
+    private void DropGlueSpill()
     {
-        Instantiate(_stickyNote, dropLocation.position, Quaternion.identity);
+        Instantiate(trapItem[1], dropLocation.position, Quaternion.identity);
+    }
+
+    private void DropStrapler()
+    {
+        Instantiate(trapItem[2], dropLocation.position, Quaternion.identity);
+    }
+
+    private void DropSlipperyWater()
+    {
+        Instantiate(trapItem[3], dropLocation.position, Quaternion.identity);
+    }
+
+    private void DropPin()
+    {
+        Instantiate(trapItem[4], dropLocation.position, Quaternion.identity);
     }
 
     private void ActivateBoost()
@@ -183,6 +194,7 @@ public class PlayerItemHandler : MonoBehaviour
     private void ActivateShield()
     {
         kartMover.shieldActive = true;
+        StartCoroutine(UnactivateShield());
     }
 
     private IEnumerator UnactivateShield()
