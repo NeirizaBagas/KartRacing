@@ -364,6 +364,7 @@ MonoBehaviour:
   uiSource: {fileID: 1986201694}
   bgmClips:
   - {fileID: 8300000, guid: 544900ab6cfe9c84aaf3e2cd0b1081ca, type: 3}
+  - {fileID: 8300000, guid: 5fecd06f18d1127449c70120063eb9c9, type: 3}
   sfxClips:
   - {fileID: 8300000, guid: bd85f9e383b87844ba0c28194151135d, type: 3}
   - {fileID: 8300000, guid: 8304842c41c249a41a6b57d2a1455272, type: 3}
@@ -497,6 +498,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &369318397
 GameObject:
   m_ObjectHideFlags: 0
